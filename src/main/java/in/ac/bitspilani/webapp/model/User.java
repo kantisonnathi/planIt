@@ -43,5 +43,6 @@ public class User extends NamedEntity {
 
     //TODO: write getters and setters for phoneNumber and profession
     //TODO: write addCategory, and removeCategory methods for listOfCategories
+    //ask someone if we should add the above methods to User or UserController
 
 }
