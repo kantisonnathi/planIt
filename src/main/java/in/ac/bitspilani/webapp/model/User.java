@@ -2,14 +2,13 @@ package in.ac.bitspilani.webapp.model;
 
 import in.ac.bitspilani.webapp.category.Category;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
-@MappedSuperclass
+@Entity
 public class User extends NamedEntity {
 
     @Column(name = "email")
@@ -22,7 +21,7 @@ public class User extends NamedEntity {
      */
     public boolean isUserComplete = false;
 
-    @Column(name = "phoneNumber")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     @Column(name = "profession")
@@ -30,16 +29,15 @@ public class User extends NamedEntity {
 
     //The following two variables are public because their only functionality lies outside the class
 
-    @Column(name = "emailVerified")
+    @Column(name = "email_verified")
     public boolean emailVerified;
 
-    @Column(name = "phoneVerified")
+    @Column(name = "phone_verified")
     public boolean phoneVerified;
 
     //find out why transient needs to be used to avoid errors in line 43
-    @Column(name = "categories")
-    @Transient
-    private List<Category> listOfCategories;
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<Category> listOfCategories;
 
     //TODO: write getters and setters for phoneNumber and profession
     //TODO: write addCategory, and removeCategory methods for listOfCategories
