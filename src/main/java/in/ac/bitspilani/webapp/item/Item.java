@@ -11,8 +11,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Item extends NamedEntity {
 
-    private String name;
-
     private Integer quantity;
 
     public boolean toDo;
@@ -23,15 +21,6 @@ public class Item extends NamedEntity {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Integer getQuantity() {
         return quantity;

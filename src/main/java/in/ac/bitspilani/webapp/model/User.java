@@ -33,12 +33,31 @@ public class User extends NamedEntity {
     @Column(name = "phone_verified")
     public boolean phoneVerified;
 
-    //find out why transient needs to be used to avoid errors in line 43
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Category> listOfCategories;
 
-    //TODO: write getters and setters for phoneNumber and profession
-    //TODO: write addCategory, and removeCategory methods for listOfCategories
-    //String[] = categoreis.split()
-    //easier than parent child tables
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
+
+    public void addCategory(Category category) {
+        listOfCategories.add(category);
+    }
+
+    public void removeCategory(Category category) {
+        listOfCategories.remove(category);
+    }
+
 }
