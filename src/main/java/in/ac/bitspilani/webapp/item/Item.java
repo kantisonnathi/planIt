@@ -5,7 +5,6 @@ import in.ac.bitspilani.webapp.model.NamedEntity;
 import in.ac.bitspilani.webapp.model.User;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -15,6 +14,8 @@ public class Item extends NamedEntity {
     private String name;
 
     private Integer quantity;
+
+    public boolean toDo;
 
 
     //see whether we want it to be an entity or not - ask dad/sahi dad/vaddi friend
