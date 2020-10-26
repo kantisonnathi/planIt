@@ -17,7 +17,7 @@ public class Category extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    private String nameOfCategory;
+    private String name;
     //TODO: write getter and setter methods for nameOfCategory
 
 
