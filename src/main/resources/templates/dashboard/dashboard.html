@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <h1 style= "color: cornflowerblue;">Dashboard</h1>
+</head>
+<body>
+<div class="topnav">
+    <a class="active" href="#dashboard">Dashboard</a>
+    <a href="#tracker">Tracker</a>
+    <a href="#share">Share</a>
+    <a href="#details">About the Project</a>
+</div>
+<h2>Categories</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table" id="category_table">
+                <thead>
+                    <tr>
+                        <th>Categories</th>
+                        <th>Name of category</th>
+                        <th>Number of items in category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="category : ${selections}">
+                        <td>Category Name</td>
+                        <td>
+                            <a th:href="@{/categories/__${category.id}__}" th:text="${category.name}"></a>
+                        </td>
+                        <td th:text="3"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
