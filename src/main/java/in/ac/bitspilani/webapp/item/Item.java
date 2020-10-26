@@ -1,6 +1,7 @@
 package in.ac.bitspilani.webapp.item;
 
 import in.ac.bitspilani.webapp.category.Category;
+import in.ac.bitspilani.webapp.model.NamedEntity;
 import in.ac.bitspilani.webapp.model.User;
 
 import javax.persistence.Entity;
@@ -9,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Item {
+public class Item extends NamedEntity {
 
     private String name;
 
@@ -22,16 +23,6 @@ public class Item {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    private String id;
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    @Id
-    public String getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
