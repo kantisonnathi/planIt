@@ -4,8 +4,6 @@ import in.ac.bitspilani.webapp.category.Category;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -41,6 +39,6 @@ public class User extends NamedEntity {
 
     //TODO: write getters and setters for phoneNumber and profession
     //TODO: write addCategory, and removeCategory methods for listOfCategories
-    //ask someone if we should add the above methods to User or UserController
-
+    //String[] = categoreis.split()
+    //easier than parent child tables
 }

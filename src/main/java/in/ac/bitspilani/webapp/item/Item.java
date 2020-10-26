@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Item {
 
-    private String nameOfItem;
+    private String name;
 
     private Integer quantity;
 
@@ -33,12 +33,12 @@ public class Item {
         return id;
     }
 
-    public String getNameOfItem() {
-        return nameOfItem;
+    public String getName() {
+        return name;
     }
 
-    public void setNameOfItem(String nameOfItem) {
-        this.nameOfItem = nameOfItem;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getQuantity() {
