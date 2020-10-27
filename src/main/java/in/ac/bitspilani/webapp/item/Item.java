@@ -2,7 +2,6 @@ package in.ac.bitspilani.webapp.item;
 
 import in.ac.bitspilani.webapp.category.Category;
 import in.ac.bitspilani.webapp.model.NamedEntity;
-import in.ac.bitspilani.webapp.model.User;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;

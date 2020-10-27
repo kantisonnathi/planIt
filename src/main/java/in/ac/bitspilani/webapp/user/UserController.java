@@ -1,4 +1,4 @@
-package in.ac.bitspilani.webapp.model;
+package in.ac.bitspilani.webapp.user;
 
 import org.springframework.stereotype.Controller;
 

@@ -2,12 +2,10 @@ package in.ac.bitspilani.webapp.category;
 
 
 import in.ac.bitspilani.webapp.item.Item;
-import in.ac.bitspilani.webapp.model.BaseEntity;
 import in.ac.bitspilani.webapp.model.NamedEntity;
-import in.ac.bitspilani.webapp.model.User;
+import in.ac.bitspilani.webapp.user.User;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity

@@ -1,6 +1,7 @@
-package in.ac.bitspilani.webapp.model;
+package in.ac.bitspilani.webapp.user;
 
 import in.ac.bitspilani.webapp.category.Category;
+import in.ac.bitspilani.webapp.model.NamedEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -32,6 +33,10 @@ public class User extends NamedEntity {
 
     @Column(name = "phone_verified")
     public boolean phoneVerified;
+
+    public Set<Category> getListOfCategories() {
+        return listOfCategories;
+    }
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Category> listOfCategories;

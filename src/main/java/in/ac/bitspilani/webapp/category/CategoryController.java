@@ -21,10 +21,15 @@ public class CategoryController {
 
     @GetMapping("categories/{categoryId}")
     public ModelAndView showCategory(@PathVariable("categoryId") int categoryId) {
-        ModelAndView mav = new ModelAndView("categories/categoryDetails");
+        ModelAndView mav = new ModelAndView("dashboard/dashboard");
         Category category =this.categories.findById(categoryId);
         mav.addObject(category);
         return mav;
+    }
+
+    @GetMapping("/category/new")
+    public String addingNewCategory() {
+        return "";
     }
 
 }
