@@ -15,28 +15,22 @@
 </div>
 <h2>Categories</h2>
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <table class="table" id="category_table">
-                <thead>
-                    <tr>
-                        <th>Categories</th>
-                        <th>Name of category</th>
-                        <th>Number of items in category</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="category : ${selections}">
-                        <td>Category Name</td>
-                        <td>
-                            <a th:href="@{/categories/__${category.id}__}" th:text="${category.name}"></a>
-                        </td>
-                        <td th:text="3"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <table class="table" id="category_table">
+        <thead>
+        <tr>
+            <th>Name of category</th>
+            <th>Number of items in category</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="category : ${selections}">
+            <td>
+                <a th:href="@{/categories/__${category.id}__}" th:text="${category.name}"></a>
+            </td>
+            <td th:text="3"></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 

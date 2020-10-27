@@ -27,4 +27,6 @@ public class Category extends NamedEntity {
     public void removeItem(Item item){
         listOfItems.remove(item);
     }
+
+    //TODO: Write a method that returns an unmodifiable list of Items since this one is private.
 }
