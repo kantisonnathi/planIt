@@ -8,12 +8,12 @@ public class HomeResources {
     @GetMapping("/")
     public String home()
     {
-        return("<h1> Welcome</h1>");
+        return "registration/WelcomePage";
     }
     @GetMapping("/user")
     public String user()
     {
-        return "dashboard/dashboard";
+        return "<h1>Welcome user</h1>";
     }
     @GetMapping("/admin")
     public String admin()

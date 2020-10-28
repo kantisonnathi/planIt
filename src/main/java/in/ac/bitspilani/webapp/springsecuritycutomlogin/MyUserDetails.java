@@ -1,28 +1,37 @@
 package in.ac.bitspilani.webapp.springsecuritycutomlogin;
 
+import in.ac.bitspilani.webapp.model.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class MyUserDetails implements UserDetails {
     private String username;
-    public  MyUserDetails(String username){
-        this.username=username;
-    }
-    public MyUserDetails()
+    private String password;
+    private List<GrantedAuthority> authorities;
+    public  MyUserDetails(UserEntity user)
     {
+     this.username=user.getUserName();
+     this.password=user.getPassword();
+     this.authorities=Arrays.stream(user.getRoles().split(","))
+             .map(SimpleGrantedAuthority::new)
+             .collect(Collectors.toList());
     }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("USER"));
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-        return "pass";
+        return password;
     }
 
     @Override

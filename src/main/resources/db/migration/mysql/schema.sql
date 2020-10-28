@@ -1,8 +1,8 @@
 create table user
 (
-	id int auto_increment
-		primary key,
-	name varchar(255) null,
+	id int auto_increment primary key,
+	username varchar(255) null,
+	password varchar(255) null,
 	email varchar(255) null,
 	email_verified bit null,
 	is_user_complete bit not null,
