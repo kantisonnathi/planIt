@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class SIController {
+
     @GetMapping("/login")
     public String showLogin(Model model)
     {
