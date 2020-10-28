@@ -15,7 +15,7 @@ public class Item extends NamedEntity {
     public boolean toDo;
 
 
-    //see whether we want it to be an entity or not - ask dad/sahi dad/vaddi friend
+
 
     @ManyToOne
     @JoinColumn(name = "category_id")

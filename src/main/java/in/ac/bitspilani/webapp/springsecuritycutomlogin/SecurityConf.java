@@ -1,4 +1,4 @@
-package in.ac.bitspilani.webapp.springsecuritycutomlogin;
+/*package in.ac.bitspilani.webapp.springsecuritycutomlogin;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -10,7 +10,6 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/*.js").permitAll()
-                .antMatchers("/**/*.css").permitAll()
                 .antMatchers("/css/**").permitAll()
                 .antMatchers("/registration/**").permitAll()
                 .anyRequest().authenticated()
@@ -19,4 +18,4 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .permitAll();
     }
-}
+}*/

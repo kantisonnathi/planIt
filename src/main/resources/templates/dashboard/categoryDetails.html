@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="../../static/css/categoryDetailsCSS.css" th:href="@{/css/categoryDetailsCSS.css}">
+    <meta charset="UTF-8">
+    <title>Category Details</title>
+</head>
+<body>
+    <h1 style="color: cornflowerblue">Category Details</h1>
+    <div class="topnav">
+        <a class="active" href="#dashboard">Dashboard</a>
+        <a href="#tracker">Tracker</a>
+        <a href="#share">Share</a>
+        <a href="#details">About the Project</a>
+    </div>
+    <table class="table table-striped"th:object="${category}">
+        <tr>
+            <th>ID</th>
+            <td><b th:text="${category.id}"></b></td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td th:text="${category.name}"></td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <br />
+    <a th:href="@{/}">Back to Dashboard</a>
+    <a th:href="@{/__${category.id}__/itemDetails}">Show items in this category</a>
+</body>
+</html>
