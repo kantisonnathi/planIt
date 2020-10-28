@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="../../static/css/itemDetailsCSS.css" th:href="@{/css/itemDetailsCSS.css}">
+    <meta charset="UTF-8">
+    <title>Item Details</title>
+</head>
+<body>
+<h1 style="color: cornflowerblue">Category Details</h1>
+<div class="topnav">
+    <a class="active" href="#dashboard">Dashboard</a>
+    <a href="#tracker">Tracker</a>
+    <a href="#share">Share</a>
+    <a href="#details">About the Project</a>
+</div>
+<div class="container">
+    <table class="table" id="item_table" >
+        <thead>
+            <th>Name of Item</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${selections}">
+                <td th:text="${item.name}">
+                </td>
+                <td th:text="${item.quantity}"></td>
+                <td>
+                    <!--<a th:href="@{/__${item.id}__/edit}" th:text="edit item"></a>-->
+                    <!--<a th:href="@{/}" th:text="delete item"></a>-->
+                    edit
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
