@@ -24,17 +24,8 @@ public class DashboardController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping("/dashboard")
     public String dashboard(Map<String, Object> model) {
-        /*Collection<Category> set = new HashSet<>();
-        Category category = new Category();
-        category.setName("category 1");
-        category.setId(1);
-        set.add(category);
-
-
-//        List<Category> categoryList = categoryRepository.findCategoriesByUser(1);*/
-
         User user = userRepository.findById(1);
         model.put("selections", user.getListOfCategories());
 
