@@ -21,7 +21,7 @@ public class DashboardController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping("/dashboard")
     public String dashboard(Map<String, Object> model) {
         //I've put 1 for simplicity's sake. Finally we're gonna pass in the user id of the person who is authenticated
         User user = userRepository.findById(1);

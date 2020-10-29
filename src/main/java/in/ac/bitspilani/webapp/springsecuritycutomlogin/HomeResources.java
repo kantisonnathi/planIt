@@ -3,7 +3,7 @@ package in.ac.bitspilani.webapp.springsecuritycutomlogin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+/*@RestController
 public class HomeResources {
     @GetMapping("/")
     public String home()
@@ -20,5 +20,5 @@ public class HomeResources {
     {
         return ("<h1>Welcome Admin</h1>");
     }
-}
+}*/
 

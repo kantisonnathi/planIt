@@ -26,9 +26,7 @@
                 </td>
                 <td th:text="${item.quantity}"></td>
                 <td>
-                    <!--<a th:href="@{/__${item.id}__/edit}" th:text="edit item"></a>-->
-                    <!--<a th:href="@{/}" th:text="delete item"></a>-->
-                    edit
+                    <a th:href="@{/__${item.id}__/edit}" >Edit Item</a>
                 </td>
             </tr>
         </tbody>

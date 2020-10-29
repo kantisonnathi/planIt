@@ -1,5 +1,6 @@
 package in.ac.bitspilani.webapp.springsecuritycutomlogin;
 
+/*
 import in.ac.bitspilani.webapp.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,4 +20,4 @@ public class MyUserDetailsServices implements UserDetailsService {
         user.orElseThrow(()-> new UsernameNotFoundException("Not found:"+username));
            return user.map(MyUserDetails::new).get();
     }
-}
+}*/
