@@ -6,6 +6,7 @@ import in.ac.bitspilani.webapp.model.NamedEntity;
 import in.ac.bitspilani.webapp.user.User;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -27,4 +28,8 @@ public class Category extends NamedEntity {
     }
 
     //TODO: Write a method that returns an unmodifiable list of Items since this one is private.
+
+    public Collection getItems() {
+        return listOfItems;
+    }
 }

@@ -4,9 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class LoginController {
-    @GetMapping("/login")
-    public String login() {
+public class AuthController {
+
+    @GetMapping("/custom_login")
+    public String addingNewCategory() {
         return "registration/Registration";
     }
 }

@@ -8,10 +8,7 @@ import in.ac.bitspilani.webapp.user.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class DashboardController {
@@ -26,9 +23,9 @@ public class DashboardController {
 
     @GetMapping("/dashboard")
     public String dashboard(Map<String, Object> model) {
+        //I've put 1 for simplicity's sake. Finally we're gonna pass in the user id of the person who is authenticated
         User user = userRepository.findById(1);
         model.put("selections", user.getListOfCategories());
-
         return "dashboard/dashboard";
     }
 

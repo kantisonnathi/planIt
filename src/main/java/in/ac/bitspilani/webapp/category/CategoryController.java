@@ -21,7 +21,7 @@ public class CategoryController {
 
     @GetMapping("categories/{categoryId}")
     public ModelAndView showCategory(@PathVariable("categoryId") int categoryId) {
-        ModelAndView mav = new ModelAndView("dashboard/dashboard");
+        ModelAndView mav = new ModelAndView("dashboard/categoryDetails");
         Category category =this.categories.findById(categoryId);
         mav.addObject(category);
         return mav;

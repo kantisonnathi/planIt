@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org">
+
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}">
     <meta charset="UTF-8">
     <title>Dashboard</title>
     <h1 style= "color: cornflowerblue;">Dashboard</h1>
 </head>
 <body>
 <div class="topnav">
-    <a class="active" href="#dashboard">Dashboard</a>
+    <a class="active" th:href="@{/}">Dashboard</a>
     <a href="#tracker">Tracker</a>
     <a href="#share">Share</a>
     <a href="#details">About the Project</a>
@@ -32,9 +33,14 @@
         </tbody>
     </table>
 </div>
+<!--
 <div>
-    <input type="button" text="Add new category" th:href="@{/category/new}">
+    <a th:href="" class="btn btn-default">Edit
+        Category</a>
+    <a th:href="" class="btn btn-default">Add
+        New Pet</a>
 </div>
+-->
 
 
 
