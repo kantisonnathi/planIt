@@ -4,6 +4,7 @@ import in.ac.bitspilani.webapp.category.Category;
 import in.ac.bitspilani.webapp.category.CategoryRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,7 +35,7 @@ public class ItemController {
     }
 
     @GetMapping("/items/{itemId}/edit")
-    public String showEditDetailsForm(@PathVariable int itemId, Map<String,Object> model) {
+    public String showEditDetailsFormItem(@PathVariable int itemId, Map<String,Object> model) {
         Item item = itemRepository.findById(itemId);
         model.put("item", item);
         return "dashboard/createOrUpdateItem";
@@ -46,8 +47,16 @@ public class ItemController {
             return "dashboard/createOrUpdateItem";
         }
         itemRepository.save(item);
-        model.addAttribute("items", itemRepository.findAll());
-        return "redirect:/{category.id";
+        model.addAttribute("item", itemRepository.findAll());
+        return "redirect:/dashboard";
+    }
+
+    @GetMapping("/items/new")
+    public String initItemCreation(Category category, ModelMap model) {
+        Item item = new Item();
+        category.addItem(item);
+        model.put("item", item);
+        return "dashboard/createOrUpdateItem";
     }
 
 

@@ -26,14 +26,16 @@
         </tr>
         </thead>
         <tbody>
-            <tr th:each="item : ${selections}">
-                <td><input type="checkbox"</td>
-                <td th:text="${item.name}"></td>
-                </td><td th:text="${item.quantity}">
-                <td>
-                    <a th:href="@{/items/__${item.id}__/edit}" >Edit Item</a>
-                </td>
-            </tr>
+        <tr th:each="item : ${selections}">
+            <td><label>
+                <input type="checkbox">
+            </label></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.quantity}">
+            <td>
+                <a th:href="@{/items/__${item.id}__/edit}" >Edit Item</a>
+            </td>
+        </tr>
 
         </tbody>
     </table>
