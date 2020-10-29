@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <link rel="stylesheet" href="../../static/css/first%20page.css" th:href="@{/css/first%20page.css}">
     <meta charset="ISO-8859-1"/>
@@ -11,12 +11,18 @@
 <div class="loginbox">
     <img src="https://previews.123rf.com/images/asmati/asmati1610/asmati161000233/63831576-user-sign-illustration-white-icon-on-red-circle-.jpg" class="avatar" >
     <h2>Login here</h2>
-    <form action="#">
-        <p>Username</p>
-        <input type="text" name="" placeholder="Enter Username" />
-        <p>Password</p>
-        <input type="password" name="pwd" id="pwd" placeholder="Enter Password"/>
-        <input type="submit" value="Sign in "> <br>
+    <form name='f' action="/perform_login" method='POST'>
+        <tr>
+            <td>User (custom):</td>
+            <td><input type='text' name='username' value=''></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type='password' name='password' /></td>
+        </tr>
+        <tr>
+            <td><input name="submit" type="submit" value="submit" /></td>
+        </tr>
     </form>
         <a href="#">Forgot your password?</a><br>
         <a href="#">Don't have an account? Sign up now!</a><br><br><br>

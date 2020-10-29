@@ -8,6 +8,6 @@ public class AuthController {
 
     @GetMapping("/custom_login")
     public String addingNewCategory() {
-        return "registration/login";
+        return "registration/Registration";
     }
 }

@@ -47,7 +47,7 @@ public class ItemController {
         }
         itemRepository.save(item);
         model.addAttribute("items", itemRepository.findAll());
-        return "redirect:/dashboard";
+        return "redirect:/{category.id";
     }
 
 

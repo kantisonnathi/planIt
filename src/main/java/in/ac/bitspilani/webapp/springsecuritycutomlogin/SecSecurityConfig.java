@@ -16,6 +16,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         // authentication manager (see below)
+        //make it database oriented or whatever
         auth.inMemoryAuthentication()
                 .withUser("user1").password(passwordEncoder().encode("user1Pass")).roles("USER")
                 .and()
