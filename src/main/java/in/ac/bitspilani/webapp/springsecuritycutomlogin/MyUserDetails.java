@@ -14,19 +14,16 @@ import java.util.stream.Collectors;
 public class MyUserDetails implements UserDetails {
     private String username;
     private String password;
-    private List<GrantedAuthority> authorities;
+
     public  MyUserDetails(UserEntity user)
     {
      this.username=user.getUserName();
      this.password=user.getPassword();
-     this.authorities=Arrays.stream(user.getRoles().split(","))
-             .map(SimpleGrantedAuthority::new)
-             .collect(Collectors.toList());
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
+        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override
