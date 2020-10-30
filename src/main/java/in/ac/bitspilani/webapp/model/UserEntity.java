@@ -9,7 +9,7 @@ public class UserEntity {
     private int id;
     private String userName;
     private String password;
-    private String roles;
+
 
     public void setPassword(String password) {
         this.password = password;
@@ -27,13 +27,6 @@ public class UserEntity {
         this.id = id;
     }
 
-    public String getRoles() {
-        return roles;
-    }
-
-    public void setRoles(String roles) {
-        this.roles = roles;
-    }
 
     public String getUserName() {
         return userName;
