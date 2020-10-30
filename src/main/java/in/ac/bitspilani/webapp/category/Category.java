@@ -18,7 +18,7 @@ public class Category extends NamedEntity {
     private User user;
 
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
     private Set<Item> listOfItems;
     public void addItem(Item item){
         listOfItems.add(item);
@@ -27,7 +27,6 @@ public class Category extends NamedEntity {
         listOfItems.remove(item);
     }
 
-    //TODO: Write a method that returns an unmodifiable list of Items since this one is private.
 
     public Collection getItems() {
         return listOfItems;

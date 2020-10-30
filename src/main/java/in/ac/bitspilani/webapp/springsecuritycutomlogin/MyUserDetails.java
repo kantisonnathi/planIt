@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/*
 public class MyUserDetails implements UserDetails {
     private String username;
     private String password;
@@ -55,4 +56,4 @@ public class MyUserDetails implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-}
+}*/
