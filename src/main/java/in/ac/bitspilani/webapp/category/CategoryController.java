@@ -50,8 +50,21 @@ public class CategoryController {
     }
 
     @GetMapping("/category/new")
-    public String addingNewCategory() {
-        return "";
+    public String addingNewCategory(Map<String, Object> model) {
+        Category category = new Category();
+        model.put("category", category);
+        return "dashboard/createOrUpdateCategory";
+    }
+
+    @PostMapping("/category/new")
+    public String processCreationCategory(@Valid Category category, BindingResult result) {
+        if (result.hasErrors()) {
+            return "dashboard/createOrUpdateCategory";
+        }
+        else {
+            this.categoryRepository.save(category);
+            return "redirect:/dashboard";
+        }
     }
 
 }
