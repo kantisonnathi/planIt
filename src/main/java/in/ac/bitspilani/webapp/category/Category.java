@@ -12,6 +12,13 @@ import java.util.Set;
 @Entity
 public class Category extends NamedEntity {
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @ManyToOne
     @JoinColumn(name = "user_id")

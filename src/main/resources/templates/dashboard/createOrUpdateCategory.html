@@ -17,7 +17,9 @@
       th:action="@{/categories/__${category.id}__/edit}"
       th:object="${category}"
       method="post">
-    <input type="hidden" name="id" th:value="${category.id}"/>
+    <input type="hidden" name="user" th:text="${category.user?.id}">
+    <input type="hidden" name="id" th:value="*{id}"/>
+
     <label for="name">Name</label>
     <input type="text" th:field="*{name}" id="name" placeholder="Name">
     <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
