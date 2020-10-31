@@ -2,10 +2,18 @@ package in.ac.bitspilani.webapp.user;
 
 import in.ac.bitspilani.webapp.category.Category;
 import in.ac.bitspilani.webapp.model.NamedEntity;
+import org.springframework.core.style.ToStringCreator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.HashSet;
 import java.util.Set;
+
+/**
+ * Simple JavaBean domain object representing an user.
+ *
+ * @author Kanti Sonnathi
+ */
 
 @Entity
 public class User extends NamedEntity {
@@ -34,12 +42,38 @@ public class User extends NamedEntity {
     @Column(name = "phone_verified")
     public boolean phoneVerified;
 
-    public Set<Category> getListOfCategories() {
-        return listOfCategories;
+    public Set<Category> getCategories() {
+        return categories;
     }
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private Set<Category> listOfCategories;
+    private Set<Category> categories;
+
+    public Category getCategory(String name) {
+        return getCategory(name, false);
+    }
+
+    public Category getCategory(String name, boolean ignoreNew) {
+        name = name.toLowerCase();
+        for (Category pet : getCategoriesInternal()) {
+            if (!ignoreNew || !pet.isNew()) {
+                String compName = pet.getName();
+                compName = compName.toLowerCase();
+                if (compName.equals(name)) {
+                    return pet;
+                }
+            }
+        }
+        return null;
+    }
+
+    protected Set<Category> getCategoriesInternal() {
+        if (this.categories == null) {
+            this.categories = new HashSet<>();
+        }
+        return this.categories;
+    }
+
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -58,11 +92,19 @@ public class User extends NamedEntity {
     }
 
     public void addCategory(Category category) {
-        listOfCategories.add(category);
+        categories.add(category);
     }
 
     public void removeCategory(Category category) {
-        listOfCategories.remove(category);
+        categories.remove(category);
     }
 
+    @Override
+    public String toString() {
+        return new ToStringCreator(this)
+
+                .append("id", this.getId()).append("new", this.isNew())
+                .append("name", this.getName()).append("phoneNumber",this.getPhoneNumber()).toString();
+    }
 }
+

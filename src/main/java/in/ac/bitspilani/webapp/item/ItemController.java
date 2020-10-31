@@ -51,12 +51,22 @@ public class ItemController {
         return "redirect:/dashboard";
     }
 
-    @GetMapping("/items/new")
-    public String initItemCreation(Category category, ModelMap model) {
+    @GetMapping("/item/new")
+    public String initItemCreation(Map<String, Object> model) {
         Item item = new Item();
-        category.addItem(item);
         model.put("item", item);
         return "dashboard/createOrUpdateItem";
+    }
+
+    @PostMapping("/item/new")
+    public String processCreationItem(@Valid Item item, BindingResult result) {
+        if (result.hasErrors()) {
+            return "dashboard/createOrUpdateItem";
+        }
+        else {
+            this.itemRepository.save(item);
+            return "redirect:/dashboard";
+        }
     }
 
 
