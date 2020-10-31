@@ -8,7 +8,7 @@ import in.ac.bitspilani.webapp.model.UserEntity;
         import java.util.Optional;
 
 public interface JPAUserRepository extends JpaRepository<UserEntity,Integer> {
-    Optional<UserEntity> findByUserName(String userName);
+    Optional<UserEntity> findByEmail(String email);
 
 }
 

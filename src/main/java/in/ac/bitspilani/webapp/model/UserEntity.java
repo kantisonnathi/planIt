@@ -7,8 +7,9 @@ import javax.persistence.*;
 public class UserEntity  {
     @Id@GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
-    private String userName;
+   // private String userName;
     private String password;
+    private String email;
 
 
     public void setPassword(String password) {
@@ -28,12 +29,12 @@ public class UserEntity  {
     }
 
 
-    public String getUserName() {
-        return userName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }

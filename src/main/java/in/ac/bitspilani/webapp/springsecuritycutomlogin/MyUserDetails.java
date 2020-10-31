@@ -13,12 +13,12 @@ import java.util.stream.Collectors;
 
 
 public class MyUserDetails implements UserDetails {
-    private String username;
+    private String email;
     private String password;
 
     public  MyUserDetails(UserEntity user)
     {
-     this.username=user.getUserName();
+     this.email=user.getEmail();
      this.password=user.getPassword();
     }
 
@@ -34,7 +34,7 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
 
     @Override

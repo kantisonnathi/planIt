@@ -14,10 +14,10 @@ public class MyUserDetailsServices implements UserDetailsService {
     @Autowired
     JPAUserRepository userRepository;
     @Override
-    public MyUserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public MyUserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        Optional<UserEntity> user=userRepository.findByUserName(username);
-        user.orElseThrow(()-> new UsernameNotFoundException("Not found:"+username));
+        Optional<UserEntity> user=userRepository.findByEmail(email);
+        user.orElseThrow(()-> new UsernameNotFoundException("Not found:"+email));
            return user.map(MyUserDetails::new).get();
     }
 }
