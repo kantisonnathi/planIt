@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 
-public interface CategoryRepository extends CrudRepository<Category, Long> {
+public interface CategoryRepository extends Repository<Category, Integer> {
 
     /*@Query("SELECT category FROM Category category left join fetch category.listOfItems WHERE category.id =:id")
     @Transactional(readOnly = true)*/
@@ -22,4 +22,6 @@ public interface CategoryRepository extends CrudRepository<Category, Long> {
     List<Category> findByUserId(Integer userId);
 
     Category findById(Integer categoryId);
+
+    void save(Category category);
 }

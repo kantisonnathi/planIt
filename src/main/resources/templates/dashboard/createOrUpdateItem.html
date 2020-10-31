@@ -14,13 +14,9 @@
     <a href="#details">About the Project</a>
 </div>
 <form action="#"
-      th:action="@{/items/__${item.id}__/edit}"
       th:object="${item}"
       method="post">
     <input type="hidden" name="id" th:value="${item.id}"/>
-<!--
-    <input type="hidden" name="id" th:value="${category.id}"/>
--->
     <label for="name">Name</label>
     <input type="text" th:field="*{name}" id="name" placeholder="Name">
     <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>

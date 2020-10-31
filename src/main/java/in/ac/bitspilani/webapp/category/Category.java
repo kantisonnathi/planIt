@@ -7,6 +7,7 @@ import in.ac.bitspilani.webapp.user.User;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -37,5 +38,30 @@ public class Category extends NamedEntity {
 
     public Collection getItems() {
         return listOfItems;
+    }
+
+    public Item getItem(String name) {
+        return getItem(name, false);
+    }
+
+    public Item getItem(String name, boolean ignoreNew) {
+        name = name.toLowerCase();
+        for (Item item : getItemInternal()) {
+            if (!ignoreNew || !item.isNew()) {
+                String compName = item.getName();
+                compName = compName.toLowerCase();
+                if (compName.equals(name)) {
+                    return item;
+                }
+            }
+        }
+        return null;
+    }
+
+    protected Set<Item> getItemInternal() {
+        if (this.listOfItems == null) {
+            this.listOfItems = new HashSet<>();
+        }
+        return this.listOfItems;
     }
 }

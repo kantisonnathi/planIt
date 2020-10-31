@@ -27,30 +27,18 @@
         <tbody>
         <tr th:each="category : ${selections}">
             <td>
-                <a th:href="@{/categories/__${category.id}__}" th:text="${category.name}"></a>
+                <a th:href="@{/user/__${user.id}__/categories/__${category.id}__}" th:text="${category.name}"></a>
             </td>
             <td th:text="3"></td>
             <td>
-                <a th:href="@{categories/__${category.id}__/edit}">Edit Category</a>
+                <a th:href="@{/user/__${user.id}__/categories/__${category.id}__/edit}">Edit Category</a>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
-<<<<<<< HEAD
 
 <p><a th:href="@{/user/__${user.id}__/category/new}">Add new category</a></p>
-=======
-<p> <a th:href="@{/category/new}">Add new category</a></p>
->>>>>>> dad0646b4a2dd8aad8c6184c547ec006748ce138
-<!--
-<div>
-    <a th:href="" class="btn btn-default">Edit
-        Category</a>
-    <a th:href="" class="btn btn-default">Add
-        New Pet</a>
-</div>
--->
 
 
 

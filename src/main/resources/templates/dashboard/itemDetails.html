@@ -33,13 +33,13 @@
             <td th:text="${item.name}"></td>
             <td th:text="${item.quantity}">
             <td>
-                <a th:href="@{/items/__${item.id}__/edit}" >Edit Item</a>
+                <a th:href="@{items/__${item.id}__/edit}" >Edit Item</a>
             </td>
         </tr>
 
         </tbody>
     </table>
 </div>
-<p><a th:href="@{/item/new}">Add new item</a></p>
+<p><a th:href="@{item/new}">Add new item</a></p>
 </body>
 </html>
