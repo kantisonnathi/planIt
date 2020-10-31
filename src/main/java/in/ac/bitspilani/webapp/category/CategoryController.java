@@ -9,8 +9,15 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+<<<<<<< HEAD
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+=======
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+>>>>>>> dad0646b4a2dd8aad8c6184c547ec006748ce138
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.naming.Binding;
@@ -31,6 +38,11 @@ public class CategoryController {
         this.itemRepository = items;
         this.userRepository = userRepository;
     }
+    
+   /* @ModelAttribute("user")
+    public User findOwner(@PathVariable("userId") int userId) {
+        return this.userRepository.findById(userId);
+    }*/
 
    @ModelAttribute("user")
    public User findUser(@PathVariable("userId") int userId) {
@@ -80,7 +92,10 @@ public class CategoryController {
     public String addingNewCategory(User user, ModelMap model) {
         Category category = new Category();
         user.addCategory(category);
+<<<<<<< HEAD
         category.setUser(user);
+=======
+>>>>>>> dad0646b4a2dd8aad8c6184c547ec006748ce138
         model.put("category", category);
         return "dashboard/createOrUpdateCategory";
     }
@@ -91,7 +106,10 @@ public class CategoryController {
         if (StringUtils.hasLength(category.getName()) && category.isNew() && user.getCategory(category.getName(), true) != null) {
             result.rejectValue("name", "duplicate", "already exists");
         }
+<<<<<<< HEAD
         category.setUser(user);
+=======
+>>>>>>> dad0646b4a2dd8aad8c6184c547ec006748ce138
         user.addCategory(category);
         if (result.hasErrors()) {
             model.put("category", category);
