@@ -57,6 +57,12 @@
             var user = result.user;
             console.log(user);
             // ...
+            //collects the email id
+            var userEmail=document.querySelector("#user-email");
+            userEmail.innerHTML=user.email;
+
+
+
         }).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;

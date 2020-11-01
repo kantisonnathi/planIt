@@ -19,6 +19,9 @@
       method="post">
     <input type="hidden" name="id" th:value="${category.id}"/>
     <input type="hidden" name="user" th:text="${category.user?.id}">
+<!--
+    Dont copy above line
+-->
     <input type="hidden" name="id" th:value="*{id}"/>
 
     <label for="name">Name</label>
