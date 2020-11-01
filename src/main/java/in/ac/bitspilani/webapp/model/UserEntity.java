@@ -1,6 +1,10 @@
 package in.ac.bitspilani.webapp.model;
 
+import in.ac.bitspilani.webapp.category.Category;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="user")
@@ -12,6 +16,37 @@ public class UserEntity  {
     private String email;
 
 
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<Category> categories;
+
+    public Category getCategory(String name) {
+        return getCategory(name, false);
+    }
+
+    public Category getCategory(String name, boolean ignoreNew) {
+        name = name.toLowerCase();
+        for (Category pet : getCategoriesInternal()) {
+            if (!ignoreNew || !pet.isNew()) {
+                String compName = pet.getName();
+                compName = compName.toLowerCase();
+                if (compName.equals(name)) {
+                    return pet;
+                }
+            }
+        }
+        return null;
+    }
+
+    protected Set<Category> getCategoriesInternal() {
+        if (this.categories == null) {
+            this.categories = new HashSet<>();
+        }
+        return this.categories;
+    }
     public void setPassword(String password) {
         this.password = password;
     }

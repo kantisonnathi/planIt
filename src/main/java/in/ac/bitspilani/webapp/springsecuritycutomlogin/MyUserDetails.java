@@ -15,11 +15,13 @@ import java.util.stream.Collectors;
 public class MyUserDetails implements UserDetails {
     private String email;
     private String password;
+    private int id;
 
     public  MyUserDetails(UserEntity user)
     {
      this.email=user.getEmail();
      this.password=user.getPassword();
+     this.id=user.getId();
     }
 
     @Override
@@ -35,6 +37,10 @@ public class MyUserDetails implements UserDetails {
     @Override
     public String getUsername() {
         return email;
+    }
+    public int getId()
+    {
+        return id;
     }
 
     @Override
