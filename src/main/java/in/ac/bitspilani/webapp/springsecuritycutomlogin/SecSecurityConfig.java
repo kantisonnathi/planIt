@@ -49,6 +49,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/registration/**").permitAll()
                 .antMatchers("/login*").permitAll()
                 .antMatchers("/custom_login").permitAll()
+                .antMatchers("/signup").permitAll()
                 .antMatchers("/perform_login").permitAll()
                 .anyRequest().authenticated()
                 .and()
