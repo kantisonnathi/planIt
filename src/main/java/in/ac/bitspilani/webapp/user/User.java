@@ -22,10 +22,38 @@ public class User extends NamedEntity {
     @NotEmpty
     private String email;
 
+    public boolean isUserComplete() {
+        return isUserComplete;
+    }
+
+    public void setUserComplete(boolean userComplete) {
+        isUserComplete = userComplete;
+    }
+
+    public boolean isEmailVerified() {
+        return emailVerified;
+    }
+
+    public void setEmailVerified(boolean emailVerified) {
+        this.emailVerified = emailVerified;
+    }
+
+    public boolean isPhoneVerified() {
+        return phoneVerified;
+    }
+
+    public void setPhoneVerified(boolean phoneVerified) {
+        this.phoneVerified = phoneVerified;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
+
     /*This variable returns true if and only if all the mandatory attributes in this object are present. If any are\
-    absent, then a page asking for additional data should be displayed.
-    TODO: write code to make isUserComplete work the way it's supposed to
-     */
+        absent, then a page asking for additional data should be displayed.
+        TODO: write code to make isUserComplete work the way it's supposed to
+         */
     public boolean isUserComplete = false;
 
     @Column(name = "phone_number")
@@ -33,11 +61,21 @@ public class User extends NamedEntity {
 
     @Column(name = "profession")
     private String profession;
+    @Column(name="password")
+    private String password;
 
     //The following two variables are public because their only functionality lies outside the class
 
     @Column(name = "email_verified")
     public boolean emailVerified;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Column(name = "phone_verified")
     public boolean phoneVerified;
@@ -78,7 +116,8 @@ public class User extends NamedEntity {
         return this.email;
     }
     public void setEmail(String email) {
-        this.email = email;
+
+        this.email = email.trim();
     }
 
     public String getPhoneNumber() {
