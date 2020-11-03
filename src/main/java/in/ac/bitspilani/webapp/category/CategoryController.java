@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.naming.Binding;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.Map;
 
@@ -110,5 +111,13 @@ public class CategoryController {
         }
     }
 
+/*
+    @Transactional
+*/
+    @GetMapping("/category/{categoryId}/remove")
+    public String removeCategory(@PathVariable("categoryId") int categoryId) {
+        categoryRepository.deleteById(categoryId);
+        return "redirect:/dashboard";
+    }
 }
 

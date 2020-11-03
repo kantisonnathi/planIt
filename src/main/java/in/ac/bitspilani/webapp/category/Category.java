@@ -21,12 +21,12 @@ public class Category extends NamedEntity {
         this.user = user;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = User.class)
     @JoinColumn(name = "user_id")
     private User user;
 
 
-    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Item> listOfItems;
     public void addItem(Item item){
         listOfItems.add(item);
