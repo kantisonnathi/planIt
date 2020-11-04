@@ -82,7 +82,7 @@ public class UserAccountController {
             User user = userRepository.findByEmail(token.getUser().getEmail());
             user.setEmailVerified(true);
             userRepository.save(user);
-            modelAndView.setViewName("accountVerified");
+            modelAndView.setViewName("dashboard/dashboard");
         }
         else
         {
