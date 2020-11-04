@@ -44,6 +44,7 @@ public class UserAccountController {
         if(existingUser != null)
         {
             modelAndView.addObject("message","This email already exists!");
+
             modelAndView.setViewName("error");
         }
         else
@@ -82,11 +83,12 @@ public class UserAccountController {
             User user = userRepository.findByEmail(token.getUser().getEmail());
             user.setEmailVerified(true);
             userRepository.save(user);
-            modelAndView.setViewName("dashboard/dashboard");
+            modelAndView.setViewName("accountVerified");
         }
         else
         {
             modelAndView.addObject("message","The link is invalid or broken!");
+            User user = userRepository.findByEmail(token.getUser().getEmail());
             modelAndView.setViewName("error");
         }
 
