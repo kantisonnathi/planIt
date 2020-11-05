@@ -22,7 +22,8 @@
             <th>Progress</th>
             <th>Name of Item</th>
             <th data-th="#">Quantity</th>
-            <th>Actions</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -34,6 +35,9 @@
             <td th:text="${item.quantity}">
             <td>
                 <a th:href="@{items/__${item.id}__/edit}" >Edit Item</a>
+            </td>
+            <td>
+                <a th:href="@{items/__${item.id}__/delete}">Delete Item</a>
             </td>
         </tr>
 
