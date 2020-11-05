@@ -74,6 +74,12 @@ public class ItemController {
         }
     }
 
+    @GetMapping("/items/{itemId}/delete")
+    public String deleteItem(@PathVariable("itemId") int itemId) {
+        itemRepository.deleteById(itemId);
+        return "redirect:/dashboard";
+    }
+
     @GetMapping("/item/new")
     public String initItemCreation(Category category, ModelMap model) {
         Item item = new Item();
