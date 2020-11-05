@@ -15,4 +15,6 @@ public interface ItemRepository extends Repository<Item, Integer> {
     Item findById(Integer ItemId);
 
     void save(Item item);
+
+    void deleteById(int ItemId);
 }

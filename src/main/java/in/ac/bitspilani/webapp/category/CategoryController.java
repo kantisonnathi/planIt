@@ -114,7 +114,7 @@ public class CategoryController {
 /*
     @Transactional
 */
-    @GetMapping("/category/{categoryId}/remove")
+    @GetMapping("/category/{categoryId}/delete")
     public String removeCategory(@PathVariable("categoryId") int categoryId) {
         categoryRepository.deleteById(categoryId);
         return "redirect:/dashboard";
