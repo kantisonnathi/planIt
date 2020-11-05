@@ -1,14 +1,35 @@
 
 
-    var firebaseConfig = {
-    apiKey: "AIzaSyAzy9bbBw_qQpuxYedeZjqvdBzlEQYnwh8",
-    authDomain: "ereefr.firebaseapp.com",
-    databaseURL: "https://ereefr.firebaseio.com",
-    projectId: "ereefr",
-    storageBucket: "ereefr.appspot.com",
-    messagingSenderId: "883478159529",
-    appId: "1:883478159529:web:2fe14ffa02b22f38c749b8",
-    measurementId: "G-WT83WG6Z5R"
+    window.onload=function(){
+    render();
 };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+    function render(){
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    recaptchaVerifier.render();
+}
+
+    function phoneAuth() {
+    //get the number
+    const number = document.getElementById('number').value;
+    firebase.auth.SignInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
+    window.confirmationResult = confirmationResult;
+    coderesult = confirmationResult;
+    console.log(coderesult);
+    alert("Message sent");
+
+}).catch(function (error) {
+    alert(error.message)
+});
+}
+
+    function codeverify(){
+    var code=document.getElementById('verificationCode').value;
+    coderesult.confirm(code).then(function(result){
+
+    alert("Succesfully registered")
+    var user = result.user;
+    console.log(user);
+}).catch(function(error){
+    alert(error.message);
+});
+}

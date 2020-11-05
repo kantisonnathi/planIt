@@ -38,7 +38,18 @@
 <p><a th:href="@{/user/__${user.id}__/category/new}">Add new category</a></p>
 <p><a th:href="@{/user/__${user.id}__/edit}">Edit User</a></p>
 
-
-
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId            : '3329996123785246',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v8.0'
+        });
+    };
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fa3f2030594c7c4"></script>
 </body>
 </html>
