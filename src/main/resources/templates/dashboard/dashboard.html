@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
+<!--
 
+-->
 <head>
     <link rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}">
     <meta charset="UTF-8">
@@ -12,60 +14,25 @@
         <a href="#tracker">Tracker</a>
         <a href="#share">Share</a>
         <a href="#details">About the Project</a>
+        <a href="diary">Personal Diary</a>
     </div>
 </head>
 
 <h2>Categories</h2>
 <h2 th:text="${user.name}"> Welcome! </h2>
 <body>
-<div class="container" style="display: flex; flex-direction: row; justify-content: space-between">
-    <div class="box" >
-        <div class="icon">01</div>
-        <div class="content">
-            <h3>Service Name</h3>
-            <p>Whatever info goes in here, check later sis</p>
-            <b href="#">Access Category</b>
-        </div>
-        </div>
 
-    <div class="box">
-        <div class="icon">02</div>
-        <div class="content">
-            <h3>Service Name</h3>
-            <p>Whatever info goes in here, check later sis</p>
-            <b href="#">Access Category</b>
-        </div>
-    </div>
-
-    <div class="box">
-        <div class="icon">03</div>
-        <div class="content">
-            <h3>Service Name</h3>
-            <p>Whatever info goes in here, check later sis</p>
-            <b href="#">Access Category</b>
-        </div>
-    </div>
-    </div>
-
-    <table class="table" id="category_table">
-        <thead>
-        <tr>
-            <th>Name of category</th>
-            <th>Number of items in category</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="category : ${selections}">
-            <td>
-                <a th:href="@{/user/__${user.id}__/categories/__${category.id}__}" th:text="${category.name}"></a>
-            </td>
-            <td>
+<div th:each="category : ${selections}" class="div">
+    <div class="container" style="display: flex; flex-direction: row; justify-content: space-between">
+        <div class="box">
+            <div class="icon">02</div>
+            <div class="content">
+                <h3>Category Name: <a th:href="@{/user/__${user.id}__/categories/__${category.id}__}" th:text="${category.name}"></a><br></h3>
+                <p>Description</p>
                 <a th:href="@{/user/__${user.id}__/categories/__${category.id}__/edit}">Edit Category</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 <p><a th:href="@{/user/__${user.id}__/category/new}">Add new category</a></p>
