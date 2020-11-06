@@ -1,0 +1,20 @@
+.mobreg .recaptcha{
+    perspective: 600px;
+    width:100%;
+}
+head {
+    font-family: Verdana;
+}
+body {
+    font-family: Verdana;
+    background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Blue.jpg");
+    background-size: cover;
+    background-position: center;
+}
+h1 {
+    font-family: Verdana;
+}
+.mobreg
+{
+
+}
