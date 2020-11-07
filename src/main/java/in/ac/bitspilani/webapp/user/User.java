@@ -18,6 +18,9 @@ import java.util.Set;
 @Entity
 public class User extends NamedEntity {
 
+
+    public boolean userNew = true;
+
     @Column(name = "email")
     @NotEmpty
     private String email;

@@ -17,7 +17,7 @@ import java.util.Map;
 
 
 @Controller
-@RequestMapping("/category/{categoryId}")
+@RequestMapping("/user/{userId}/categories/{categoryId}")
 public class ItemController {
 
     private final CategoryRepository categoryRepository;
@@ -77,6 +77,7 @@ public class ItemController {
     @GetMapping("/items/{itemId}/delete")
     public String deleteItem(@PathVariable("itemId") int itemId) {
         itemRepository.deleteById(itemId);
+
         return "redirect:/dashboard";
     }
 

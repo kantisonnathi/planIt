@@ -55,11 +55,11 @@ public class CategoryController {
 
 
     @GetMapping("categories/{categoryId}")
-    public ModelAndView showCategory(@PathVariable("categoryId") int categoryId) {
-        ModelAndView mav = new ModelAndView("dashboard/categoryDetails");
-        Category category =this.categoryRepository.findById(categoryId);
-        mav.addObject(category);
-        return mav;
+    public String showCategory(@PathVariable("categoryId") int categoryId, Map<String, Object> map) {
+        Category category = categoryRepository.findById(categoryId);
+        map.put("selections", category.getItems());
+        map.put("category", category);
+        return "dashboard/itemDetails";
     }
 
     @GetMapping("/categories/{categoryId}/edit")
@@ -114,7 +114,7 @@ public class CategoryController {
 /*
     @Transactional
 */
-    @GetMapping("/category/{categoryId}/delete")
+    @GetMapping("/categories/{categoryId}/delete")
     public String removeCategory(@PathVariable("categoryId") int categoryId) {
         categoryRepository.deleteById(categoryId);
         return "redirect:/dashboard";
