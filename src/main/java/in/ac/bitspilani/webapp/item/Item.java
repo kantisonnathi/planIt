@@ -14,9 +14,6 @@ public class Item extends NamedEntity {
 
     public boolean toDo;
 
-
-
-
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.naming.Binding;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.Map;
 
@@ -75,9 +76,12 @@ public class ItemController {
     }
 
     @GetMapping("/items/{itemId}/delete")
+    @Transactional
     public String deleteItem(@PathVariable("itemId") int itemId) {
-        itemRepository.deleteById(itemId);
+        /*itemRepository.deleteById(itemId);*/
 
+        Item item = itemRepository.findById(itemId);
+        itemRepository.delete(item);
         return "redirect:/dashboard";
     }
 
