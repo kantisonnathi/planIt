@@ -44,6 +44,10 @@ public class ItemController {
         dataBinder.setValidator(new ItemValidator());
     }
 
+    @GetMapping("/")
+    public String defaultMethod() {
+        return "redirect:/user/{userId}/categories/{categoryId}/itemDetails";
+    }
 
     @GetMapping("/itemDetails")
     public String ItemDetails(@PathVariable("categoryId") int categoryId, Map<String, Object> map) {
