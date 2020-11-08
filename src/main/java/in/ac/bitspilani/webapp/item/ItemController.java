@@ -84,7 +84,7 @@ public class ItemController {
         Category category = item.getCategory();
         category.removeItem(item);
         itemRepository.delete(item);
-        return "redirect:/dashboard";
+        return "redirect:/user/{userId}/categories/{categoryId}/itemDetails";
     }
 
     @GetMapping("/item/new")
@@ -107,7 +107,7 @@ public class ItemController {
         }
         else {
             this.itemRepository.save(item);
-            return "redirect:/user/{userId}/categories/{categoryId}/itemDetails";;
+            return "redirect:/user/{userId}/categories/{categoryId}/itemDetails";
         }
     }
 
