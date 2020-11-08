@@ -8,6 +8,6 @@ public interface UserRepository extends Repository<User, Integer> {
     public User findById(Integer id);
 
      User findByEmail(String email);
-
      User save(User user);
+
 }
