@@ -37,6 +37,11 @@ public class DashboardController {
     public String dashboard(Map<String, Object> model, Principal principal) {
         String email = principal.getName();
         User user = userRepository.findByEmail(email);
+        if (user.userNew) {
+            user = customisingDashboard(user);
+            user.userNew = false;
+            user = userRepository.save(user);
+        }
         model.put("user", user);
         model.put("selections", user.getCategories());
         return "dashboard/dashboard";
@@ -51,71 +56,76 @@ public class DashboardController {
 
         //workout category
         Category workout = new Category();
-        workout = categoryRepository.save(workout);
         workout.setName("Workout");
+        workout.setUser(user);
+        workout = categoryRepository.save(workout);
         Item pushup = new Item();
-        pushup = itemRepository.save(pushup);
         pushup.setName("Push Ups");
         pushup.setQuantity(10);
         workout.addItem(pushup);
-        pushup.setCategory(workout);
-        user.addCategory(workout);
-        workout.setUser(user);
+        pushup = itemRepository.save(pushup);
+
+
+        //groceries category
+        Category grocery = new Category();
+        grocery.setName("Groceries");
+        user.addCategory(grocery);
+        grocery = categoryRepository.save(grocery);
+        Item tomatoes = new Item();
+        tomatoes.setName("Tomatoes");
+        tomatoes.setQuantity(6);
+        grocery.addItem(tomatoes);
+        tomatoes = itemRepository.save(tomatoes);
 
 
         switch(user.getProfession().toLowerCase()) {
             case "student":
                 //adding a category and two items for assignments
                 Category assignments = new Category();
-                assignments = categoryRepository.save(assignments);
                 assignments.setName("Assignments");
+                user.addCategory(assignments);
+                assignments = categoryRepository.save(assignments);
                 Item assignment1 = new Item();
-                assignment1 = itemRepository.save(assignment1);
                 assignment1.setName("Assignment 1");
                 assignment1.setQuantity(1);
+                assignments.addItem(assignment1);
                 Item assignment2 = new Item();
-                assignment2 = itemRepository.save(assignment2);
                 assignment2.setName("Assignment 2");
                 assignment1.setQuantity(1);
                 assignments.addItem(assignment2);
-                assignment2.setCategory(assignments);
-                assignments.addItem(assignment1);
-                assignment1.setCategory(assignments);
-                user.addCategory(assignments);
-                assignments.setUser(user);
+                assignment1 = itemRepository.save(assignment1);
+                assignment2 = itemRepository.save(assignment2);
 
                 //Tests schedule
                 Category tests = new Category();
-                tests = categoryRepository.save(tests);
                 tests.setName("Tests");
+                user.addCategory(tests);
+                tests = categoryRepository.save(tests);
                 Item OOP = new Item();
-                OOP = itemRepository.save(OOP);
                 OOP.setName("OOP test");
-                OOP.setCategory(tests);
                 OOP.setQuantity(1);
                 tests.addItem(OOP);
                 Item Logic = new Item();
-                Logic = itemRepository.save(Logic);
                 Logic.setName("Logic test");
                 Logic.setQuantity(1);
-                Logic.setCategory(tests);
                 tests.addItem(Logic);
-                user.addCategory(tests);
-                tests.setUser(user);
+                Logic = itemRepository.save(Logic);
+                OOP = itemRepository.save(OOP);
+
 
 
                 //Resources Page
                 Category resources = new Category();
-                resources = categoryRepository.save(resources);
                 resources.setName("Resources");
+                user.addCategory(resources);
+                resources = categoryRepository.save(resources);
                 Item oop = new Item();
-                oop = itemRepository.save(oop);
                 oop.setName("baeldung tutorials");
                 oop.setQuantity(1);
                 resources.addItem(oop);
-                oop.setCategory(resources);
-                user.addCategory(resources);
-                resources.setUser(user);
+                oop = itemRepository.save(oop);
+                resources = categoryRepository.save(resources);
+
 
 
                 break;
@@ -124,34 +134,30 @@ public class DashboardController {
             case "youtuber":
                 //idea category
                 Category ideas = new Category();
+                ideas.setName("Vlog Ideas");
+                user.addCategory(ideas);
                 ideas = categoryRepository.save(ideas);
                 Item idea1 = new Item();
-                idea1 = itemRepository.save(idea1);
                 idea1.setName("What I eat in a day");
                 idea1.setQuantity(1);
+                ideas.addItem(idea1);
                 Item idea2 = new Item();
-                idea2 = itemRepository.save(idea2);
                 idea2.setName("My daily routine");
                 idea2.setQuantity(1);
-                ideas.addItem(idea1);
                 ideas.addItem(idea2);
-                idea1.setCategory(ideas);
-                idea2.setCategory(ideas);
-                user.addCategory(ideas);
-                ideas.setUser(user);
+                idea2 = itemRepository.save(idea2);
+                idea1 = itemRepository.save(idea1);
 
                 //collab schedule
                 Category collab = new Category();
-                collab = categoryRepository.save(collab);
+                user.addCategory(collab);
                 collab.setName("Collaboration schedule");
+                collab = categoryRepository.save(collab);
                 Item item1 = new Item();
-                item1 = itemRepository.save(item1);
                 item1.setName("Meet with Saloni");
                 item1.setQuantity(1);
-                item1.setCategory(collab);
                 collab.addItem(item1);
-                collab.setUser(user);
-                user.addCategory(collab);
+                item1 = itemRepository.save(item1);
 
 
                 break;
@@ -159,52 +165,31 @@ public class DashboardController {
             case "software engineer":
                 //meeting category
                 Category meetings = new Category();
-                meetings = categoryRepository.save(meetings);
                 meetings.setName("Meetings");
+                user.addCategory(meetings);
+                meetings = categoryRepository.save(meetings);
                 Item meeting1 = new Item();
-                meeting1 = itemRepository.save(meeting1);
                 meeting1.setName("Meet with Brian");
                 meeting1.setQuantity(1);
                 meetings.addItem(meeting1);
-                meeting1.setCategory(meetings);
-                user.addCategory(meetings);
-                meetings.setUser(user);
+                meeting1 = itemRepository.save(meeting1);
+
 
                 //travel schedule
                 Category travel = new Category();
-                travel = categoryRepository.save(travel);
                 travel.setName("Travel Schedule");
+                user.addCategory(travel);
+                travel = categoryRepository.save(travel);
                 Item trip1 = new Item();
-                trip1 = itemRepository.save(trip1);
                 trip1.setName("Trip to US");
                 trip1.setQuantity(1);
-                trip1.setCategory(travel);
                 travel.addItem(trip1);
+                trip1 = itemRepository.save(trip1);
                 Item trip2 = new Item();
-                trip2 = itemRepository.save(trip2);
                 trip2.setName("Trip to Singapore");
                 trip2.setQuantity(1);
-                trip2.setCategory(travel);
                 travel.addItem(trip2);
-                travel.setUser(user);
-                user.addCategory(travel);
-
-
-                break;
-
-            case "home":
-                //groceries category
-                Category grocery = new Category();
-                grocery = categoryRepository.save(grocery);
-                grocery.setName("Groceries");
-                Item tomatoes = new Item();
-                tomatoes = itemRepository.save(tomatoes);
-                tomatoes.setName("Tomatoes");
-                tomatoes.setQuantity(6);
-                grocery.addItem(tomatoes);
-                tomatoes.setCategory(grocery);
-                user.addCategory(grocery);
-                grocery.setUser(user);
+                trip2 = itemRepository.save(trip2);
 
 
                 break;

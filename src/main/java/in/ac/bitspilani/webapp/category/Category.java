@@ -27,9 +27,10 @@ public class Category extends NamedEntity {
 
 
     @OneToMany(mappedBy = "category", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<Item> listOfItems;
+    private Set<Item> listOfItems = new HashSet<>();
     public void addItem(Item item){
         listOfItems.add(item);
+        item.setCategory(this);
     }
     public void removeItem(Item item){
         listOfItems.remove(item);
