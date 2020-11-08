@@ -43,6 +43,7 @@ public class UserController {
             return VIEWS_USER_CREATE_OR_UPDATE_FORM;
         }
         else {
+
             user.setId(userId);
             this.userRepository.save(user);
             return "redirect:/dashboard";

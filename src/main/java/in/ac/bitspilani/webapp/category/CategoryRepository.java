@@ -23,7 +23,7 @@ public interface CategoryRepository extends Repository<Category, Integer> {
 
     Category findById(Integer categoryId);
 
-    void save(Category category);
+    Category save(Category category);
 
     Long deleteById(Integer categoryId);
 }

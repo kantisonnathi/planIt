@@ -34,16 +34,18 @@
             <td th:text="${item.name}"></td>
             <td th:text="${item.quantity}">
             <td>
-                <a th:href="@{items/__${item.id}__/edit}" >Edit Item</a>
+                <a th:href="@{__${category.id}__/items/__${item.id}__/edit}" >Edit Item</a>
             </td>
             <td>
-                <a th:href="@{items/__${item.id}__/delete}">Delete Item</a>
+                <a th:href="@{__${category.id}__/items/__${item.id}__/delete}">Delete Item</a>
             </td>
         </tr>
 
         </tbody>
     </table>
 </div>
-<p><a th:href="@{item/new}">Add new item</a></p>
+<p><a th:href="@{__${category.id}__/item/new}">Add new item</a></p>
+<br>
+<p><a th:href="@{__${category.id}__/delete}">Delete category</a></p>
 </body>
 </html>

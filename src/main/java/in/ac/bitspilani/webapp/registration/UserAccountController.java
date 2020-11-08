@@ -1,4 +1,6 @@
 package in.ac.bitspilani.webapp.registration;
+import in.ac.bitspilani.webapp.category.Category;
+import in.ac.bitspilani.webapp.item.Item;
 import in.ac.bitspilani.webapp.user.User;
 import in.ac.bitspilani.webapp.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,27 +30,24 @@ public class UserAccountController {
     @Autowired
     private EmailService emailService;
 
-    @RequestMapping(value="/register", method = RequestMethod.GET)
-    public ModelAndView displayRegistration(ModelAndView modelAndView, User user)
-    {
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public ModelAndView displayRegistration(ModelAndView modelAndView, User user) {
         modelAndView.addObject("userEntity", user);
         modelAndView.setViewName("register");
         return modelAndView;
     }
 
 
-    @RequestMapping(value="/register", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView registerUser(ModelAndView modelAndView, User user) throws AddressException {
 
         User existingUser = userRepository.findByEmail(user.getEmail());
-        if(existingUser != null)
-        {
-            modelAndView.addObject("message","This email already exists!");
+        if (existingUser != null) {
+            modelAndView.addObject("message", "This email already exists!");
 
             modelAndView.setViewName("error");
-        }
-        else
-        {
+        } else {
+            // user = customisingDashboard(user);
             userRepository.save(user);
 
             ConfirmationToken confirmationToken = new ConfirmationToken(user);
@@ -60,7 +59,7 @@ public class UserAccountController {
             mailMessage.setTo(user.getEmail());
             mailMessage.setSubject("Complete Registration!");
             mailMessage.setText("To confirm your account, please click here : "
-                    +"http://localhost:8080/confirm-account?token="+confirmationToken.getConfirmationToken());
+                    + "http://localhost:8080/confirm-account?token=" + confirmationToken.getConfirmationToken());
 
             emailService.sendEmail(mailMessage);
 
@@ -73,25 +72,23 @@ public class UserAccountController {
         return modelAndView;
     }
 
-    @RequestMapping(value="/confirm-account", method= {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView confirmUserAccount(ModelAndView modelAndView, @RequestParam("token")String confirmationToken)
-    {
+    @RequestMapping(value = "/confirm-account", method = {RequestMethod.GET, RequestMethod.POST})
+    public ModelAndView confirmUserAccount(ModelAndView modelAndView, @RequestParam("token") String confirmationToken) {
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
 
-        if(token != null)
-        {
+        if (token != null) {
             User user = userRepository.findByEmail(token.getUser().getEmail());
             user.setEmailVerified(true);
+            //user = customisingDashboard(user);
             userRepository.save(user);
             modelAndView.setViewName("accountVerified");
-        }
-        else
-        {
-            modelAndView.addObject("message","The link is invalid or broken!");
+        } else {
+            modelAndView.addObject("message", "The link is invalid or broken!");
             User user = userRepository.findByEmail(token.getUser().getEmail());
             modelAndView.setViewName("error");
         }
 
         return modelAndView;
     }
+
 }
