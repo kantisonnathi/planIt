@@ -71,7 +71,7 @@ public class ItemController {
             item.setCategory(category);
             category.addItem(item);
             this.itemRepository.save(item);
-            return "redirect:/category/{categoryId}/itemDetails";
+            return "redirect:/user/{userId}/categories/{categoryId}/itemDetails";
         }
     }
 
