@@ -107,7 +107,7 @@ public class ItemController {
         }
         else {
             this.itemRepository.save(item);
-            return "redirect:/dashboard";
+            return "redirect:/user/{userId}/categories/{categoryId}/itemDetails";;
         }
     }
 
