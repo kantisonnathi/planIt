@@ -6,6 +6,7 @@ import in.ac.bitspilani.webapp.model.NamedEntity;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.util.Objects;
 
 @Entity
 public class Item extends NamedEntity {
@@ -32,5 +33,19 @@ public class Item extends NamedEntity {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return toDo == item.toDo &&
+                quantity.equals(item.quantity) && getId().equals(item.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(quantity, toDo, getId());
     }
 }

@@ -81,6 +81,8 @@ public class ItemController {
         /*itemRepository.deleteById(itemId);*/
 
         Item item = itemRepository.findById(itemId);
+        Category category = item.getCategory();
+        category.removeItem(item);
         itemRepository.delete(item);
         return "redirect:/dashboard";
     }
