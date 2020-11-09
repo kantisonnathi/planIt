@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class OAuth {
+public class  OAuth {
     public void auth() throws IOException {
         FileInputStream refreshToken = new FileInputStream("path/to/refreshToken.json");
 
