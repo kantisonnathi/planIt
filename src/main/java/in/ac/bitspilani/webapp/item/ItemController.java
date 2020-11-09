@@ -44,6 +44,10 @@ public class ItemController {
         dataBinder.setValidator(new ItemValidator());
     }
 
+    @GetMapping("/")
+    public String defaultMethod() {
+        return "redirect:/user/{userId}/categories/{categoryId}/itemDetails";
+    }
 
     @GetMapping("/itemDetails")
     public String ItemDetails(@PathVariable("categoryId") int categoryId, Map<String, Object> map) {
@@ -84,7 +88,7 @@ public class ItemController {
         Category category = item.getCategory();
         category.removeItem(item);
         itemRepository.delete(item);
-        return "redirect:/dashboard";
+        return "redirect:/user/{userId}/categories/{categoryId}/itemDetails";
     }
 
     @GetMapping("/item/new")
@@ -107,7 +111,7 @@ public class ItemController {
         }
         else {
             this.itemRepository.save(item);
-            return "redirect:/dashboard";
+            return "redirect:/user/{userId}/categories/{categoryId}/itemDetails";
         }
     }
 
