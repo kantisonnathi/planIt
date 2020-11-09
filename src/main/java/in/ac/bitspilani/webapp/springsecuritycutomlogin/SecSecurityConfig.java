@@ -56,6 +56,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/perform_login").permitAll()
                 .antMatchers("/forgot").permitAll()
                 .antMatchers("/changepwd").permitAll()
+                .antMatchers("/phoneverify").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -64,6 +65,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/perform_login")
                 .failureUrl("/custom_login?error=true")
                 .permitAll();
+
     }
 
     @Bean

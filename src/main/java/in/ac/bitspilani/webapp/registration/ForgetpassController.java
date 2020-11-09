@@ -59,7 +59,7 @@ public class ForgetpassController {
 
             emailService.sendEmail(mailMessage);
             modelAndView.addObject("emailId", user.getEmail());
-            modelAndView.setViewName("succesfulRegistration");
+            modelAndView.setViewName("Passwordchange");
         }
 
         return modelAndView;

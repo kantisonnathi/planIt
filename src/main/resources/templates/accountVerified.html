@@ -2,23 +2,23 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Congratulations!</title>
+    <title>Phone verification</title>
     <link rel="stylesheet" href="../static/css/accountVerified.css" th:href="@{/css/accountVerified.css}">
     <meta charset="UTF-8">
 </head>
 <body>
 <center>
-    <h1>Congratulations! Your account has been activated and email is verified!</h1>
     <h5>There are just a few more steps to complete the process</h5>
+
 </center>
 <div>
-<form id="mobreg">
+<form id="mobreg" th:object="${user}">
     <h3> Please enter your mobile number to create account and complete registration</h3>
     <p>Mobile Number: </p>
-<input type="text" id="number" placeholder="+91*******"> <br>
+<input type="text" id="number" placeholder="+91*******" th:field="*{phonenumber}"> <br>
 
 <div class ="recaptcha" id="recaptcha-container"></div>
-<button type="button" onclick="phoneAuth()">send code</button>
+<button type="button" onclick="phoneAuth()" id="phoneloginbtn">send code</button>
 </form><br>
 <h1>Enter verification code</h1>
 <form>
@@ -30,37 +30,26 @@
 </div>
 </body>
 
-<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-
-<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-
-<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
-
-<!-- Add Firebase products that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
 <script>
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     var firebaseConfig = {
-        apiKey: "AIzaSyBkqqtF50rZoS3p_q1KVN-Wwn9EtiN0lJg",
-        authDomain: "phone-verification-1a23c.firebaseapp.com",
-        databaseURL: "https://phone-verification-1a23c.firebaseio.com",
-        projectId: "phone-verification-1a23c",
-        storageBucket: "phone-verification-1a23c.appspot.com",
-        messagingSenderId: "391215206940",
-        appId: "1:391215206940:web:985714206a336e68d645d9",
-        measurementId: "G-CQDX4K1R90"
+        apiKey: "AIzaSyDh1uwHIeCLVvi9nc7btCcanGCcpj8xUlw",
+        authDomain: "web-project-a74d3.firebaseapp.com",
+        databaseURL: "https://web-project-a74d3.firebaseio.com",
+        projectId: "web-project-a74d3",
+        storageBucket: "web-project-a74d3.appspot.com",
+        messagingSenderId: "498140821440",
+        appId: "1:498140821440:web:7cb27338c373bd74affa25",
+        measurementId: "G-H9L3QBB3ER"
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
@@ -81,7 +70,7 @@
     function phoneAuth() {
         //get the number
         const number = document.getElementById('number').value;
-        firebase.auth.SignInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
+        firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
             window.confirmationResult = confirmationResult;
             coderesult = confirmationResult;
             console.log(coderesult);
@@ -106,5 +95,6 @@
     }
 
 </script>
+
 
 </html>
