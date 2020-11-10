@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.naming.Binding;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Map;
 
 
@@ -61,11 +62,13 @@ public class ItemController {
     public String showEditDetailsFormItem(@PathVariable("itemId") int itemId, ModelMap model) {
         Item item = itemRepository.findById(itemId);
         model.put("item", item);
+        List hello;
         return "dashboard/createOrUpdateItem";
+
     }
 
     @PostMapping("/items/{itemId}/edit")
-    public String addItem(@Valid Item item, Category category,BindingResult result, ModelMap model) {
+    public String addItem(Category category,@Valid Item item,BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             item.setCategory(category);
             model.put("item", item);
