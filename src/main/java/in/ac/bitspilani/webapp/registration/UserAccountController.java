@@ -19,7 +19,7 @@ import java.io.UnsupportedEncodingException;
 
 @Controller
 public class UserAccountController {
-    private String email;
+
     @Autowired
     private UserRepository userRepository;
 
@@ -49,7 +49,6 @@ public class UserAccountController {
         } else {
             // user = customisingDashboard(user);
             userRepository.save(user);
-            email=user.getEmail();
 
             ConfirmationToken confirmationToken = new ConfirmationToken(user);
 
@@ -91,14 +90,5 @@ public class UserAccountController {
 
         return modelAndView;
     }
-    /**@RequestMapping(value="/confirm-account",method =RequestMethod.POST)
-    public ModelAndView verifyphone(ModelAndView modelAndView, User user)
-    {
-        User enter=userRepository.findByEmail(email);
-        enter.setPhoneNumber(user.getPhoneNumber());
-        userRepository.save(user);
-        modelAndView.setViewName("Registration");
-        return modelAndView;
-    }**/
 
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@Order(value = 200 )
 public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     @Qualifier("myUserDetailsServices")
     @Autowired
@@ -42,6 +44,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user").hasAnyRole("USER","ADMIN")
                 .antMatchers("/").permitAll()
                 .and().formLogin();*/
+
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/*.js").permitAll()
@@ -57,6 +60,8 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/forgot").permitAll()
                 .antMatchers("/changepwd").permitAll()
                 .antMatchers("/phoneverify").permitAll()
+                .antMatchers("/").permitAll()
+                .antMatchers("/dashboard").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -64,6 +69,8 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/dashboard",true)
                 .loginProcessingUrl("/perform_login")
                 .failureUrl("/custom_login?error=true")
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/custom_login")
+                .and().oauth2Login()
                 .permitAll();
 
     }
