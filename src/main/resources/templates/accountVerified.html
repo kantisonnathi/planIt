@@ -12,19 +12,19 @@
     <h5>There are just a few more steps to complete the process</h5>
 </center>
 <div>
-<form id="mobreg">
-    <h3> Please enter your mobile number to create account and complete registration</h3>
-    <p>Mobile Number: </p>
-<input type="text" id="number" placeholder="+91*******"> <br>
+    <form id="mobreg">
+        <h3> Please enter your mobile number to create account and complete registration</h3>
+        <p>Mobile Number: </p>
+        <input type="text" id="number" placeholder="+91*******"> <br>
 
-<div class ="recaptcha" id="recaptcha-container"></div>
-<button type="button" onclick="phoneAuth()">send code</button>
-</form><br>
-<h1>Enter verification code</h1>
-<form>
-    <input type="text" id="verificationCode" placeholder="Enter verification code">
-    <button type="button" onclick="codeverify()">Verify code</button>
-</form>
+        <div class ="recaptcha" id="recaptcha-container"></div>
+        <button type="button" onclick="phoneAuth()">send code</button>
+    </form><br>
+    <h1>Enter verification code</h1>
+    <form>
+        <input type="text" id="verificationCode" placeholder="Enter verification code">
+        <button type="button" onclick="codeverify()">Verify code</button>
+    </form>
     <a href="/custom_login">Click here to login to your account </a>
 
 </div>
@@ -81,7 +81,7 @@
     function phoneAuth() {
         //get the number
         const number = document.getElementById('number').value;
-        firebase.auth.SignInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
+        firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
             window.confirmationResult = confirmationResult;
             coderesult = confirmationResult;
             console.log(coderesult);

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Forgot Password</title>
+</head>
+<body>
+<form action="#" th:action="@{/forgot}" th:object="${user}" method="post">
+
+
+    <label >Email</label>
+    <input th:field="*{email}" type="text" name="emailId"></input>
+
+    <input type="reset" value="Clear"/>
+    <input type="submit" value="Submit"></input>
+
+
+</form>
+</body>
+</html>

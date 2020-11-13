@@ -141,6 +141,7 @@ public class User extends NamedEntity {
 
     public void addCategory(Category category) {
         categories.add(category);
+        category.setUser(this);
     }
 
     public void removeCategory(Category category) {

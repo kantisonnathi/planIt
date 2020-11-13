@@ -24,12 +24,12 @@
 
 <div th:each="category : ${selections}" class="div">
     <div class="container" style="display: inline-block; flex-direction: row; justify-content: space-between">
-        <div class="box" style="display: inline-block; flex-direction: row; justify-content: space-between">
+        <div class="box" style="display: inline-block; flex-direction: row; justify-content: space-between; margin:0 auto;[B]padding:20px 0;[/B]">
             <div class="icon">
                 <th:block th:each="i: ${#numbers.sequence(1, 5)}"></th:block>
             </div>
             <div class="content">
-                <h3>Category Name: <a th:href="@{/user/__${user.id}__/categories/__${category.id}__}" th:text="${category.name}"></a><br></h3>
+                <h3>Category Name: <a th:href="@{/user/__${user.id}__/categories/__${category.id}__/itemDetails}" th:text="${category.name}"></a><br></h3>
                 <p>Description</p>
                 <a th:href="@{/user/__${user.id}__/categories/__${category.id}__/edit}">Edit Category</a>
             </div>

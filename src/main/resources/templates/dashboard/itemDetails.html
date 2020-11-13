@@ -22,6 +22,7 @@
             <th>Progress</th>
             <th>Name of Item</th>
             <th data-th="#">Quantity</th>
+            <th>Due Date</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -32,20 +33,21 @@
                 <input type="checkbox">
             </label></td>
             <td th:text="${item.name}"></td>
-            <td th:text="${item.quantity}">
+            <td th:text="${item.quantity}"></td>
+            <td th:text="${item.dueDate}"></td>
             <td>
-                <a th:href="@{__${category.id}__/items/__${item.id}__/edit}" >Edit Item</a>
+                <a th:href="@{items/__${item.id}__/edit}" >Edit Item</a>
             </td>
             <td>
-                <a th:href="@{__${category.id}__/items/__${item.id}__/delete}">Delete Item</a>
+                <a th:href="@{items/__${item.id}__/delete}">Delete Item</a>
             </td>
         </tr>
 
         </tbody>
     </table>
 </div>
-<p><a th:href="@{__${category.id}__/item/new}">Add new item</a></p>
+<p><a th:href="@{item/new}">Add new item</a></p>
 <br>
-<p><a th:href="@{__${category.id}__/delete}">Delete category</a></p>
+<p><a th:href="@{delete}">Delete category</a></p>
 </body>
 </html>

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.naming.Binding;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Map;
 
 
@@ -43,6 +45,10 @@ public class ItemController {
         dataBinder.setValidator(new ItemValidator());
     }
 
+    @GetMapping("/")
+    public String defaultMethod() {
+        return "redirect:/user/{userId}/categories/{categoryId}/itemDetails";
+    }
 
     @GetMapping("/itemDetails")
     public String ItemDetails(@PathVariable("categoryId") int categoryId, Map<String, Object> map) {
@@ -56,11 +62,13 @@ public class ItemController {
     public String showEditDetailsFormItem(@PathVariable("itemId") int itemId, ModelMap model) {
         Item item = itemRepository.findById(itemId);
         model.put("item", item);
+        List hello;
         return "dashboard/createOrUpdateItem";
+
     }
 
     @PostMapping("/items/{itemId}/edit")
-    public String addItem(@Valid Item item, Category category,BindingResult result, ModelMap model) {
+    public String addItem(Category category,@Valid Item item,BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             item.setCategory(category);
             model.put("item", item);
@@ -70,15 +78,20 @@ public class ItemController {
             item.setCategory(category);
             category.addItem(item);
             this.itemRepository.save(item);
-            return "redirect:/category/{categoryId}/itemDetails";
+            return "redirect:/user/{userId}/categories/{categoryId}/itemDetails";
         }
     }
 
     @GetMapping("/items/{itemId}/delete")
+    @Transactional
     public String deleteItem(@PathVariable("itemId") int itemId) {
-        itemRepository.deleteById(itemId);
+        /*itemRepository.deleteById(itemId);*/
 
-        return "redirect:/dashboard";
+        Item item = itemRepository.findById(itemId);
+        Category category = item.getCategory();
+        category.removeItem(item);
+        itemRepository.delete(item);
+        return "redirect:/user/{userId}/categories/{categoryId}/itemDetails";
     }
 
     @GetMapping("/item/new")
@@ -101,7 +114,7 @@ public class ItemController {
         }
         else {
             this.itemRepository.save(item);
-            return "redirect:/dashboard";
+            return "redirect:/user/{userId}/categories/{categoryId}/itemDetails";
         }
     }
 
