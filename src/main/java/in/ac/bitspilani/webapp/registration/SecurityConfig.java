@@ -7,20 +7,22 @@ import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+
 @Configuration
 @Order(value = 200 )
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
-    public void configure(HttpSecurity httpSecurity) throws Exception {
-         httpSecurity
-                 .antMatcher("/gmail/**").authorizeRequests()
-                 .antMatchers("/").permitAll()
-                 .anyRequest().authenticated()
-                 .and()
-                 .oauth2Login();
-         
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests().antMatchers("/", "/login**", "/error**").permitAll()
+                .anyRequest().authenticated()
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/")
+                .and().oauth2Login();
+    }
+
+
 
     }
-}
+
+
 
