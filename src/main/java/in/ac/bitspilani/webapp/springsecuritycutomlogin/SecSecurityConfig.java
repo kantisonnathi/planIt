@@ -60,7 +60,6 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/forgot").permitAll()
                 .antMatchers("/changepwd").permitAll()
                 .antMatchers("/phoneverify").permitAll()
-                .antMatchers("/").permitAll()
                 .antMatchers("/dashboard").permitAll()
                 .anyRequest().authenticated()
                 .and()
