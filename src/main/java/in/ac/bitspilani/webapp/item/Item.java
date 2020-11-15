@@ -28,7 +28,8 @@ public class Item extends NamedEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
 
-    public LocalDate getDueDate() {
+    public LocalDate getDueDate()
+    {
         return dueDate;
     }
 

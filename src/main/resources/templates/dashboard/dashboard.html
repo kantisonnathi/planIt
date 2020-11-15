@@ -10,11 +10,11 @@
     <h1 style= "color: cornflowerblue;">Dashboard</h1>
 
     <div class="topnav">
-        <b class="active" th:href="@{/}">Dashboard</b>
-        <b href="#tracker">Tracker</b>
-        <b href="#share">Share</b>
-        <b href="#details">About the Project</b>
-        <b href="diary">Personal Diary</b>
+        <a class="active" th:href="@{/}">Dashboard</a>
+        <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
+        <a href="#share">Share</a>
+        <a href="#details">About the Project</a>
+        <a href="#diary">Personal Diary</a>
     </div>
 </head>
 

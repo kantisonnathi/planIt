@@ -26,7 +26,7 @@
     <span th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></span>
 
     <label for="date">Due Date</label>
-    <input type="datetime-local" th:field="*{dueDate}" id="date" placeholder="Due Date">
+    <input type="date" th:field="*{dueDate}" id="date" placeholder="Due Date">
     <span th:if="${#fields.hasErrors('dueDate')}" th:errors="*{dueDate}"></span>
     <input type="submit" value="Update Item">
 </form>

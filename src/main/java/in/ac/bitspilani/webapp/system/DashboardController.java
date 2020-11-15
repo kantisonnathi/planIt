@@ -47,6 +47,20 @@ public class DashboardController {
         return "dashboard/dashboard";
     }
 
+    @GetMapping("user/{userId}/trigger")
+    public String trigger(@PathVariable("userId") int userId, ModelMap map) {
+        List<Category> categoryList = categoryRepository.findByUserId(userId);
+        System.out.println(categoryList);
+        List<Item> itemList = new ArrayList<>();
+        for (Category category : categoryList) {
+            List<Item> list = itemRepository.findByCategoryId(category.getId());
+            itemList.addAll(list);
+        }
+        System.out.println(itemList);
+        map.put("items",itemList);
+        return "dashboard/trigger";
+    }
+
 
 
 
