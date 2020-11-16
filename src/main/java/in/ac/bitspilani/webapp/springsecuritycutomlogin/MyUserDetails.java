@@ -1,6 +1,7 @@
 package in.ac.bitspilani.webapp.springsecuritycutomlogin;
 
 import in.ac.bitspilani.webapp.model.UserEntity;
+import in.ac.bitspilani.webapp.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,12 +17,15 @@ public class MyUserDetails implements UserDetails {
     private String email;
     private String password;
     private int id;
+    private boolean phonev;
+    private boolean emailv;
 
     public  MyUserDetails(UserEntity user)
     {
      this.email=user.getEmail();
      this.password=user.getPassword();
      this.id=user.getId();
+
     }
 
     @Override

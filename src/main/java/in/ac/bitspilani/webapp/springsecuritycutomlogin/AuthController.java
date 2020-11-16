@@ -10,4 +10,6 @@ public class AuthController {
     public String addingNewCategory() {
         return "registration/Registration";
     }
+
 }
+

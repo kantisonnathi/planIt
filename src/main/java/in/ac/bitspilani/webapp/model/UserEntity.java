@@ -63,6 +63,9 @@ public class UserEntity  {
         this.id = id;
     }
 
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
 
     public String getEmail() {
         return email;

@@ -2,6 +2,7 @@ package in.ac.bitspilani.webapp.springsecuritycutomlogin;
 
 
 import in.ac.bitspilani.webapp.model.UserEntity;
+import in.ac.bitspilani.webapp.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

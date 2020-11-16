@@ -19,7 +19,7 @@ import java.io.UnsupportedEncodingException;
 
 @Controller
 public class UserAccountController {
-
+       private String email;
     @Autowired
     private UserRepository userRepository;
 
@@ -40,7 +40,7 @@ public class UserAccountController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView registerUser(ModelAndView modelAndView, User user) throws AddressException {
-
+        email=user.getEmail();
         User existingUser = userRepository.findByEmail(user.getEmail());
         if (existingUser != null) {
             modelAndView.addObject("message", "This email already exists!");
@@ -62,7 +62,7 @@ public class UserAccountController {
                     + "http://localhost:8080/confirm-account?token=" + confirmationToken.getConfirmationToken());
 
             emailService.sendEmail(mailMessage);
-
+            modelAndView.addObject("userEntity",user);
 
             modelAndView.addObject("emailId", user.getEmail());
 
@@ -73,22 +73,47 @@ public class UserAccountController {
     }
 
     @RequestMapping(value = "/confirm-account", method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView confirmUserAccount(ModelAndView modelAndView, @RequestParam("token") String confirmationToken) {
+    public ModelAndView confirmUserAccount(ModelAndView modelAndView,User user, @RequestParam("token") String confirmationToken) {
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
 
         if (token != null) {
-            User user = userRepository.findByEmail(token.getUser().getEmail());
+             user = userRepository.findByEmail(token.getUser().getEmail());
             user.setEmailVerified(true);
             //user = customisingDashboard(user);
             userRepository.save(user);
+            modelAndView.addObject("userEntity",user);
             modelAndView.setViewName("accountVerified");
         } else {
             modelAndView.addObject("message", "The link is invalid or broken!");
-            User user = userRepository.findByEmail(token.getUser().getEmail());
+             user = userRepository.findByEmail(token.getUser().getEmail());
             modelAndView.setViewName("error");
         }
 
         return modelAndView;
     }
+
+
+    @RequestMapping(value = "/phonereg",  method = { RequestMethod.POST})
+    public void registerPhone(ModelAndView modelAndView, User user)
+    {
+        User fin=userRepository.findByEmail(email);
+        fin.setPhoneNumber(user.getPhoneNumber());
+        userRepository.save(fin);
+    }
+    @RequestMapping(value = "/success", method = RequestMethod.GET)
+    public ModelAndView displaySuccess(ModelAndView modelAndView, User user) {
+        user=userRepository.findByEmail(email);
+        user.setPhoneVerified(true);
+        if(user.isEmailVerified()&&user.isPhoneVerified())
+        {
+            user.setUserComplete(true);
+        }
+       userRepository.save(user);
+        modelAndView.setViewName("suceess");
+        return modelAndView;
+    }
+
+
+
 
 }
