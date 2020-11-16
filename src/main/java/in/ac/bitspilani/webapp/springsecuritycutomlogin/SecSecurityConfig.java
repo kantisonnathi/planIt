@@ -80,4 +80,3 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
         return NoOpPasswordEncoder.getInstance();
     }
 }
-

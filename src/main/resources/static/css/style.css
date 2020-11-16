@@ -2,7 +2,7 @@ head {
     font-family: Verdana;
 }
 body {
-    font-famile: Verdana;
+    font-family: Verdana;
 }
 h1 {
     font-family: Verdana;
@@ -11,31 +11,38 @@ h2 {
     font-family: Verdana;
     text-align: center;
 }
+/* Add a black background color to the top navigation */
 .topnav {
     background-color: darkblue;
     overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
-.topnav b {
+.topnav a {
     float: left;
-    color: #f2f2f2;
+    color: darkblue;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
 }
+
 /* Change the color of links on hover */
-.topnav b:hover {
-    background-color: #ddd;
-    color: black;
+.topnav a:hover {
+    background-color: darkblue;
+    color: white;
 }
 
 /* Add a color to the active/current link */
-.topnav b.active {
-    background-color: cornflowerblue;
+.topnav a.active {
+    background-color: darkblue;
     color: white;
 }
+
+#space {
+    width:500px;
+}
+
 
 
 .div .container
