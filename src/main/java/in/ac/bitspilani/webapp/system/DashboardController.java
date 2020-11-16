@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.time.LocalDate;
 import java.util.*;
 
 @Controller
@@ -56,8 +57,16 @@ public class DashboardController {
             List<Item> list = itemRepository.findByCategoryId(category.getId());
             itemList.addAll(list);
         }
-        System.out.println(itemList);
-        map.put("items",itemList);
+        //System.out.println(itemList);
+        LocalDate today = LocalDate.now();
+        List<Item> finalItems = new ArrayList<>();
+        for (Item item : itemList) {
+            LocalDate dueDate = item.getDueDate();
+            if (dueDate.compareTo(today) > 0) {
+                finalItems.add(item);
+            }
+        }
+        map.put("items",finalItems);
         return "dashboard/trigger";
     }
 

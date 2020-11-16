@@ -13,7 +13,7 @@ h2 {
 }
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: #333;
+    background-color: darkblue;
     overflow: hidden;
 }
 
@@ -30,13 +30,17 @@ h2 {
 /* Change the color of links on hover */
 .topnav a:hover {
     background-color: darkblue;
-    color: black;
+    color: white;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-    background-color: #4CAF50;
-    color: darkblue;
+    background-color: darkblue;
+    color: white;
+}
+
+#space {
+    width:500px;
 }
 
 
