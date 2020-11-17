@@ -7,14 +7,19 @@
 </head>
 <body>
 
-<form action="#"  th:action="@{/changepwd}" th:object="${user}" method="post">
 
+<div class="container">
 
-    <label>Enter new Password</label>
-    <input th:field="*{password}" type="password" name="password"></input>
-    <input type="reset" value="Clear"/>
-    <input type="submit" value="Submit"></input>
+    <form class="form" action="#"  th:action="@{/changepwd}" th:object="${user}" method="post">
 
-</form>
+        <label>Enter new Password</label>
+        <input th:field="*{password}" type="password" name="password"></input>
+        <input type="reset" value="Clear"/>
+        <input type="submit" value="Submit"></input>
+
+    </form>
+
+</div>
+
 </body>
 </html>

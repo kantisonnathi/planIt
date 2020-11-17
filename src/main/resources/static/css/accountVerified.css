@@ -18,7 +18,7 @@ h1 {
 #mobreg th h1 {
     font-weight: bold;
     font-size: 1em;
-    text-align: left;
+    text-align: center;
     color: #185875;
 }
 #mobreg td {
@@ -30,9 +30,9 @@ h1 {
 }
 
 #mobreg {
-    text-align: left;
+    text-align: center;
     overflow: hidden;
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
     display: table;
     padding: 0 0 8em 0;
