@@ -8,7 +8,8 @@
 </head>
 <body>
 <center>
-    <h1>Congratulations! Your account has been activated and email is verified!</h1>
+    <h1>Congratulations!</h1>
+    <h2> Your email has been verified!</h2>
     <h3>There are just a few more steps to complete the process</h3>
 </center>
 <div>
@@ -19,8 +20,10 @@
         <h3>Enter Mobile number </h3>
         <p>Mobile Number: </p>
         <input type="text" id="number" th:field="*{phoneNumber}" placeholder="+91*******">
+            <br>
+            <br>
 
-        <div class ="recaptcha" id="recaptcha-container"></div>
+            <center><div class ="recaptcha" id="recaptcha-container"></div></center>
         <button type="button" onclick="phoneAuth()">send code</button>
             <br>
             <br>
