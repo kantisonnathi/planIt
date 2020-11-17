@@ -62,7 +62,6 @@ public class ItemController {
     public String showEditDetailsFormItem(@PathVariable("itemId") int itemId, ModelMap model) {
         Item item = itemRepository.findById(itemId);
         model.put("item", item);
-        List hello;
         return "dashboard/createOrUpdateItem";
 
     }
