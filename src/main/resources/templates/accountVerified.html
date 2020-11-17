@@ -13,8 +13,10 @@
     <h3>There are just a few more steps to complete the process</h3>
 </center>
 <div>
-    <th th:action="@{/phonereg}" th:object="${user}" method="post">
-        <table id="mobreg" >
+
+    <form th:action="@{/phonereg}" th:object="${user}" method="post">
+
+        <table id="mobreg">
             <td>
                 <centre>
                     <h3>Enter Mobile number </h3>
@@ -34,10 +36,7 @@
 
                 </centre>
             </td>
-
-        </table>
-
-
+    </table>
 
 </div>
 </body>
