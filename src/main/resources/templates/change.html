@@ -8,16 +8,19 @@
 <body>
 
 
-<div class="container">
+<div id="sc-password">
+    <h1>Reset Password</h1>
 
+    <div class="sc-container">
     <form class="form" action="#"  th:action="@{/changepwd}" th:object="${user}" method="post">
 
         <label>Enter new Password</label>
         <input th:field="*{password}" type="password" name="password"></input>
-        <input type="reset" value="Clear"/>
+        <center><input type="reset" value="Clear"/></center><br><br>
         <input type="submit" value="Submit"></input>
 
     </form>
+    </div>
 
 </div>
 
