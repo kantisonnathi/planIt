@@ -30,6 +30,9 @@ body, html {
 div#sc-password .sc-container {
     background: #f0f0f0;
     padding: 6% 4%;
+    font-family: SansSerif;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 div#sc-password input[type="email"],
