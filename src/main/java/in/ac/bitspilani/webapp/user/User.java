@@ -60,7 +60,7 @@ public class User extends NamedEntity {
          */
     public boolean isUserComplete = false;
 
-    @Column(name = "phone_number")
+    @Column(name = "phoneNumber")
     private String phoneNumber;
 
     @Column(name = "profession")

@@ -6,7 +6,7 @@ create table user
 	email varchar(255) null,
 	email_verified bit null,
 	is_user_complete bit not null,
-	phone_number varchar(255) null,
+	phoneNumber varchar(255) null,
 	phone_verified bit null,
 	profession varchar(255) null
 );
