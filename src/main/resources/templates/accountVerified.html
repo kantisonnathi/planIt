@@ -8,24 +8,35 @@
 </head>
 <body>
 <center>
-    <h1>Congratulations! Your account has been activated and email is verified!</h1>
-    <h5>There are just a few more steps to complete the process</h5>
+    <h1>Congratulations!</h1>
+    <h2> Your email has been verified!</h2>
+    <h3>There are just a few more steps to complete the process</h3>
 </center>
 <div>
-    <form  th:action="@{/phonereg}" th:object="${user}"  method="post" id="mobreg" >
-        <h3> Please enter your mobile number to create account and complete registration</h3>
-        <p>Mobile Number: </p>
-        <input type="text" id="number" th:field="*{phoneNumber}"  placeholder="+91*******"> <br>
 
-        <div class ="recaptcha" id="recaptcha-container"></div>
-        <button type="button" onclick="phoneAuth()">send code</button>
-    </form><br>
-    <h1>Enter verification code</h1>
-    <form>
-        <input type="text"  id="verificationCode" placeholder="Enter verification code">
-        <button type="button" onclick="codeverify()">Verify code</button>
-    </form>
+    <form th:action="@{/phonereg}" th:object="${user}" method="post">
 
+        <table id="mobreg">
+            <td>
+                <centre>
+                    <h3>Enter Mobile number </h3>
+                    <p>Mobile Number: </p>
+                    <input type="text" id="number" th:field="*{phoneNumber}" placeholder="+91*******">
+                    <br>
+                    <br>
+
+                    <center><div class ="recaptcha" id="recaptcha-container"></div></center>
+                    <button type="button" onclick="phoneAuth()">send code</button>
+                    <br>
+                    <br>
+                    <br>
+                    <h3>Enter verification code</h3>
+                    <input type="text" id="verificationCode" placeholder="Enter verification code">
+                    <button type="button" onclick="codeverify()">Verify code</button>
+
+                </centre>
+            </td>
+    </table>
 
 </div>
 </body>
