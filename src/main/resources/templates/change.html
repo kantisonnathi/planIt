@@ -1,54 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <!DOCTYPE html>
-    <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-          xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="../static/css/forgot.css" th:href="@{/css/forgot.css}">
-        <title>Forgot Password</title>
-    </head>
-<body>
-
-<div id="forgot">
-    <h1>Forgot Password</h1>
-
-    <div class="forgot-container">
-
-        <form action="#" th:action="@{/forgot}" th:object="${user}" method="post">
-
-            <label >Email</label>
-            <input th:field="*{email}" type="text" name="emailId"></input>
-
-            <center><input type="reset" value="Clear"/></center><br><br>
-            <input type="submit" value="Submit"></input>
-
-        </form>
-    </div>
-</div>
-=======
-</form>
-
->>>>>>> f07c103cc343fb623f009828535c5518a6ddff71
-</body>
-
-</html>
+    <link rel="stylesheet" href="../static/css/change.css" th:href="@{/css/change.css}">
     <title>Change password </title>
 </head>
 <body>
+    <div id="sc-password">
+        <h1>Change Password</h1>
 
-<form action="#"  th:action="@{/changepwd}" th:object="${user}" method="post">
+        <div class="sc-container">
 
+        <form action="#"  th:action="@{/changepwd}" th:object="${user}" method="post">
+            <label>Enter new Password</label>
+            <input  th:field="*{password}" name="password" id="password" type="password" size="15" maxlength="100" onkeyup="return passwordChanged();" />
+            <span id="strength"></span>
+            <center><input type="reset" value="Clear"/></center><br><br>
+            <input type="submit" value="Submit" id="submit"></input>
+        </form>
 
-    <label>Enter new Password</label>
-    <input  th:field="*{password}" name="password" id="password" type="password" size="15" maxlength="100" onkeyup="return passwordChanged();" />
-    <span id="strength"></span>
-    <input type="reset" value="Clear"/>
-    <input type="submit" value="Submit" id="submit"></input>
-
-</form>
+        </div>
+    </div>
 </body>
 <script language="javascript">
     function passwordChanged() {
