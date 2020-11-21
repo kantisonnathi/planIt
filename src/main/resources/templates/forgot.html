@@ -3,19 +3,27 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/forgot.css" th:href="@{/css/forgot.css}">
     <title>Forgot Password</title>
 </head>
 <body>
-<form action="#" th:action="@{/forgot}" th:object="${user}" method="post">
+
+<div id="forgot">
+    <h1>Forgot Password</h1>
+
+    <div class="forgot-container">
+
+        <form action="#" th:action="@{/forgot}" th:object="${user}" method="post">
 
 
-    <label >Email</label>
-    <input th:field="*{email}" type="text" name="emailId"></input>
+            <label >Email</label>
+            <input th:field="*{email}" type="text" name="emailId"></input>
 
-    <input type="reset" value="Clear"/>
-    <input type="submit" value="Submit"></input>
+            <center><input type="reset" value="Clear"/></center><br><br>
+            <input type="submit" value="Submit"></input>
 
-
-</form>
+        </form>
+    </div>
+</div>
 </body>
 </html>
