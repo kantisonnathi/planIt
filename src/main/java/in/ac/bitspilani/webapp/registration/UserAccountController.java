@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -60,9 +61,9 @@ public class UserAccountController {
             mailMessage.setSubject("Complete Registration!");
             mailMessage.setText("To confirm your account, please click here : "
                     + "http://localhost:8080/confirm-account?token=" + confirmationToken.getConfirmationToken());
-
+           User test=new User();
             emailService.sendEmail(mailMessage);
-            modelAndView.addObject("userEntity",user);
+            modelAndView.addObject("userEntity",test);
 
             modelAndView.addObject("emailId", user.getEmail());
 
@@ -77,15 +78,15 @@ public class UserAccountController {
         ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
 
         if (token != null) {
-             user = userRepository.findByEmail(token.getUser().getEmail());
-            user.setEmailVerified(true);
+            User use = userRepository.findByEmail(token.getUser().getEmail());
+            use.setEmailVerified(true);
             //user = customisingDashboard(user);
-            userRepository.save(user);
             modelAndView.addObject("userEntity",user);
+            userRepository.save(use);
             modelAndView.setViewName("accountVerified");
         } else {
             modelAndView.addObject("message", "The link is invalid or broken!");
-             user = userRepository.findByEmail(token.getUser().getEmail());
+            User  use = userRepository.findByEmail(token.getUser().getEmail());
             modelAndView.setViewName("error");
         }
 
@@ -93,12 +94,21 @@ public class UserAccountController {
     }
 
 
+    @RequestMapping(value = "/phonereg",  method = { RequestMethod.GET})
+    public ModelAndView registerPhone(ModelAndView modelAndView, User user)
+    {
+        modelAndView.addObject("userEntity",user);
+        modelAndView.setViewName("accountVerified");
+
+       return modelAndView;
+    }
     @RequestMapping(value = "/phonereg",  method = { RequestMethod.POST})
-    public void registerPhone(ModelAndView modelAndView, User user)
+    public void galeez(ModelAndView modelAndView,User user)
     {
         User fin=userRepository.findByEmail(email);
         fin.setPhoneNumber(user.getPhoneNumber());
         userRepository.save(fin);
+
     }
     @RequestMapping(value = "/success", method = RequestMethod.GET)
     public ModelAndView displaySuccess(ModelAndView modelAndView, User user) {

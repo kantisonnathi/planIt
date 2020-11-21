@@ -2,27 +2,44 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/css/change.css" th:href="@{/css/change.css}">
     <title>Change password </title>
 </head>
 <body>
 
+<form action="#"  th:action="@{/changepwd}" th:object="${user}" method="post">
 
-<div id="sc-password">
-    <h1>Reset Password</h1>
 
-    <div class="sc-container">
-    <form class="form" action="#"  th:action="@{/changepwd}" th:object="${user}" method="post">
+    <label>Enter new Password</label>
+    <input  th:field="*{password}" name="password" id="password" type="password" size="15" maxlength="100" onkeyup="return passwordChanged();" />
+    <span id="strength"></span>
+    <input type="reset" value="Clear"/>
+    <input type="submit" value="Submit" id="submit"></input>
 
-        <label>Enter email ID</label>
-        <input th:field="*{password}" type="password" name="password"></input>
-        <center><input type="reset" value="Clear"/></center><br><br>
-        <input type="submit" value="Submit"></input>
-
-    </form>
-    </div>
-
-</div>
-
+</form>
 </body>
+<script language="javascript">
+    function passwordChanged() {
+        const button=document.getElementById('submit');
+        var strength = document.getElementById('strength');
+        var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+        var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+        var enoughRegex = new RegExp("(?=.{6,}).*", "g");
+        var pwd = document.getElementById("password");
+        if (pwd.value.length == 0) {
+            strength.innerHTML = 'Type Password';
+        } else if (false == enoughRegex.test(pwd.value)) {
+            strength.innerHTML = 'Your password must contain more characters!';
+            button.disabled=true;
+        } else if (strongRegex.test(pwd.value)) {
+            strength.innerHTML = '<span style="color:#008000">Strong!</span>';
+            button.disabled=false;
+        } else if (mediumRegex.test(pwd.value)) {
+            strength.innerHTML = '<span style="color:orange">Medium!</span>';
+            button.disabled=true;
+        } else {
+            strength.innerHTML = '<span style="color:red">Weak!</span>';
+            button.disabled=true;
+        }
+    }
+</script>
 </html>

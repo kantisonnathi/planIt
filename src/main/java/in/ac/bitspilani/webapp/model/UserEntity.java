@@ -14,7 +14,7 @@ public class UserEntity  {
    // private String userName;
     private String password;
     private String email;
-
+    private String phoneNumber;
 
     public Set<Category> getCategories() {
         return categories;
@@ -40,6 +40,35 @@ public class UserEntity  {
         }
         return null;
     }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public boolean isPhoneVerified() {
+        return phoneVerified;
+    }
+
+    public void setPhoneVerified(boolean phoneVerified) {
+        this.phoneVerified = phoneVerified;
+    }
+
+    public boolean isEmailVerified() {
+        return emailVerified;
+    }
+
+    public void setEmailVerified(boolean emailVerified) {
+        this.emailVerified = emailVerified;
+    }
+
+    @Column(name = "phone_verified")
+    public boolean phoneVerified;
+    @Column(name = "email_verified")
+    public boolean emailVerified;
 
     protected Set<Category> getCategoriesInternal() {
         if (this.categories == null) {

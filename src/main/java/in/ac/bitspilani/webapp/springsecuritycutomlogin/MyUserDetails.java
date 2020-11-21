@@ -25,7 +25,8 @@ public class MyUserDetails implements UserDetails {
      this.email=user.getEmail();
      this.password=user.getPassword();
      this.id=user.getId();
-
+     this.phonev=user.isPhoneVerified();
+     this.emailv=user.isEmailVerified();
     }
 
     @Override
@@ -64,6 +65,9 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        if(phonev&&emailv) {
+            return true;
+        }
+        return false;
     }
 }
