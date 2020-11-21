@@ -2,6 +2,7 @@ package in.ac.bitspilani.webapp.item;
 
 import org.springframework.data.repository.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ItemRepository extends Repository<Item, Integer> {
@@ -16,4 +17,6 @@ public interface ItemRepository extends Repository<Item, Integer> {
     Long deleteById(Integer itemId);
 
     void delete(Item item);
+
+    List<Item> findAllByDueDate(LocalDate dueDate);
 }
