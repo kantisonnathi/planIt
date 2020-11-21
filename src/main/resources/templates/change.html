@@ -10,11 +10,17 @@
 <body>
     <div id="sc-password">
         <h1>Change Password</h1>
-
         <div class="sc-container">
-
         <form action="#"  th:action="@{/changepwd}" th:object="${user}" method="post">
+            <p>Here are a few guidelines for your password </p>
+            <p>Your password should have: </p>
+            <p>1. A minimum of 8 characters </p>
+            <p>2. At least 1 uppercase letter </p>
+            <p>3. At least 1 symbol </p>
+            <p>4. At least 1 number </p><br><br>
+
             <label>Enter new Password</label>
+
             <input  th:field="*{password}" name="password" id="password" type="password" size="15" maxlength="100" onkeyup="return passwordChanged();" />
             <span id="strength"></span>
             <center><input type="reset" value="Clear"/></center><br><br>
