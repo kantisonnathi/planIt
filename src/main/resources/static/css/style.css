@@ -50,20 +50,20 @@ h2 {
     display: inline-block;
     flex-wrap: wrap;
     justify-content: space-between;
-    flex-direction: column;
+    flex-direction: row;
     float: left;
     padding: 10px;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     margin: auto;
 }
 
 .div .container .box
 {
-    display: inline-block;
+    /* display: inline-block; */
     position: relative;
     width: 350px;
-    padding: 100px;
+    padding: 50px;
     background: #fff;
     box-shadow: 0 5px 15px rgba(0,0,0,.1);
     border-radius: 4px;
