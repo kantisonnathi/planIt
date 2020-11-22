@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -34,7 +35,9 @@ public class DiaryController {
 
     @GetMapping
     public String personalDiaryHome(User user, ModelMap modelMap) {
-        List<DiaryEntry> entries = diaryEntryRepository.findAllByByUserId(user.getId());
+        List<DiaryEntry> entries = diaryEntryRepository.findAllByUser(user);
+        LocalDate date = LocalDate.now();
+        modelMap.put("date", date);
         modelMap.put("user", user);
         modelMap.put("entries", entries);
         return "diary/diary";
