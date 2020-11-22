@@ -9,6 +9,16 @@
     <title>Dashboard</title>
     <h1 style= "color: cornflowerblue;">Dashboard</h1>
 
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function() {
+            OneSignal.init({
+                appId: "dd39b912-e890-4db9-b4ed-19730b0763b0",
+            });
+        });
+    </script>
+
     <div class="topnav">
         <a class="active" th:href="@{/}">Dashboard</a>
         <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
