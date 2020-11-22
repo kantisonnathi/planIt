@@ -28,7 +28,6 @@
     <input type="hidden" th:field="*{phoneNumber}" id="phoneNumber" placeholder="Phone Number"/>
     <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span>
 
-
     <div>
         <button
                 th:with="text=${user['new']} ? 'Add User' : 'Update User'"

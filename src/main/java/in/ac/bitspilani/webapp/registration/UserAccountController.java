@@ -47,7 +47,8 @@ public class UserAccountController {
             modelAndView.addObject("message", "This email already exists!");
 
             modelAndView.setViewName("error");
-        } else {
+        }
+        else {
             // user = customisingDashboard(user);
             userRepository.save(user);
 
@@ -102,6 +103,7 @@ public class UserAccountController {
 
        return modelAndView;
     }
+
     @RequestMapping(value = "/phonereg",  method = { RequestMethod.POST})
     public void galeez(ModelAndView modelAndView,User user)
     {

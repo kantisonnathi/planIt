@@ -7,13 +7,16 @@
 <body>
 <form action="#" th:action="@{/register}" th:object="${user}" method="post">
 
+<label>Name</label>
+    <input th:field="*{name}" type="text" name="name">
 
         <label >Email</label>
             <input th:field="*{email}" type="text" name="emailId"></input>
 
           <label>Profession</label>
             <input th:field="*{profession}" type="text" name="professions"></input>
-
+         <label>Phone number</label>
+    <input th:field="*{phoneNumber}" type="text" name="phoneNumber"></input>
         <label >Password</label>
     <input  th:field="*{password}" name="password" id="password" type="password" size="15" maxlength="100" onkeyup="return passwordChanged();" />
     <span id="strength"></span>
