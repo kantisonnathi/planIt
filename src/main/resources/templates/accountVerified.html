@@ -14,14 +14,15 @@
 </center>
 <div>
 
-    <form th:action="@{/phonereg}" th:object="${user}" method="post">
+    <form th:action="@{/phonereg}" th:object="${userEntity}" method="post">
 
         <table id="mobreg">
             <td>
                 <centre>
                     <h3>Enter Mobile number </h3>
-                    <p>Mobile Number: </p>
-                    <input type="text" id="number" th:field="${phoneNumber}" placeholder="+91*******">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="text" th:field="*{phoneNumber}" id="phoneNumber" placeholder="phoneNumber">
+                    <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span>
                     <br>
                     <br>
 
