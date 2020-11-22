@@ -114,7 +114,7 @@ public class UserAccountController {
     public ModelAndView displaySuccess(ModelAndView modelAndView, User user) {
         user=userRepository.findByEmail(email);
         user.setPhoneVerified(true);
-        if(user.isEmailVerified()&&user.isPhoneVerified())
+        if(user.isEmailVerified() && user.isPhoneVerified())
         {
             user.setUserComplete(true);
         }
