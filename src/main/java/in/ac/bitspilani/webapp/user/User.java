@@ -60,6 +60,11 @@ public class User extends NamedEntity {
          */
     public boolean isUserComplete = false;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "auth_provider")
+    private AuthenticationProvider authProvider;
+
+
     @Column(name = "phoneNumber")
     private String phoneNumber;
 
@@ -155,6 +160,14 @@ public class User extends NamedEntity {
 
                 .append("id", this.getId()).append("new", this.isNew())
                 .append("name", this.getName()).append("phoneNumber",this.getPhoneNumber()).toString();
+    }
+
+    public AuthenticationProvider getAuthProvider() {
+        return authProvider;
+    }
+
+    public void setAuthProvider(AuthenticationProvider authProvider) {
+        this.authProvider = authProvider;
     }
 }
 
