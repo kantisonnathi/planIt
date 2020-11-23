@@ -27,12 +27,16 @@
         <tbody>
         <tr th:each="entry : ${entries}">
             <td th:text="${entry.date}"></td>
-            <td th:text="${entry.name}"></td>
-            <td th:href="@{/entry/__${entry.id}__}">Edit Entry</td>
+            <td>
+                <a th:href="@{/user/__${user.id}__/diary/entry/__${entry.id}__}" th:text="${entry.name}"></a>
+            </td>
+            <td>
+                <a th:href="@{/user/__${user.id}__/diary/entry/__${entry.id}__/edit}">Edit entry</a>
+            </td>
         </tr>
         </tbody>
     </table>
-<a th:href="@{/entry/new}">Add new Entry</a>
+<a th:href="@{entry/new}">Add new Entry</a>
 
 
 </body>

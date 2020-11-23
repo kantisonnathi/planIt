@@ -40,4 +40,21 @@ public class DiaryController {
         modelMap.put("entries", entries);
         return "diary/diary";
     }
+
+    @GetMapping("entry/{entryId}")
+    public String personalDiaryDisplay(@PathVariable("entryId") int entryId, User user, ModelMap modelMap) {
+        modelMap.put("user",user);
+        DiaryEntry diaryEntry = diaryEntryRepository.findById(entryId);
+        modelMap.put("entry",diaryEntry);
+        return "diary/diaryEntryDisplay";
+    }
+
+    @GetMapping("entry/{entryId}/edit")
+    public String personalDiaryEdit(@PathVariable("entryId") int entryId, User user, ModelMap modelMap) {
+        DiaryEntry diaryEntry = diaryEntryRepository.findById(entryId);
+        modelMap.put("user",user);
+        modelMap.put("entry", diaryEntry);
+        return "diary/createOrUpdateDiaryEntry";
+    }
+
 }
