@@ -36,7 +36,7 @@ public class ScheduledTasks {
         this.userRepository = userRepository;
         this.emailService = emailService;
         AUTH_SID="ACc63f3b4b4be59964b3f675061bdf5a06";
-        AUTH_TOKEN="194af1e7834fd831b7b62dd7cef8f240";
+        AUTH_TOKEN="2e85596ee9b7fcfc0bc45875340eea46";
     }
 
     @Scheduled(fixedDelay = 86400 * 1000)
