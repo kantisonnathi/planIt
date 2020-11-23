@@ -2,11 +2,26 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../static/css/trigger.css" th:href="@{/css/trigger.css}">
+    <meta charset="ISO-8859-1">
     <title>Trigger</title>
 </head>
 <body>
 
-<p>Trigger page</p>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fa3f2030594c7c4"></script>
+
+<h1 style="color: cornflowerblue">To-Do Deadlines</h1>
+
+<div class="topnav">
+    <a class="active" href="#dashboard">Dashboard</a>
+    <a href="#tracker">Tracker</a>
+    <a href="#share">Share</a>
+    <a href="#details">About the Project</a>
+</div>
+<br>
+
 <div class="container">
     <table class="tableitem" id="item_table">
         <thead>

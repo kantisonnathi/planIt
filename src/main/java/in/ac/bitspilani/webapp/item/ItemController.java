@@ -2,6 +2,8 @@ package in.ac.bitspilani.webapp.item;
 
 import in.ac.bitspilani.webapp.category.Category;
 import in.ac.bitspilani.webapp.category.CategoryRepository;
+import in.ac.bitspilani.webapp.user.User;
+import in.ac.bitspilani.webapp.user.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -24,10 +26,23 @@ public class ItemController {
 
     private final CategoryRepository categoryRepository;
     private final ItemRepository itemRepository;
+    private final UserRepository userRepository;
 
-    public ItemController(CategoryRepository categoryRepository, ItemRepository itemRepository) {
+
+    public ItemController(CategoryRepository categoryRepository, ItemRepository itemRepository, UserRepository userRepository) {
         this.categoryRepository = categoryRepository;
         this.itemRepository = itemRepository;
+        this.userRepository = userRepository;
+    }
+
+    @ModelAttribute("user")
+    public User findUser(@PathVariable("userId") int userId) {
+        return this.userRepository.findById(userId);
+    }
+
+    @InitBinder("user")
+    public void initUserBinder(WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields("id");
     }
 
     @ModelAttribute("category")
@@ -51,10 +66,11 @@ public class ItemController {
     }
 
     @GetMapping("/itemDetails")
-    public String ItemDetails(@PathVariable("categoryId") int categoryId, Map<String, Object> map) {
+    public String ItemDetails(@PathVariable("categoryId") int categoryId,User user, Map<String, Object> map) {
         ModelAndView mav = new ModelAndView("dashboard/categoryDetails");
         Category category = categoryRepository.findById(categoryId);
         map.put("selections", category.getItems());
+        map.put("user", user);
         return "dashboard/itemDetails";
     }
 

@@ -8,9 +8,9 @@
 <h2>Edit and add user</h2>
 <div class="topnav">
     <a class="active" href="#dashboard">Dashboard</a>
-    <a href="#tracker">Tracker</a>
-    <a href="#share">Share</a>
-    <a href="#details">About the Project</a>
+    <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
+    <a href="/diary">Diary</a>
+    <a href="/about">About the Project</a>
 </div>
 
 <form action="#"
@@ -25,7 +25,12 @@
     <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
     <input type="hidden" th:field="${user.email}" id="email" placeholder="Email"/>
     <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
-    <input type="hidden" th:field="*{phoneNumber}" id="phoneNumber" placeholder="Phone Number"/>
+    <input type="hidden" th:field="${user.password}" id="password" placeholder="Password"/>
+    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+    <input type="text" th:field="*{phoneNumber}" id="phoneNumber" placeholder="Phone Number"/>
+    <input type="hidden" th:field="${user.profession}" id="profession" placeholder="Profession"/>
+    <span th:if="${#fields.hasErrors('profession')}" th:errors="*{profession}"></span>
+
     <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span>
 
     <div>

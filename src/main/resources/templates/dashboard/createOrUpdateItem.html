@@ -8,14 +8,11 @@
 <body>
 <h2>Edit/Create Item</h2>
 <div class="topnav">
-    <a class="active" href="#dashboard">Dashboard</a>
-    <a href="#tracker">Tracker</a>
-    <a href="#share">Share</a>
-    <a href="#details">About the Project</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/trigger">Trigger</a>
+    <a href="/about">About the Project</a>
 </div>
-<form action="#"
-      th:object="${item}"
-      method="post">
+<form action="#" th:object="${item}" method="post">
     <input type="hidden" name="id" th:value="${item.id}"/>
     <label for="name">Name</label>
     <input type="text" th:field="*{name}" id="name" placeholder="Name">

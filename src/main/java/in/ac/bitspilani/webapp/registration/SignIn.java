@@ -24,7 +24,7 @@ public class SignIn {
     }
 
     public void setStatus() {
-        if(username.equals("Sahithi")&&password.equals("sahithi")) {
+        if (username.equals("Sahithi")&&password.equals("sahithi")) {
             status = true;
         }
         else
@@ -37,7 +37,7 @@ public class SignIn {
     {
         if(status)
         {
-            return "/dashboard";
+            return "dashboard/dashboard";
         }
         return "/error";
     }
