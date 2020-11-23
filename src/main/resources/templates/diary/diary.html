@@ -1,13 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Personal Diary</title>
 </head>
 
-<h1>Diary</h1>
+<h1>Personal Diary</h1>
 <body>
-    <label
+    <div class="topnav">
+        <a href="/dashboard">Dashboard</a>
+        <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
+        <a class="active" href="/diary">Personal Diary</a>
+        <a href="/about">About the Project</a>
+    </div>
+    <!--<label for="date">Date</label>
+    <input type="date" th:field="${date}" id="date" placeholder="Date"/>
+    <span th:if="${#fields.hasErrors('date')}" th:errors="${date}"></span>-->
+    <table>
+        <thead>
+        <tr>
+        <th>Date Of entry</th>
+        <th>Name of entry</th>
+        <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="entry : ${entries}">
+            <td th:text="${entry.date}"></td>
+            <td th:text="${entry.name}"></td>
+            <td th:href="@{/entry/__${entry.id}__}">Edit Entry</td>
+        </tr>
+        </tbody>
+    </table>
+<a th:href="@{/entry/new}">Add new Entry</a>
 
 
 </body>

@@ -2,6 +2,7 @@ package in.ac.bitspilani.webapp.user;
 
 import com.twilio.type.PhoneNumber;
 import in.ac.bitspilani.webapp.category.Category;
+import in.ac.bitspilani.webapp.diary.DiaryEntry;
 import in.ac.bitspilani.webapp.model.NamedEntity;
 import org.springframework.core.style.ToStringCreator;
 
@@ -56,7 +57,7 @@ public class User extends NamedEntity {
 
     /*This variable returns true if and only if all the mandatory attributes in this object are present. If any are\
         absent, then a page asking for additional data should be displayed.
-        TODO: write code to make isUserComplete work the way it's supposed to
+
          */
     public boolean isUserComplete = false;
 
@@ -96,9 +97,31 @@ public class User extends NamedEntity {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Category> categories;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<DiaryEntry> entries;
+
     public Category getCategory(String name) {
         return getCategory(name, false);
     }
+
+    public DiaryEntry getDiaryEntry(String name) {
+        return getDiaryEntry(name, false);
+    }
+
+    public DiaryEntry getDiaryEntry(String name, boolean ignoreNew) {
+        name = name.toLowerCase();
+        for (DiaryEntry diaryEntry : getDiaryEntriesInternal()) {
+            if (!ignoreNew || !diaryEntry.isNew()) {
+                String compName = diaryEntry.getName();
+                compName = compName.toLowerCase();
+                if (compName.equals(name)) {
+                    return diaryEntry;
+                }
+            }
+        }
+        return null;
+    }
+
 
     public Category getCategory(String name, boolean ignoreNew) {
         name = name.toLowerCase();
@@ -119,6 +142,13 @@ public class User extends NamedEntity {
             this.categories = new HashSet<>();
         }
         return this.categories;
+    }
+
+    protected Set<DiaryEntry> getDiaryEntriesInternal() {
+        if (this.entries == null) {
+            this.entries = new HashSet<>();
+        }
+        return this.entries;
     }
 
     public String getEmail() {
@@ -148,6 +178,10 @@ public class User extends NamedEntity {
     public void addCategory(Category category) {
         categories.add(category);
         category.setUser(this);
+    }
+
+    public void addDiaryEntry(DiaryEntry diaryEntry) {
+
     }
 
     public void removeCategory(Category category) {

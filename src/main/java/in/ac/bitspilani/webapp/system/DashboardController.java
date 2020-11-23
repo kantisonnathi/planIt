@@ -3,6 +3,7 @@ package in.ac.bitspilani.webapp.system;
 
 import in.ac.bitspilani.webapp.category.Category;
 import in.ac.bitspilani.webapp.category.CategoryRepository;
+import in.ac.bitspilani.webapp.diary.DiaryEntry;
 import in.ac.bitspilani.webapp.item.Item;
 import in.ac.bitspilani.webapp.item.ItemRepository;
 import in.ac.bitspilani.webapp.user.User;
@@ -70,6 +71,10 @@ public class DashboardController {
 
 
     private User customisingDashboard(User user) {
+
+
+        DiaryEntry diaryEntry = new DiaryEntry();
+
 
 
         //workout category

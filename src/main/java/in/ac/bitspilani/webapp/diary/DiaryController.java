@@ -36,8 +36,6 @@ public class DiaryController {
     @GetMapping
     public String personalDiaryHome(User user, ModelMap modelMap) {
         List<DiaryEntry> entries = diaryEntryRepository.findAllByUser(user);
-        LocalDate date = LocalDate.now();
-        modelMap.put("date", date);
         modelMap.put("user", user);
         modelMap.put("entries", entries);
         return "diary/diary";

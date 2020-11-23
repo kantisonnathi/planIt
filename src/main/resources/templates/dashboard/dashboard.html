@@ -23,7 +23,7 @@
         <a class="active" th:href="@{/}">Dashboard</a>
         <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
         <a href="/about">About the Project</a>
-        <a href="/diary">Personal Diary</a>
+        <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
     </div>
 </head>
 
