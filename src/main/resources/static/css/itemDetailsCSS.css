@@ -1,8 +1,9 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
 
 * {font-family: 'Open Sans', sans-serif;}
-head {
+head, title {
     font-family: Verdana;
+    color: #D8BFD8;
 }
 body {
     font-family: Verdana;
@@ -10,8 +11,13 @@ body {
     background-image: url(../images/background.jpg);
 
 }
+
+title {
+    color: #D8BFD8;
+}
+
 .topnav {
-    background-color: darkblue;
+    background-color: #590059;
     overflow: hidden;
 }
 
@@ -23,6 +29,17 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #990066 ;
+    color: white;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #990066;
+    color: white;
 }
 
 .container {
@@ -38,19 +55,21 @@ body {
     color: #333;
     border-radius: .4em;
     overflow: hidden;
+    color: black;
 }
 
 #item_table tr:first-child {
     border-top: none;
-    background: #428bca;
+    background: #D8BFD8;
     color: #fff;
 }
 
 #item_table tr {
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-    background-color: #f5f9fc;
+    background-color: black; /*#f5f9fc;*/
     border-color: #bfbfbf;
+    color: black;
 }
 
 #item_table tr:nth-child(odd):not(:first-child) {
@@ -90,6 +109,10 @@ body {
     #item_table td {
         padding: 1em !important;
     }
+}
+
+a {
+    color: white;
 }
 /*#item_table td:before {
     content: attr(data-th) ": ";
