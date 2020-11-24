@@ -1,7 +1,7 @@
 body, html {
     height: 100%;
     margin: 0;
-    background: lightblue url("https://image.shutterstock.com/image-vector/social-media-doodle-background-600w-193460294.jpg") ;
+    background-image: url(../images/background.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -9,7 +9,7 @@ body, html {
 }
 
 #forgot {
-    background: #f0f0f0;
+    background: #D8BFD8;
     width: 400px;
     margin: 0 auto;
     margin-top: 150px;
@@ -19,7 +19,7 @@ body, html {
 }
 
 #forgot h1 {
-    background: #3399cc;
+    background: #D8BFD8;
     padding: 20px 0;
     font-size: 140%;
     font-weight: 300;
@@ -28,7 +28,7 @@ body, html {
 }
 
 div#forgot .forgot-container {
-    background: #f0f0f0;
+    background: #D8BFD8;
     padding: 6% 4%;
     font-family: SansSerif;
     font-weight: bold;
@@ -41,7 +41,7 @@ div#forgot input[type="password"] {
     width: 92%;
     background: #fff;
     margin-bottom: 4%;
-    border: 1px solid #ccc;
+    border: 1px solid #D8BFD8;
     padding: 4%;
     font-family: 'Open Sans', sans-serif;
     font-size: 95%;
@@ -50,7 +50,7 @@ div#forgot input[type="password"] {
 
 div#forgot input[type="submit"] {
     width: 100%;
-    background: #3399cc;
+    background: #D8BFD8;
     border: 0;
     padding: 4%;
     font-family: 'Open Sans', sans-serif;
@@ -62,12 +62,12 @@ div#forgot input[type="submit"] {
 }
 
 div#forgot input[type="submit"]:hover {
-    background: #2288bb;
+    background: #D8BFD8;
 }
 
 div#forgot input[type="reset"] {
     width: 50%;
-    background: #0a3248;
+    background: #D8BFD8;
     border: 0;
     padding: 4%;
     font-family: 'Open Sans', sans-serif;
@@ -79,5 +79,5 @@ div#forgot input[type="reset"] {
 }
 
 div#forgot input[type="reset"]:hover {
-    background: #0a4560;
+    background: #D8BFD8;
 }

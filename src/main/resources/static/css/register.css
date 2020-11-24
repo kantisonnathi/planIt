@@ -1,7 +1,7 @@
 body, html {
     height: 100%;
     margin: 0;
-    background: lightblue url("https://image.shutterstock.com/image-vector/social-media-doodle-background-600w-193460294.jpg") ;
+    background-image: url(../images/background.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;

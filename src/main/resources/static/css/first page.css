@@ -5,7 +5,7 @@ body {
     font-family: Verdana;
     margin: 0;
     padding: 0;
-    background: url("https://png.pngtree.com/thumb_back/fh260/back_our/20190619/ourmid/pngtree-family-planning-service-convenience-service-guide-exhibition-board-background-material-image_139584.jpg");
+    background-image: url(../../static/images/background.jpg);
     background-size: cover;
     background-position: center;
 }

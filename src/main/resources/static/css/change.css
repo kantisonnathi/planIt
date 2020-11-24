@@ -1,7 +1,8 @@
 body, html {
     height: 100%;
     margin: 0;
-    background: lightblue url("https://image.shutterstock.com/image-vector/social-media-doodle-background-600w-193460294.jpg") ;
+    background: lightblue;
+    background-image: url(../images/background.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -19,12 +20,12 @@ body, html {
 }
 
 #sc-password h1 {
-    background: #3399cc;
+    background: #D8BFD8;
     padding: 20px 0;
     font-size: 140%;
     font-weight: 300;
     text-align: center;
-    color: #fff;
+    color: black;
 }
 
 div#sc-password .sc-container {
@@ -41,7 +42,7 @@ div#sc-password input[type="password"] {
     width: 92%;
     background: #fff;
     margin-bottom: 4%;
-    border: 1px solid #ccc;
+    border: 1px solid #D8BFD8;
     padding: 4%;
     font-family: 'Open Sans', sans-serif;
     font-size: 95%;
@@ -50,7 +51,7 @@ div#sc-password input[type="password"] {
 
 div#sc-password input[type="submit"] {
     width: 100%;
-    background: #3399cc;
+    background: #590059;
     border: 0;
     padding: 4%;
     font-family: 'Open Sans', sans-serif;
@@ -62,12 +63,12 @@ div#sc-password input[type="submit"] {
 }
 
 div#sc-password input[type="submit"]:hover {
-    background: #2288bb;
+    background: #D8BFD8;
 }
 
 div#sc-password input[type="reset"] {
     width: 50%;
-    background: #0a3248;
+    background: #590059;
     border: 0;
     padding: 4%;
     font-family: 'Open Sans', sans-serif;
@@ -79,7 +80,7 @@ div#sc-password input[type="reset"] {
 }
 
 div#sc-password input[type="reset"]:hover {
-    background: #0a4560;
+    background: #D8BFD8;
 }
 
 #sc-password .sc-container p {
