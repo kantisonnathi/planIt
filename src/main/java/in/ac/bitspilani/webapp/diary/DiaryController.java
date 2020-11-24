@@ -2,7 +2,6 @@ package in.ac.bitspilani.webapp.diary;
 
 import in.ac.bitspilani.webapp.user.User;
 import in.ac.bitspilani.webapp.user.UserRepository;
-import jdk.jfr.Registered;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -60,7 +58,7 @@ public class DiaryController {
     }
 
     @PostMapping("entry/{entryId}/edit")
-    public String edittedEntry(@Valid DiaryEntry diaryEntry, BindingResult result, User user, ModelMap model) {
+    public String editedEntry(@Valid DiaryEntry diaryEntry, BindingResult result, User user, ModelMap model) {
         if (result.hasErrors()) {
             diaryEntry.setUser(user);
             model.put("entry", diaryEntry);

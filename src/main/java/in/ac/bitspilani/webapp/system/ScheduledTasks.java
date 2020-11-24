@@ -39,7 +39,7 @@ public class ScheduledTasks {
         AUTH_TOKEN="2e85596ee9b7fcfc0bc45875340eea46";
     }
 
-    @Scheduled(fixedDelay = 86400 * 1000)
+    @Scheduled(fixedDelay = 3600 * 1000)
     public void sendSMSNotifications() {
         LocalDate tomorrowDate = LocalDate.now().plusDays(1);
         List<Item> itemsDueTomorrow = itemRepository.findAllByDueDate(tomorrowDate);
@@ -52,8 +52,6 @@ public class ScheduledTasks {
                     "Hello" + currentUser.getName() + "!\n\nYou have items due tomorrow!\nYou have " +
                             item.getName() + " due tomorrow")
                     .create();
-
-
         }
 
     }

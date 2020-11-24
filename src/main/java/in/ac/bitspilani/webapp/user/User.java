@@ -181,7 +181,8 @@ public class User extends NamedEntity {
     }
 
     public void addDiaryEntry(DiaryEntry diaryEntry) {
-
+        this.entries.add(diaryEntry);
+        diaryEntry.setUser(this);
     }
 
     public void removeCategory(Category category) {
