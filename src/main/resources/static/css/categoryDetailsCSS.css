@@ -3,10 +3,10 @@ head {
 }
 body {
     font-family: Verdana;
-    background-image: url(../../static/images/background.jpg);
+    background-image: url(../images/background.jpg);
 }
 .topnav {
-    background-color: darkblue;
+    background-color: #590059;
     overflow: hidden;
 }
 
