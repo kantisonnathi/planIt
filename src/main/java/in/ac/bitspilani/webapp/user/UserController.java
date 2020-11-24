@@ -45,6 +45,10 @@ public class UserController {
         else {
 
             user.setId(userId);
+            user.userNew = false;
+            user.isUserComplete = true;
+            user.emailVerified = true;
+            user.phoneVerified = true;
             this.userRepository.save(user);
             return "redirect:/dashboard";
         }

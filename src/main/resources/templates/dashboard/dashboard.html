@@ -22,9 +22,8 @@
     <div class="topnav">
         <a class="active" th:href="@{/}">Dashboard</a>
         <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
-        <a href="#share">Share</a>
-        <a href="#details">About the Project</a>
-        <a href="#diary">Personal Diary</a>
+        <a href="/about">About the Project</a>
+        <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
     </div>
 </head>
 
@@ -36,10 +35,14 @@
     <div class="container" style="display: inline-block; flex-direction: row; justify-content: space-between">
         <div class="box">
             <div class="icon">
-                <th:block th:each="i: ${#numbers.sequence(1, 5)}"></th:block>
+               <!-- <th:block th:each="i: ${#numbers.sequence(1, 5)}"></th:block>-->
             </div>
             <div class="content">
+<<<<<<< HEAD
                 <h3>Category Name: <a th:href="@{/user/__${user.id}__/categories/__${category.id}__/itemDetails}" th:text="${category.name}"></a><br></h3>
+=======
+                <h3>Category Name: <br><a th:href="@{/user/__${user.id}__/categories/__${category.id}__/itemDetails}" th:text="${category.name}"></a><br></h3>
+>>>>>>> 37a837ded608a067bada10ca40697b993d556f97
                 <a th:href="@{/user/__${user.id}__/categories/__${category.id}__/edit}">Edit Category</a>
             </div>
         </div>

@@ -7,10 +7,10 @@
 <body>
 <h2>Edit and add category</h2>
 <div class="topnav">
-    <a class="active" href="#dashboard">Dashboard</a>
-    <a href="#tracker">Tracker</a>
-    <a href="#share">Share</a>
-    <a href="#details">About the Project</a>
+    <a href="/dashboard">Dashboard</a>
+    <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
+    <a href="/diary">Personal Diary</a>
+    <a href="/about">About the Project</a>
 </div>
 
 

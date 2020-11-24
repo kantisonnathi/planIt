@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Entry</title>
+</head>
+<body>
+<div class="topnav">
+    <a href="/dashboard">Dashboard</a>
+    <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
+    <a class="active" th:href="@{user/__${user.id}__/diary}">Personal Diary</a>
+    <a href="/about">About the Project</a>
+</div>
+
+
+<h2 th:text="${entry.date}"></h2>
+
+<p th:text="${entry.text}"></p>
+
+<!--
+<div th:object="entry">
+    <p th:text="*{text}"></p>
+</div>
+-->
+
+</body>
+</html>
