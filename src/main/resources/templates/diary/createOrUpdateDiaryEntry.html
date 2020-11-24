@@ -19,7 +19,7 @@
     <label for="name">Name</label>
     <input type="text" th:field="*{name}" id="name" placeholder="Name"/>
     <br>
-    <textarea name="entrytext" form="entryform" th:value="*{text}"></textarea>
+    <textarea name="entrytext" form="entryform" th:field="*{text}"></textarea>
     <!--<span th:if="${#field.hasErrors('name')}" th:errors="*{name}"></span>--> <!--write validators -->
     <br>
 
