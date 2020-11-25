@@ -1,30 +1,35 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="../../static/css/createOrUpdateItem.css" th:href="@{/css/createOrUpdateItem.css}">
     <meta charset="UTF-8" />
 <!--
     <link th:href="@{/css/styles.css}" rel="stylesheet">
 -->
 </head>
 <body>
-<h2>Edit/Create Item</h2>
+<h2>Edit Item</h2>
 <div class="topnav">
     <a href="/dashboard">Dashboard</a>
     <a href="/trigger">Trigger</a>
+    <a href="/diary">Personal Diary</a>
     <a href="/about">About the Project</a>
 </div>
+<br>
+<br>
+<br>
 <form action="#" th:object="${item}" method="post">
     <input type="hidden" name="id" th:value="${item.id}"/>
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <center><label for="name">Name</label></center><br>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name"><br>
     <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-
-    <label for="qty">Quantity</label>
-    <input type="number" th:field="*{quantity}" id="qty" placeholder="Quantity">
+<br>
+    <center><label for="qty">Quantity</label></center><br>
+    <input type="number" th:field="*{quantity}" id="qty" placeholder="Quantity"><br>
     <span th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></span>
-
-    <label for="date">Due Date</label>
-    <input type="date" th:field="*{dueDate}" id="date" placeholder="Due Date">
-    <span th:if="${#fields.hasErrors('dueDate')}" th:errors="*{dueDate}"></span>
+<br>
+    <center><label for="date">Due Date</label></center><br>
+    <input type="date" th:field="*{dueDate}" id="date" placeholder="Due Date"><br>
+    <span th:if="${#fields.hasErrors('dueDate')}" th:errors="*{dueDate}"></span><br><br>
     <input type="submit" value="Update Item">
 </form>
 </body>
