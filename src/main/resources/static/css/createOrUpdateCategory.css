@@ -1,0 +1,55 @@
+head {
+    font-family: Verdana;
+    color: #D8BFD8;
+}
+body {
+    font-family: Verdana;
+    text-align: center;
+    background-image: url(../images/background.jpg);
+    font-size: 20px;
+}
+
+title {
+    color: #D8BFD8;
+}
+
+.topnav {
+    background-color: #590059;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #990066 ;
+    color: white;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #990066;
+    color: white;
+}
+
+h4,label {
+    color: #D8BFD8;
+}
+
+.button button{
+    background-color: #990066;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}

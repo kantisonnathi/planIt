@@ -2,10 +2,12 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../static/css/createOrUpdateUser.css" th:href="@{/css/createOrUpdateUser.css}">
+    <link rel="shortcut icon" href="../images/LogoSingle.png" type="image/png">
     <title>Edit/Add user</title>
 </head>
 <body>
-<h2>Edit and add user</h2>
+<h2>Edit user</h2>
 <div class="topnav">
     <a class="active" href="#dashboard">Dashboard</a>
     <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
@@ -19,19 +21,23 @@
       method="post">
     <input type="hidden" name="id" th:value="${user.id}"/>
     <input type="hidden" name="id" th:value="*{id}"/>
+    <br>
+    <br>
+    <br>
 
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Name"/>
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <center><label for="name">Name</label></center><br>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name"/><br>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
     <input type="hidden" th:field="${user.email}" id="email" placeholder="Email"/>
     <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
     <input type="hidden" th:field="${user.password}" id="password" placeholder="Password"/>
     <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+    <center><label for="phoneNumber">Phone number</label></center><br>
     <input type="text" th:field="*{phoneNumber}" id="phoneNumber" placeholder="Phone Number"/>
     <input type="hidden" th:field="${user.profession}" id="profession" placeholder="Profession"/>
     <span th:if="${#fields.hasErrors('profession')}" th:errors="*{profession}"></span>
 
-    <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span>
+    <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span><br><br>
 
     <div>
         <button
