@@ -9,6 +9,7 @@ body {
     font-family: Verdana;
     text-align: center;
     background-image: url(../images/background.jpg);
+    color: black;
 
 }
 
@@ -45,6 +46,7 @@ title {
 .container {
     display: block;
     text-align: center;
+    color: black;
 }
 
 #item_table{
@@ -52,7 +54,6 @@ title {
     min-width: 300px;
     max-width: 100%;
     border-collapse: collapse;
-    color: #333;
     border-radius: .4em;
     overflow: hidden;
     color: black;
@@ -81,7 +82,7 @@ title {
     padding: .5em 1em;
 }
 @media screen and (max-width: 601px) {
-    #item_table tr:nth-child(2) {
+    #item_table tr:nth-child(1) {
         border-top: none;
     }
 }
