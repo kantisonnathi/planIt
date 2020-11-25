@@ -7,44 +7,49 @@ body {
 }
 h1 {
     font-family: Verdana;
+    text-align: center;
 }
 h2 {
     font-family: Verdana;
     text-align: center;
+    color: #D8BFD8;
+}
+
+title {
+    color: #D8BFD8;
+    text-align: center;
 }
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: darkblue;
+    background-color: #590059;
     overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
-    color: darkblue;
+    color: #590059;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
 }
-
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: darkblue;
+    background-color: #990066 ;
     color: white;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-    background-color: darkblue;
+    background-color: #990066;
     color: white;
 }
 
 #space {
     width:500px;
+    padding: 20px;
 }
-
-
 
 .div .container
 {
@@ -53,10 +58,8 @@ h2 {
     justify-content: space-between;
     flex-direction: column;
     float: left;
-    /*padding: 10px;
-    width: 60px;
-    height: 60px;
-    margin: auto;*/
+    padding-left: 60px;
+    padding-bottom: 20px;
 }
 
 .div .container .box
@@ -104,13 +107,13 @@ h2 {
     font-size: 40px;
     font-weight: 700;
     transition: 1s;
-    box-shadow: 0 0 0 0 #428bca;
-    background: #428bca;
+    box-shadow: 0 0 0 0 #DA70D6;
+    background: #DA70D6;
 }
 
 .div .container .box:hover .icon
 {
-    box-shadow: 0 0 0 400px #428bca;
+    box-shadow: 0 0 0 400px #DA70D6;
 }
 
 .div .container .box .content
