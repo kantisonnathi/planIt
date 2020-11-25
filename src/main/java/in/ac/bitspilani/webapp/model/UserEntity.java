@@ -1,6 +1,7 @@
 package in.ac.bitspilani.webapp.model;
 
 import in.ac.bitspilani.webapp.category.Category;
+import in.ac.bitspilani.webapp.user.AuthenticationProvider;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -15,6 +16,19 @@ public class UserEntity  {
     private String password;
     private String email;
     private String phoneNumber;
+
+    public AuthenticationProvider getAuthProvider() {
+        return authProvider;
+    }
+
+    public void setAuthProvider(AuthenticationProvider authProvider) {
+        this.authProvider = authProvider;
+    }
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "auth_provider")
+    private AuthenticationProvider authProvider;
+
 
     public Set<Category> getCategories() {
         return categories;

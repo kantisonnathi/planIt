@@ -2,31 +2,48 @@ package in.ac.bitspilani.webapp.springsecuritycutomlogin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.integration.IntegrationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
 @Order(value = 200 )
 public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
+   @Autowired
+   private DataSource dataSource;
     @Qualifier("myUserDetailsServices")
     @Autowired
     UserDetailsService userDetailsService;
 
+    @Bean
+    public PersistentTokenRepository persistentTokenRepository(){
+        JdbcTokenRepositoryImpl tokenRepository=new JdbcTokenRepositoryImpl();
+        tokenRepository.setDataSource(dataSource);
+        return tokenRepository;
+    }
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         // authentication manager (see below)
         //make it database oriented or whatever
         auth.userDetailsService(userDetailsService);
+       
       /* auth.inMemoryAuthentication()
                 .withUser("user1").password(passwordEncoder().encode("user1Pass")).roles("USER")
                 .and()
@@ -62,16 +79,26 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/changepwd").permitAll()
                 .antMatchers("/phoneverify").permitAll()
                 .antMatchers("/success").permitAll()
+                .antMatchers("/oauth2/**").permitAll()
                 .antMatchers("/phonereg").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/dashboard/**").authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/custom_login")
-                .defaultSuccessUrl("/dashboard",true)
-                .loginProcessingUrl("/perform_login")
-                .failureUrl("/custom_login?error=true")
+                        .loginPage("/custom_login")
+                        .defaultSuccessUrl("/dashboard",true)
+                        .loginProcessingUrl("/perform_login")
+                        .failureUrl("/custom_login?error=true")
+                        .permitAll()
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/custom_login")
                 .and().oauth2Login()
+                     .loginPage("/custom_login")
+                     .defaultSuccessUrl("/dashboard",true)
+                     .userInfoEndpoint().userService(oAuth2UserService)
+                     .and()
+                    // .successHandler(oAuth2LoginSuccessHandler)
+                 .and()
+                 .logout().permitAll()
+
                 .permitAll();
 
     }
@@ -80,4 +107,10 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder getPasswordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
+    @Autowired
+    private CustomOAuth2UserService oAuth2UserService;
+    @Autowired
+    private OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler;
+
 }
+

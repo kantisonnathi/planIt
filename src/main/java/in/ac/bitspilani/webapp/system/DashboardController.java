@@ -6,6 +6,8 @@ import in.ac.bitspilani.webapp.category.CategoryRepository;
 import in.ac.bitspilani.webapp.diary.DiaryEntry;
 import in.ac.bitspilani.webapp.item.Item;
 import in.ac.bitspilani.webapp.item.ItemRepository;
+import in.ac.bitspilani.webapp.springsecuritycutomlogin.customOauth2user;
+import in.ac.bitspilani.webapp.user.AuthenticationProvider;
 import in.ac.bitspilani.webapp.user.User;
 import in.ac.bitspilani.webapp.user.UserRepository;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.regex.Matcher;
 
 @Controller
 public class DashboardController {
@@ -30,17 +33,36 @@ public class DashboardController {
         this.userRepository = userRepository;
     }
 
+
     @GetMapping("/dashboard")
     public String dashboard(Map<String, Object> model, Principal principal) {
-        String email = principal.getName();
-        User user = userRepository.findByEmail(email);
-        if (user.userNew) {
-            user = customisingDashboard(user);
-            user.userNew = false;
-            user = userRepository.save(user);
+        String email = principal.toString();
+       int start= email.indexOf("email=");
+        int end=email.indexOf(".com",start);
+        email=email.substring(start+6,end+4);
+        User user = userRepository.findByEmail(email);//    String email = oauth2user.getEmail();
+        //User user = new User();
+        if(user==null)
+        {
+            User fin=new User();
+           fin.setEmail(email);
+           fin.setUserComplete(true);
+           fin.setProfession("default");
+            userRepository.save(fin);
+            fin = customisingDashboard(fin);
+            model.put("user", fin);
+            model.put("selections", fin.getCategories());
+
         }
-        model.put("user", user);
-        model.put("selections", user.getCategories());
+else {
+            if (user.userNew) {
+                user = customisingDashboard(user);
+                user.userNew = false;
+                user = userRepository.save(user);
+            }
+            model.put("user", user);
+            model.put("selections", user.getCategories());
+        }
         return "dashboard/dashboard";
     }
 

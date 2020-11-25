@@ -1,6 +1,7 @@
 package in.ac.bitspilani.webapp.springsecuritycutomlogin;
 
 import in.ac.bitspilani.webapp.model.UserEntity;
+import in.ac.bitspilani.webapp.user.AuthenticationProvider;
 import in.ac.bitspilani.webapp.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,6 +20,15 @@ public class MyUserDetails implements UserDetails {
     private int id;
     private boolean phonev;
     private boolean emailv;
+    private AuthenticationProvider authenticationProvider;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public  MyUserDetails(UserEntity user)
     {
@@ -27,6 +37,8 @@ public class MyUserDetails implements UserDetails {
      this.id=user.getId();
      this.phonev=user.isPhoneVerified();
      this.emailv=user.isEmailVerified();
+     this.authenticationProvider=user.getAuthProvider();
+
     }
 
     @Override
@@ -51,6 +63,14 @@ public class MyUserDetails implements UserDetails {
     @Override
     public boolean isAccountNonExpired() {
         return true;
+    }
+
+    public AuthenticationProvider getAuthenticationProvider() {
+        return authenticationProvider;
+    }
+
+    public void setAuthenticationProvider(AuthenticationProvider authenticationProvider) {
+        this.authenticationProvider = authenticationProvider;
     }
 
     @Override
