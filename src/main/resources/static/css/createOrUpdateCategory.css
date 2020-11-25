@@ -43,8 +43,8 @@ h4,label {
     color: #D8BFD8;
 }
 
-.button {
-    background-color: #4CAF50; /* Green */
+.button button{
+    background-color: #990066;
     border: none;
     color: white;
     padding: 15px 32px;

@@ -13,8 +13,6 @@
     <a href="/diary">Personal Diary</a>
     <a href="/about">About the Project</a>
 </div>
-
-
 <form action="#"
       th:object="${category}"
       method="post">
@@ -26,14 +24,12 @@
     <input type="hidden" name="id" th:value="*{id}"/>
     <br>
     <br>
-            <label for="name">Name</label>
+            <label for="name">Name: </label>
             <input type="text" th:field="*{name}" id="name" placeholder="Name"/>
-            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-            <div>
-            <button
-                    th:with="text=${category['new']} ? 'Add Category' : 'Update Category'"
-                    class="btn btn-default" type="submit" th:text="${text}">Add
-                Category</button>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br><br>
+            <div class="button">
+            <button th:with="text=${category['new']} ? 'Add Category' : 'Update Category'"
+                    class="btn btn-default" type="submit" th:text="${text}">Add Category</button>
             </div>
 
 </form>
