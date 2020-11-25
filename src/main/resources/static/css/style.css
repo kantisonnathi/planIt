@@ -3,6 +3,7 @@ head {
 }
 body {
     font-family: Verdana;
+    background-image: url(../images/background.jpg);
 }
 h1 {
     font-family: Verdana;

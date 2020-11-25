@@ -4,13 +4,11 @@ package in.ac.bitspilani.webapp.system;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
-import in.ac.bitspilani.webapp.category.CategoryRepository;
 import in.ac.bitspilani.webapp.item.Item;
 import in.ac.bitspilani.webapp.item.ItemRepository;
 import in.ac.bitspilani.webapp.registration.EmailService;
 import in.ac.bitspilani.webapp.user.User;
 import in.ac.bitspilani.webapp.user.UserRepository;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -49,11 +47,9 @@ public class ScheduledTasks {
             Message message = Message.creator(
                     new PhoneNumber(currentUser.getPhoneNumber()),
                     new PhoneNumber("+16097986441"),
-                    "Hello" + currentUser.getName() + "!\n\nYou have items due tomorrow!\nYou have " +
+                    "Hello " + currentUser.getName() + "!\n\nYou have items due tomorrow!\nYou have " +
                             item.getName() + " due tomorrow")
                     .create();
-
-
         }
 
     }
@@ -67,7 +63,7 @@ public class ScheduledTasks {
             SimpleMailMessage itemEmail = new SimpleMailMessage();
             itemEmail.setTo(currentUser.getEmail());
             itemEmail.setSubject("You have Items due soon!");
-            itemEmail.setText("Hello" + currentUser.getName() + "!\n\nYou have items due tomorrow!\nYou have " +
+            itemEmail.setText("Hello " + currentUser.getName() + "!\n\nYou have items due tomorrow!\nYou have " +
                     item.getName() + " due tomorrow");
             emailService.sendEmail(itemEmail);
         }

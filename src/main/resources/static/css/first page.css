@@ -5,16 +5,20 @@ body {
     font-family: Verdana;
     margin: 0;
     padding: 0;
-    background: url("https://png.pngtree.com/thumb_back/fh260/back_our/20190619/ourmid/pngtree-family-planning-service-convenience-service-guide-exhibition-board-background-material-image_139584.jpg");
+    background-image: url(../images/background.jpg);
     background-size: cover;
     background-position: center;
+}
+
+h1, h4 {
+    color: #D8BFD8;
 }
 
 .loginbox{
     width: 480px;
     height: 480px;
     background: transparent;
-    color: #000;
+    color: #D8BFD8;
     top: 60%;
     left: 40%;
     position: absolute;
@@ -56,7 +60,7 @@ h2{
     border: none;
     outline: none;
     height: 40px;
-    background: indianred;
+    background: #D8BFD8;
     color: black;
     font-size: 18px;
     border-radius: 20px;
@@ -65,15 +69,15 @@ h2{
 .loginbox input[type="submit"]:hover
 {
     cursor: pointer;
-    background: darksalmon;
-    color: #fff;
+    background: #E6E6FA;
+    color: #006400;
 }
 
 .loginbox a{
     text-decoration: none;
     font-size: 12px;
     line-height: 20px;
-    color: slateblue;
+    color: #D8BFD8;
 }
 
 .loginbox a:hover
@@ -88,7 +92,7 @@ h2{
     background: transparent;
     outline: none;
     height: 40px;
-    color: black;
+    color: white;
     font-size: 14px;
 }
 
@@ -103,7 +107,7 @@ h2{
     text-decoration: none;
     font-size: 14px;
     line-height: 20px;
-    color: slateblue;
+    color: #D8BFD8;
 }
 .loginbox b:hover
 {
@@ -114,7 +118,7 @@ h2{
     text-decoration: none;
     font-size: 14px;
     line-height: 20px;
-    color: slateblue;
+    color: #D8BFD8;
     font-weight: bold;
 }
 .loginbox c:hover
@@ -126,5 +130,4 @@ h2{
     height: 50px;
     border-radius: 50%;
     position: absolute;
-    align: right;
 }

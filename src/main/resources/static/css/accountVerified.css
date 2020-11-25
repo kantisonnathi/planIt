@@ -7,26 +7,27 @@ head {
 }
 body {
     font-family: Verdana;
-    background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Blue.jpg");
+    background-image: url(../../static/images/background.jpg);
     background-size: cover;
     background-position: center;
     text-align: center;
 }
-h1 {
+h1, h2, h4{
     font-family: Verdana;
+    color: #D8BFD8;
 }
 #mobreg th h1 {
     font-weight: bold;
     font-size: 1em;
     text-align: center;
-    color: #185875;
+    color: #D8BFD8;
 }
 #mobreg td {
     font-weight: normal;
     font-size: 1em;
-    -webkit-box-shadow: 0 2px 2px -2px #0e1119;
-    -moz-box-shadow: 0 2px 2px -2px #0e1119;
-    box-shadow: 0 2px 2px -2px #0e1119;
+    -webkit-box-shadow: 0 2px 2px -2px #D8BFD8;
+    -moz-box-shadow: 0 2px 2px -2px #D8BFD8;
+    box-shadow: 0 2px 2px -2px #D8BFD8;
 }
 
 #mobreg {
@@ -47,7 +48,7 @@ h1 {
 
 /* Background-color of the odd rows */
 #mobreg tr:nth-child(odd) {
-    background-color: #323c50;
+    background-color: #D8BFD8;
 }
 
 /* Background-color of the even rows */
@@ -56,10 +57,10 @@ h1 {
 }
 
 #mobreg th {
-    background-color: #1f2739;
+    background-color: #D8BFD8;
 }
 
 #mobreg td:first-child {
-    color: #fff03e;
+    color: #590059;
 }
 

@@ -3,14 +3,21 @@
 * {font-family: 'Open Sans', sans-serif;}
 head {
     font-family: Verdana;
+    color: #D8BFD8;
 }
 body {
     font-family: Verdana;
     text-align: center;
+    background-image: url(../images/background.jpg);
 
 }
+
+title {
+    color: #D8BFD8;
+}
+
 .topnav {
-    background-color: darkblue;
+    background-color: #590059;
     overflow: hidden;
 }
 
@@ -23,10 +30,22 @@ body {
     text-decoration: none;
     font-size: 17px;
 }
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #990066 ;
+    color: white;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #990066;
+    color: white;
+}
 
 .container {
     display: block;
     text-align: center;
+    color: #D8BFD8;
 }
 
 #item_table{
@@ -34,21 +53,21 @@ body {
     min-width: 300px;
     max-width: 100%;
     border-collapse: collapse;
-    color: #333;
     border-radius: .4em;
     overflow: hidden;
+    color: #D8BFD8;
 }
 
 #item_table tr:first-child {
     border-top: none;
-    background: #428bca;
+    background: #590059;
     color: #fff;
 }
 
 #item_table tr {
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-    background-color: #f5f9fc;
+    background-color: #590059;
     border-color: #bfbfbf;
 }
 
@@ -61,7 +80,7 @@ body {
     padding: .5em 1em;
 }
 @media screen and (max-width: 601px) {
-    #item_table tr:nth-child(2) {
+    #item_table tr:nth-child(1) {
         border-top: none;
     }
 }
@@ -89,6 +108,10 @@ body {
     #item_table td {
         padding: 1em !important;
     }
+}
+
+a {
+    color: yellow;
 }
 /*#item_table td:before {
     content: attr(data-th) ": ";

@@ -1,7 +1,7 @@
 body, html {
     height: 100%;
     margin: 0;
-    background: lightblue url("https://image.shutterstock.com/image-vector/social-media-doodle-background-600w-193460294.jpg") ;
+    background-image: url(../images/background.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -19,12 +19,12 @@ body, html {
 }
 
 #sc-register h1 {
-    background: #3399cc;
+    background: #D8BFD8;
     padding: 20px 0;
     font-size: 140%;
     font-weight: 300;
     text-align: center;
-    color: #fff;
+    color: #000000;
 }
 
 div#sc-register .reg {
@@ -50,7 +50,7 @@ div#sc-register input[type="password"] {
 
 div#sc-register input[type="submit"] {
     width: 100%;
-    background: #3399cc;
+    background: #590059;
     border: 0;
     padding: 4%;
     font-family: 'Open Sans', sans-serif;
@@ -62,12 +62,12 @@ div#sc-register input[type="submit"] {
 }
 
 div#sc-register input[type="submit"]:hover {
-    background: #2288bb;
+    background: #990066;
 }
 
 div#sc-register input[type="reset"] {
     width: 50%;
-    background: #0a3248;
+    background: #590059;
     border: 0;
     padding: 4%;
     font-family: 'Open Sans', sans-serif;
@@ -79,7 +79,7 @@ div#sc-register input[type="reset"] {
 }
 
 div#sc-register input[type="reset"]:hover {
-    background: #0a4560;
+    background: #990066;
 }
 
 #sc-register .reg p {

@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <link rel="stylesheet" href="../../static/css/first%20page.css" th:href="@{/css/first%20page.css}">
+    <link rel="shortcut icon" href="../images/LogoSingle.png" type="image/png">
     <meta charset="ISO-8859-1"/>
     <meta http-equiv="Authorization" content="3";url="http://localhost:8080/dashboard">
     <title>Registration page</title>
@@ -29,7 +30,7 @@
     </form>
     <a href="/forgot">Forgot your password?</a><br>
     <a href="/register">Don't have an account? Sign up now!</a><br><br><br>
-    <b href="#" onclick="signin()">Login through Facebook</b><br>
+    <a href="#" onclick="signin()">Login through Facebook</a><br>
     <div id="profile-pic">
 
     </div>
@@ -42,7 +43,7 @@
     <div style="text-align: right">
         <a  th:href="@{/oauth2/authorization/google}" >
             Login with Google
-        </a>
+        </a><br>
         <right><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png" class="googleicon"></right>
     </div>
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Diary Entry</title>
+</head>
+<body>
+<div class="topnav">
+    <a href="/dashboard">Dashboard</a>
+    <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
+    <a class="active" th:href="@{user/__${user.id}__/diary}">Personal Diary</a>
+    <a href="/about">About the Project</a>
+</div>
+
+<form action="#" th:object="${entry}" method="post" id="entryform">
+    <input type="hidden" name="id" th:value="${entry.id}">
+    <input type="hidden" name="user" th:value="${entry.user?.id}">
+
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name"/>
+    <span th:if="${#fields.hasErrors('name')}" th:error="*{name}"></span>
+    <label for="date">Date</label>
+    <input type="date" th:field="*{date}" id="date" placeholder="Date">
+    <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
+    <br>
+    <textarea name="entrytext" form="entryform" th:field="*{text}"></textarea>
+    <!--<span th:if="${#field.hasErrors('name')}" th:errors="*{name}"></span>--> <!--write validators -->
+    <br>
+
+    <input type="submit">
+
+</form>
+
+
+
+</body>
+</html>

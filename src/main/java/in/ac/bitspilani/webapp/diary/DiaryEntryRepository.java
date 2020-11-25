@@ -13,5 +13,9 @@ public interface DiaryEntryRepository extends Repository<DiaryEntry, Integer> {
 
     List<DiaryEntry> findAllByUser(User user);
 
+    DiaryEntry findById(Integer id);
+
     DiaryEntry findByDate(LocalDate date);
+
+    void save(DiaryEntry diaryEntry);
 }
