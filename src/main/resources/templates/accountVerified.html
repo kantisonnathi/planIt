@@ -92,7 +92,7 @@
 <script>
     function phoneAuth() {
         //get the number
-        const number = document.getElementById('number').value;
+        const number = document.getElementById('phoneNumber').value;
         firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
             window.confirmationResult = confirmationResult;
             coderesult = confirmationResult;
