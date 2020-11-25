@@ -70,14 +70,14 @@ title {
     text-align: left;
     padding: .5em 1em;
 }
-/*@media screen and (max-width: 601px) {
+@media screen and (max-width: 601px) {
     #item_table tr:nth-child(1) {
         border-top: none;
     }
-}*/
-/*@media screen and (min-width: 600px) {
+}
+@media screen and (min-width: 600px) {
     #item_table tr:hover:not(:first-child) {
-        background-color: #d8e7f3;
+        background-color: #9932cc;
     }
     #item_table td:before {
         display: none;
@@ -103,7 +103,7 @@ title {
 
 a {
     color: yellow;
-}*/
+}
 /*#item_table td:before {
     content: attr(data-th) ": ";
     font-weight: bold;
