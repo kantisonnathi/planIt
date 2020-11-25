@@ -67,7 +67,6 @@ public class ItemController {
 
     @GetMapping("/itemDetails")
     public String ItemDetails(@PathVariable("categoryId") int categoryId,User user, Map<String, Object> map) {
-        ModelAndView mav = new ModelAndView("dashboard/categoryDetails");
         Category category = categoryRepository.findById(categoryId);
         map.put("selections", category.getItems());
         map.put("user", user);
