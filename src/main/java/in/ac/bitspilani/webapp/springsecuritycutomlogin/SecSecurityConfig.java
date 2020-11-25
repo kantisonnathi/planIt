@@ -43,7 +43,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
         // authentication manager (see below)
         //make it database oriented or whatever
         auth.userDetailsService(userDetailsService);
-       
+
       /* auth.inMemoryAuthentication()
                 .withUser("user1").password(passwordEncoder().encode("user1Pass")).roles("USER")
                 .and()
@@ -84,11 +84,11 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/dashboard/**").authenticated()
                 .and()
                 .formLogin()
-                        .loginPage("/custom_login")
-                        .defaultSuccessUrl("/dashboard",true)
-                        .loginProcessingUrl("/perform_login")
-                        .failureUrl("/custom_login?error=true")
-                        .permitAll()
+                .loginPage("/custom_login")
+                .defaultSuccessUrl("/dashboard",true)
+                .loginProcessingUrl("/perform_login")
+                .failureUrl("/custom_login?error=true")
+                .permitAll()
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/custom_login")
                 .and().oauth2Login()
                      .loginPage("/custom_login")

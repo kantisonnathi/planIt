@@ -38,18 +38,20 @@ public class DashboardController {
     public String dashboard(Map<String, Object> model, Principal principal) {
         String email = principal.toString();
        int start= email.indexOf("email=");
-        int end=email.indexOf(".com",start);
-        email=email.substring(start+6,end+4);
+        int end=email.indexOf("}",start);
+        email=email.substring(start+6,end);
         User user = userRepository.findByEmail(email);//    String email = oauth2user.getEmail();
         //User user = new User();
         if(user==null)
         {
+
             User fin=new User();
            fin.setEmail(email);
            fin.setUserComplete(true);
            fin.setProfession("default");
-            userRepository.save(fin);
             fin = customisingDashboard(fin);
+            userRepository.save(fin);
+
             model.put("user", fin);
             model.put("selections", fin.getCategories());
 
