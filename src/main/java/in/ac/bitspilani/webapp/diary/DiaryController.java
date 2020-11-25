@@ -1,9 +1,11 @@
 package in.ac.bitspilani.webapp.diary;
 
+import in.ac.bitspilani.webapp.category.Category;
 import in.ac.bitspilani.webapp.user.User;
 import in.ac.bitspilani.webapp.user.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user/{userId}/diary")
+@RequestMapping("/user/{userId}/")
 public class DiaryController {
 
     private final DiaryEntryRepository diaryEntryRepository;
@@ -33,7 +35,7 @@ public class DiaryController {
         dataBinder.setDisallowedFields("id");
     }
 
-    @GetMapping
+    @GetMapping("diary")
     public String personalDiaryHome(User user, ModelMap modelMap) {
         List<DiaryEntry> entries = diaryEntryRepository.findAllByUser(user);
         modelMap.put("user", user);
@@ -62,9 +64,34 @@ public class DiaryController {
         if (result.hasErrors()) {
             diaryEntry.setUser(user);
             model.put("entry", diaryEntry);
+            model.put("user",user);
             return "diary/createOrUpdateDiaryEntry";
         } else {
             diaryEntry.setUser(user);
+            this.diaryEntryRepository.save(diaryEntry);
+            return "redirect:/user/{userId}/diary";
+        }
+    }
+
+    @GetMapping("entry/new")
+    public String newEntryCreation(User user, ModelMap modelMap) {
+        DiaryEntry diaryEntry = new DiaryEntry();
+        user.addDiaryEntry(diaryEntry);
+        modelMap.put("entry", diaryEntry);
+        return "diary/createOrUpdateDiaryEntry";
+    }
+
+    @PostMapping("entry/new")
+    public String processCreationFormCategory(User user, @Valid DiaryEntry diaryEntry, BindingResult result, ModelMap model) {
+        if (StringUtils.hasLength(diaryEntry.getName()) && diaryEntry.isNew() && user.getCategory(diaryEntry.getName(), true) != null) {
+            result.rejectValue("name", "duplicate", "already exists");
+        }
+        diaryEntry.setUser(user);
+        if (result.hasErrors()) {
+            model.put("entry", diaryEntry);
+            return "diary/createOrUpdateDiaryEntry";
+        }
+        else {
             this.diaryEntryRepository.save(diaryEntry);
             return "redirect:/user/{userId}/diary";
         }

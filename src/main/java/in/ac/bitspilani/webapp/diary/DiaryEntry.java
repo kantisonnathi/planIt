@@ -2,6 +2,7 @@ package in.ac.bitspilani.webapp.diary;
 
 import in.ac.bitspilani.webapp.model.NamedEntity;
 import in.ac.bitspilani.webapp.user.User;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -14,6 +15,8 @@ public class DiaryEntry extends NamedEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column(name = "date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
     //this is the content of the diary entry
