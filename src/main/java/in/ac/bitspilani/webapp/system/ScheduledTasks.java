@@ -47,7 +47,7 @@ public class ScheduledTasks {
             User currentUser = item.getCategory().getUser();
             Twilio.init(AUTH_SID, AUTH_TOKEN);
             Message message = Message.creator(
-                    new PhoneNumber("currentUser.getPhoneNumber()"),
+                    new PhoneNumber(currentUser.getPhoneNumber()),
                     new PhoneNumber("+16097986441"),
                     "Hello" + currentUser.getName() + "!\n\nYou have items due tomorrow!\nYou have " +
                             item.getName() + " due tomorrow")
