@@ -63,7 +63,7 @@ div#sc-password input[type="submit"] {
 }
 
 div#sc-password input[type="submit"]:hover {
-    background: #D8BFD8;
+    background: #990066;
 }
 
 div#sc-password input[type="reset"] {
@@ -80,7 +80,7 @@ div#sc-password input[type="reset"] {
 }
 
 div#sc-password input[type="reset"]:hover {
-    background: #D8BFD8;
+    background: #990066;
 }
 
 #sc-password .sc-container p {
