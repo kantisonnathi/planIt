@@ -83,9 +83,6 @@ public class DiaryController {
 
     @PostMapping("entry/new")
     public String processCreationFormCategory(User user, @Valid DiaryEntry diaryEntry, BindingResult result, ModelMap model) {
-        if (StringUtils.hasLength(diaryEntry.getName()) && diaryEntry.isNew() && user.getCategory(diaryEntry.getName(), true) != null) {
-            result.rejectValue("name", "duplicate", "already exists");
-        }
         diaryEntry.setUser(user);
         if (result.hasErrors()) {
             model.put("entry", diaryEntry);
