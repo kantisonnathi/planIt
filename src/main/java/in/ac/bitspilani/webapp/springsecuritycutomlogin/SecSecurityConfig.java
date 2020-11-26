@@ -95,7 +95,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                      .defaultSuccessUrl("/dashboard",true)
                      .userInfoEndpoint().userService(oAuth2UserService)
                      .and()
-                    // .successHandler(oAuth2LoginSuccessHandler)
+                    .successHandler(oAuth2LoginSuccessHandler)
                  .and()
                  .logout().permitAll()
 
