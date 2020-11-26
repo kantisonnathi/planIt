@@ -96,5 +96,10 @@ public class DiaryController {
             return "redirect:/user/{userId}/diary";
         }
     }
+    @GetMapping("entry/{entryId}/delete")
+    public String removeCategory(@PathVariable("entryId") int entryId) {
+        diaryEntryRepository.deleteById(entryId);
+        return  "redirect:/user/{userId}/diary";
+    }
 
 }

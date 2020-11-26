@@ -22,6 +22,7 @@
         <th>Date Of entry</th>
         <th>Name of entry</th>
         <th>Action</th>
+        <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -31,7 +32,10 @@
                 <a th:href="@{/user/__${user.id}__/entry/__${entry.id}__}" th:text="${entry.name}"></a>
             </td>
             <td>
-                <a th:href="@{/user/__${user.id}__entry/__${entry.id}__/edit}">Edit entry</a>
+                <a th:href="@{/user/__${user.id}__/entry/__${entry.id}__/edit}">Edit entry</a>
+            </td>
+            <td>
+                <a th:href="@{/user/__${user.id}__/entry/__${entry.id}__/delete}">Delete entry</a>
             </td>
         </tr>
         </tbody>
