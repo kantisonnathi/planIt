@@ -6,10 +6,15 @@
     <meta charset="ISO-8859-1">
     <title>About</title>
 </head>
-<body>
 
 <h1 style="color: #D8BFD8">About This Project</h1>
 <div class="topnav">
+    <header>
+        <div id="logo">
+            <img src="../../images/LogoSingle.PNG" alt="logo" style="width:60px;height:60px;" align="left">
+
+        </div>
+    </header>
     <a th:href="@{/dashboard}">Dashboard</a>
     <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
     <a class="active" href="/about">About the Project</a>
@@ -19,55 +24,140 @@
 </div>
 <br>
 
-<div id="#about-section">
-    <p>This web-app is an integrated effort of a group of amateurs</p>
-    <p>We had a great learning experience doing this, and hope to do more like these in the future.</p>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+    }
+    h2 {
+        color: #D8BFD8;
+    }
+
+    html {
+        box-sizing: border-box;
+    }
+
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+
+    .column {
+        float: left;
+        width: 33.3%;
+        margin-bottom: 16px;
+        padding: 0 8px;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin: 8px;
+    }
+
+    .about-section {
+        padding: 50px;
+        text-align: center;
+        background-color: #D8BFD8;
+        color: black;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .container::after, .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .title {
+        color: #D8BFD8;
+    }
+
+    .button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #590059;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .button:hover {
+        background-color: #990066;
+    }
+
+    @media screen and (max-width: 650px) {
+        .column {
+            width: 100%;
+            display: block;
+        }
+    }
+</style>
+
+<body>
+
+<div class="about-section">
+    <p>Some text about who we are and what we do.</p>
+    <p>Resize the browser window to see that this page is responsive by the way.</p>
 </div>
 
 <h2 style="text-align:center">Our Team</h2>
 <div class="row">
     <div class="column">
         <div class="card">
-            <img src="/w3images/team1.jpg" alt="Kanti Sonnathi" style="width:100%">
+            <img src="/w3images/team1.jpg" alt="Shreya Guda" style="width:100%">
             <div class="container">
-                <h3>Kanti Sonnathi</h3>
-                <p class="title">CEO & Founder</p>
-                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <h2>Shreya Guda</h2>
+                <p class="title">Student</p>
+                <p>Some text that describes me</p>
+                <p>f20191202@hyderabad.bits-pilani.ac.in</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="/w3images/team2.jpg" alt="Kanti Sonnathi" style="width:100%">
+            <div class="container">
+                <h2>Kanti Sonnathi</h2>
+                <p class="title">Student</p>
+                <p>Some text that describes me</p>
                 <p>f20191209@hyderabad.bits-pilani.ac.in</p>
                 <p><button class="button">Contact</button></p>
             </div>
         </div>
+    </div>
+
+    <div class="column">
         <div class="card">
-            <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+            <img src="/w3images/team3.jpg" alt="Sahithi Annadi" style="width:100%">
             <div class="container">
-                <h3>Shreya Guda</h3>
-                <p class="title">Art Director</p>
-                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                <p>f20191202@hyderabad.bits-pilani.ac.in</p>
+                <h2>Sahithi Annadi</h2>
+                <p class="title">Student</p>
+                <p>Some text that describes me </p>
+                <p>f20191208@hyderabad.bits-pilani.ac.in</p>
                 <p><button class="button">Contact</button></p>
             </div>
-            <div class="card">
-                <img src="/w3images/team3.jpg" alt="John" style="width:100%">
-                <div class="container">
-                    <h3>Sahithi Annadi</h3>
-                    <p class="title">Designer</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>f20191208@hyderabad.bits-pilani.ac.in</p>
-                    <input type="submit" value="Contact" id="submit"></input>
-                </div>
-            </div>
-    </div>
-
-    <div class="column">
-
         </div>
-
-
     </div>
 
-    <div class="column">
-
-    </div>
+    <center><div class="column">
+        <div class="card">
+            <img src="/w3images/team3.jpg" alt="Saaketh Vaddi" style="width:100%">
+            <div class="container">
+                <h2>Saaketh Vaddi</h2>
+                <p class="title">Student</p>
+                <p>Some text that describes me </p>
+                <p>f20191215@hyderabad.bits-pilani.ac.in</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div></center>
 </div>
 
 </body>

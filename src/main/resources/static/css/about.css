@@ -2,6 +2,9 @@
 
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
 
+html {
+    box-sizing: border-box;
+}
 * {font-family: 'Open Sans', sans-serif;}
 head {
     font-family: Verdana;
@@ -37,24 +40,12 @@ body {
     margin: 0;
 }
 
-html {
-    box-sizing: border-box;
-}
 
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-.column {
+/*#column {
     float: left;
     width: 33.3%;
     margin-bottom: 16px;
     padding: 0 8px;
-}
-
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 8px;
 }
 
 #about-section p {
@@ -62,20 +53,6 @@ html {
     text-align: center;
     background-color: #474e5d;
     color: #D8BFD8;;
-}
-
-.container {
-    padding: 0 16px;
-}
-
-.container::after, .row::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-.title {
-    color: grey;
 }
 
 div.card input[type="submit"] {
@@ -99,5 +76,5 @@ div.card input[type="submit"]:hover {
         width: 100%;
         display: block;
     }
-}
+}*/
 
