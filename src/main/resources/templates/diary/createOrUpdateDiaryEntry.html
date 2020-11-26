@@ -16,6 +16,10 @@
     <a th:href="@{/logout}">Logout</a>
 
 </div>
+<br>
+<br>
+<br>
+<br>
 
 <form action="#" th:object="${entry}" method="post" id="entryform">
     <input type="hidden" name="id" th:value="${entry.id}">
@@ -23,16 +27,21 @@
 
     <label for="name">Name</label>
     <input type="text" th:field="*{name}" id="name" placeholder="Name"/>
-    <span th:if="${#fields.hasErrors('name')}" th:error="*{name}"></span>
+    <span th:if="${#fields.hasErrors('name')}" th:error="*{name}"></span><br><br>
     <label for="date">Date</label>
     <input type="date" th:field="*{date}" id="date" placeholder="Date">
     <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
     <br>
-    <textarea name="entrytext" form="entryform" th:field="*{text}"></textarea>
+    <br>
+    <center><h3>Diary Entry</h3></center>
+    <textarea name="entrytext" form="entryform" rows="25" cols="100" th:field="*{text}"></textarea>
     <!--<span th:if="${#field.hasErrors('name')}" th:errors="*{name}"></span>--> <!--write validators -->
     <br>
-
-    <input type="submit">
+    <br>
+    <br>
+    <div id="save">
+        <input type="submit" value="Save" id="submit"></input>
+    </div>
 
 </form>
 

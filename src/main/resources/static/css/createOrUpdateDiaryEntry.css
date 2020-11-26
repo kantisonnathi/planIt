@@ -33,3 +33,21 @@ title {
     text-decoration: none;
     font-size: 17px;
 }
+
+div#save input[type="submit"] {
+    width: 10%;
+    height: 1%;
+    background: #590059;
+    border: 0;
+    padding: 4%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 100%;
+    color: #fff;
+    cursor: pointer;
+    transition: background .3s;
+    -webkit-transition: background .3s;
+}
+
+div#save input[type="submit"]:hover {
+    background: #990066;
+}
