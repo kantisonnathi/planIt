@@ -36,10 +36,14 @@ public class DashboardController {
 
     @GetMapping("/dashboard")
     public String dashboard(Map<String, Object> model, Principal principal) {
-        String email = principal.toString();
-       int start= email.indexOf("email=");
-        int end=email.indexOf("}",start);
-        email=email.substring(start+6,end);
+        String email= principal.getName();
+        if(email.matches("[0-9]+")) {
+            email = principal.toString();
+
+            int start = email.indexOf("email=");
+            int end = email.indexOf("}", start);
+            email = email.substring(start + 6, end);
+        }
         User user = userRepository.findByEmail(email);//    String email = oauth2user.getEmail();
         //User user = new User();
         if(user==null)
