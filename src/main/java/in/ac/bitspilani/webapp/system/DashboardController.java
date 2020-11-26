@@ -93,8 +93,9 @@ public class DashboardController {
         return "dashboard/trigger";
     }
 
-    @GetMapping("/about")
-    public String aboutPage(User user, ModelMap modelMap) {
+    @GetMapping("user/{userId}/about")
+    public String aboutPage(@PathVariable("userId") int userId, ModelMap modelMap) {
+        User user = userRepository.findById(userId);
         modelMap.put("user",user);
         return "dashboard/about";
     }

@@ -4,10 +4,7 @@ import in.ac.bitspilani.webapp.category.Category;
 import in.ac.bitspilani.webapp.model.NamedEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
@@ -20,7 +17,7 @@ public class Item extends NamedEntity {
 
     public boolean toDo;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     private Category category;
 

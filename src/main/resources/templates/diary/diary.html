@@ -10,9 +10,9 @@
 <body>
 <h1>Personal Diary</h1>
 <div class="topnav">
-    <a th:href="@{/}">Dashboard</a>
+    <a th:href="@{/dashboard}">Dashboard</a>
     <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
-    <a href="/about">About the Project</a>
+    <a th:href="@{/user/__${user.id}__/about}">About the Project</a>
     <a class="active" th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
     <a th:href="@{/logout}">Logout</a>
 
