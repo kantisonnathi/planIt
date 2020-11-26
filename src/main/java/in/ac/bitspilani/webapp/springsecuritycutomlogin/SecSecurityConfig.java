@@ -95,8 +95,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .userInfoEndpoint().userService(oAuth2UserService)
                 .and()
 
-                .successHandler(oAuth2LoginSuccessHandler)
-
+                //.successHandler(oAuth2LoginSuccessHandler)
                 .and()
                 .logout().permitAll()
 
