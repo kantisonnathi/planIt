@@ -1,5 +1,4 @@
 
-
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
 
 * {font-family: 'Open Sans', sans-serif;}
@@ -32,4 +31,73 @@ title {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #990066 ;
+    color: white;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #990066;
+    color: white;
+}
+
+#diary-table {
+    margin: auto;
+    min-width: 300px;
+    max-width: 100%;
+    border-collapse: collapse;
+    border-radius: .4em;
+    overflow: hidden;
+    color: #D8BFD8;
+}
+
+#diary-table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #9932cc;
+    border-color: #bfbfbf;
+    color: white;
+}
+
+#diary-table th, .table td {
+    text-align: left;
+    padding: .5em 1em;
+}
+
+@media screen and (max-width: 601px) {
+    #diary-table tr:nth-child(1) {
+        border-top: none;
+    }
+}
+@media screen and (min-width: 600px) {
+    #diary-table tr:hover:not(:first-child) {
+        background-color: #9932cc;
+    }
+    #diary-table td:before {
+        display: none;
+    }
+    #diary-table th,
+    #diary-table td {
+        display: table-cell;
+        padding: .25em .5em;
+    }
+    #diary-table th:first-child,
+    #diary-table td:first-child {
+        padding-left: 0;
+    }
+    #diary-table th:last-child,
+    #diary-table td:last-child {
+        padding-right: 0;
+    }
+    #diary-table th,
+    #diary-table td {
+        padding: 1em !important;
+    }
+}
+
+a {
+    color: yellow;
 }

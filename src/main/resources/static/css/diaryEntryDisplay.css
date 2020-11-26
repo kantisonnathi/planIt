@@ -1,0 +1,94 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
+
+* {font-family: 'Open Sans', sans-serif;}
+head {
+    font-family: Verdana;
+    color: #D8BFD8;
+}
+body {
+    font-family: Verdana;
+    text-align: center;
+    background-image: url(../images/background.jpg);
+    color: #D8BFD8;
+
+}
+
+title {
+    color: #D8BFD8;
+}
+
+.topnav {
+    background-color: #590059;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #990066 ;
+    color: white;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #990066;
+    color: white;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    line-height: normal;
+}
+.note {
+    position: relative;
+    padding: 40px 40px 80px 40px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 1px;
+    border: 1px solid #C5C5C5;
+    border-bottom: none;
+    background: #FFF;
+    background: -webkit-gradient(linear, 0 0, 0 60%, from(#F2F2F2), color-stop(14%, #FFF)) 0 20px;
+    background: -webkit-linear-gradient(top, #F2F2F2 10%, #FFF 14%) 0 20px;
+    background: -moz-linear-gradient(top, #F2F2F2 10%, #FFF 14%) 0 20px;
+    background: -ms-linear-gradient(top, #F2F2F2 10%, #FFF 14%) 0 20px;
+    background: -o-linear-gradient(top, #F2F2F2 10%, #FFF 14%) 0 20px;
+    background: linear-gradient(top, #F2F2F2 0%, #FFF 8%) 0 20px;
+    -webkit-background-size: 60% 22px;
+    -moz-background-size: 60% 22px;
+    -ms-background-size: 60% 22px;
+    -o-background-size: 60% 22px;
+    background-size: 60% 22px;
+    font-size: 18px;
+    line-height: 24px;
+}
+/*these are the papers underneath*/
+.note:after,
+.note:before {
+    position:absolute;
+    bottom:-6px;
+    background:#EEE;
+    content:'';
+    height:6px;
+    width:98%;
+    box-shadow:0 1px 1px 1px rgba(0,0,0,.15), inset 0 -2px 0 0 rgba(255,255,255,.75);
+    left:50%;
+    z-index:-1;
+    margin-left:-49%;
+    border-radius:0 0 2px 2px;
+}
+.note:before {
+    bottom:-10px;
+    width:96%;
+    margin-left:-48%;
+    z-index:-2;
+}

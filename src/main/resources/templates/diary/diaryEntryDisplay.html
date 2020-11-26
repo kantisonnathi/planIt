@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="../../static/css/diaryEntry.css" th:href="@{/css/diaryEntry.css}">
+    <link rel="stylesheet" href="../../static/css/diaryEntryDisplay.css" th:href="@{/css/diaryEntryDisplay.css}">
     <link rel="shortcut icon" href="../images/LogoSingle.png" type="image/png">
     <meta charset="ISO-8859-1">
     <title>Personal Diary</title>
@@ -16,12 +16,16 @@
     <a th:href="@{/logout}">Logout</a>
 
 </div>
-
-
+<br>
+<br>
+<br>
+<br>
+<div class="note">
 <h2 th:text="${entry.date}"></h2>
 
 <p th:text="${entry.text}"></p>
 
+</div>
 <!--
 <div th:object="entry">
     <p th:text="*{text}"></p>
