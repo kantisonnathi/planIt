@@ -176,6 +176,9 @@ public class User extends NamedEntity {
     }
 
     public void addCategory(Category category) {
+        if (this.categories == null) {
+            this.categories = new HashSet<>();
+        }
         categories.add(category);
         category.setUser(this);
     }

@@ -53,8 +53,10 @@ public class DashboardController {
            fin.setEmail(email);
            fin.setUserComplete(true);
            fin.setProfession("default");
+           fin= userRepository.save(fin);
             fin = customisingDashboard(fin);
-            userRepository.save(fin);
+            fin.userNew=false;
+            fin= userRepository.save(fin);
 
             model.put("user", fin);
             model.put("selections", fin.getCategories());
@@ -108,7 +110,7 @@ else {
         //workout category
         Category workout = new Category();
         workout.setName("Workout");
-        workout.setUser(user);
+       user.addCategory(workout);
         workout = categoryRepository.save(workout);
         Item pushup = new Item();
         pushup.setName("Push Ups");
