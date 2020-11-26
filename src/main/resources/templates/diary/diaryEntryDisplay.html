@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Entry</title>
+    <link rel="stylesheet" href="../../static/css/diaryEntry.css" th:href="@{/css/diaryEntry.css}">
+    <link rel="shortcut icon" href="../images/LogoSingle.png" type="image/png">
+    <meta charset="ISO-8859-1">
+    <title>Personal Diary</title>
 </head>
 <body>
+<h2>Diary Entry</h2>
 <div class="topnav">
-    <a href="/dashboard">Dashboard</a>
+    <a class="active" th:href="@{/}">Dashboard</a>
     <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
-    <a class="active" th:href="@{user/__${user.id}__/diary}">Personal Diary</a>
     <a href="/about">About the Project</a>
+    <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
+    <a th:href="@{/logout}">Logout</a>
+
 </div>
 
 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="../../static/css/itemDetailsCSS.css" th:href="@{/css/itemDetailsCSS.css}">
+    <link rel="shortcut icon" href="../images/LogoSingle.png" type="image/png">
+    <meta charset="ISO-8859-1">
+    <title>About</title>
+</head>
+<body>
+
+<h1 style="color: #D8BFD8">About This Project</h1>
+<div class="topnav">
+    <a th:href="@{/dashboard}">Dashboard</a>
+    <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
+    <a class="active" href="/about">About the Project</a>
+    <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
+    <a th:href="@{/logout}">Logout</a>
+
+</div>
+<br>
+
+<div class="about-section">
+    <p>This web-app is an integrated effort of a group of amateurs</p>
+    <p>We had a great learning experience doing this, and hope to do more like these in the future.</p>
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+            <div class="container">
+                <h3>Jane Doe</h3>
+                <p class="title">CEO & Founder</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>jane@example.com</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+            <div class="container">
+                <h3>Mike Ross</h3>
+                <p class="title">Art Director</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>mike@example.com</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+            <div class="container">
+                <h3>John Doe</h3>
+                <p class="title">Designer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>john@example.com</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

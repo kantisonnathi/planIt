@@ -14,7 +14,10 @@ h2 {
     text-align: center;
     color: #D8BFD8;
 }
-
+#logo img {
+    padding-left: 10px;
+    padding-right: 100px;
+}
 title {
     color: #D8BFD8;
     text-align: center;

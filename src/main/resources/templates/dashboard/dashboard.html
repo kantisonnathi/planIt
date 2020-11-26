@@ -8,6 +8,22 @@
     <title>Dashboard</title>
     <h1 style= "color: #D8BFD8;">Dashboard</h1>
 
+    <div class="topnav">
+        <header>
+            <div id="logo">
+                <img src="../../images/LogoSingle.PNG" alt="logo" style="width:60px;height:60px;" align="left">
+
+            </div>
+        </header>
+        <a class="active" th:href="@{/}">Dashboard</a>
+        <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
+        <a href="@{/user/__${user.id}__/about}">About the Project</a>
+        <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
+        <a th:href="@{/logout}">Logout</a>
+
+    </div>
+
+
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
     <script>
         window.OneSignal = window.OneSignal || [];
@@ -18,14 +34,6 @@
         });
     </script>
 
-    <div class="topnav">
-        <a class="active" th:href="@{/}">Dashboard</a>
-        <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
-        <a href="/about">About the Project</a>
-        <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
-        <a th:href="@{/logout}">Logout</a>
-
-    </div>
 </head>
 
 <h2>Categories</h2>
