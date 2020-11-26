@@ -6,8 +6,6 @@ import in.ac.bitspilani.webapp.category.CategoryRepository;
 import in.ac.bitspilani.webapp.diary.DiaryEntry;
 import in.ac.bitspilani.webapp.item.Item;
 import in.ac.bitspilani.webapp.item.ItemRepository;
-import in.ac.bitspilani.webapp.springsecuritycutomlogin.customOauth2user;
-import in.ac.bitspilani.webapp.user.AuthenticationProvider;
 import in.ac.bitspilani.webapp.user.User;
 import in.ac.bitspilani.webapp.user.UserRepository;
 import org.springframework.stereotype.Controller;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.regex.Matcher;
 
 @Controller
 public class DashboardController {
@@ -62,7 +59,7 @@ public class DashboardController {
             model.put("selections", fin.getCategories());
 
         }
-else {
+        else {
             if (user.userNew) {
                 user = customisingDashboard(user);
                 user.userNew = false;
@@ -96,6 +93,11 @@ else {
         return "dashboard/trigger";
     }
 
+    @GetMapping("/about")
+    public String aboutPage() {
+        return "dashboard/about";
+    }
+
 
 
 
@@ -105,16 +107,17 @@ else {
 
         DiaryEntry diaryEntry = new DiaryEntry();
 
-
+        LocalDate today = LocalDate.now();
 
         //workout category
         Category workout = new Category();
         workout.setName("Workout");
-       user.addCategory(workout);
+        user.addCategory(workout);
         workout = categoryRepository.save(workout);
         Item pushup = new Item();
         pushup.setName("Push Ups");
         pushup.setQuantity(10);
+        pushup.setDueDate(today);
         workout.addItem(pushup);
         pushup = itemRepository.save(pushup);
 
@@ -127,6 +130,7 @@ else {
         Item tomatoes = new Item();
         tomatoes.setName("Tomatoes");
         tomatoes.setQuantity(6);
+        tomatoes.setDueDate(today);
         grocery.addItem(tomatoes);
         tomatoes = itemRepository.save(tomatoes);
 
@@ -139,12 +143,14 @@ else {
                 user.addCategory(assignments);
                 assignments = categoryRepository.save(assignments);
                 Item assignment1 = new Item();
+                assignment1.setDueDate(today);
                 assignment1.setName("Assignment 1");
                 assignment1.setQuantity(1);
                 assignments.addItem(assignment1);
                 Item assignment2 = new Item();
                 assignment2.setName("Assignment 2");
-                assignment1.setQuantity(1);
+                assignment2.setDueDate(today);
+                assignment1.setQuantity(2);
                 assignments.addItem(assignment2);
                 assignment1 = itemRepository.save(assignment1);
                 assignment2 = itemRepository.save(assignment2);
@@ -155,11 +161,13 @@ else {
                 user.addCategory(tests);
                 tests = categoryRepository.save(tests);
                 Item OOP = new Item();
+                OOP.setDueDate(today);
                 OOP.setName("OOP test");
                 OOP.setQuantity(1);
                 tests.addItem(OOP);
                 Item Logic = new Item();
                 Logic.setName("Logic test");
+                Logic.setDueDate(today);
                 Logic.setQuantity(1);
                 tests.addItem(Logic);
                 Logic = itemRepository.save(Logic);
@@ -174,6 +182,7 @@ else {
                 resources = categoryRepository.save(resources);
                 Item oop = new Item();
                 oop.setName("baeldung tutorials");
+                oop.setDueDate(today);
                 oop.setQuantity(1);
                 resources.addItem(oop);
                 oop = itemRepository.save(oop);
@@ -191,11 +200,13 @@ else {
                 user.addCategory(ideas);
                 ideas = categoryRepository.save(ideas);
                 Item idea1 = new Item();
+                idea1.setDueDate(today);
                 idea1.setName("What I eat in a day");
                 idea1.setQuantity(1);
                 ideas.addItem(idea1);
                 Item idea2 = new Item();
                 idea2.setName("My daily routine");
+                idea2.setDueDate(today);
                 idea2.setQuantity(1);
                 ideas.addItem(idea2);
                 idea2 = itemRepository.save(idea2);
@@ -207,6 +218,7 @@ else {
                 collab.setName("Collaboration schedule");
                 collab = categoryRepository.save(collab);
                 Item item1 = new Item();
+                item1.setDueDate(today);
                 item1.setName("Meet with Saloni");
                 item1.setQuantity(1);
                 collab.addItem(item1);
@@ -222,6 +234,7 @@ else {
                 user.addCategory(meetings);
                 meetings = categoryRepository.save(meetings);
                 Item meeting1 = new Item();
+                meeting1.setDueDate(today);
                 meeting1.setName("Meet with Brian");
                 meeting1.setQuantity(1);
                 meetings.addItem(meeting1);
@@ -235,10 +248,12 @@ else {
                 travel = categoryRepository.save(travel);
                 Item trip1 = new Item();
                 trip1.setName("Trip to US");
+                trip1.setDueDate(today);
                 trip1.setQuantity(1);
                 travel.addItem(trip1);
                 trip1 = itemRepository.save(trip1);
                 Item trip2 = new Item();
+                trip2.setDueDate(today);
                 trip2.setName("Trip to Singapore");
                 trip2.setQuantity(1);
                 travel.addItem(trip2);
