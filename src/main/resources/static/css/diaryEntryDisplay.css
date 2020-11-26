@@ -65,11 +65,11 @@ body {
     background: -ms-linear-gradient(top, #F2F2F2 10%, #FFF 14%) 0 20px;
     background: -o-linear-gradient(top, #F2F2F2 10%, #FFF 14%) 0 20px;
     background: linear-gradient(top, #F2F2F2 0%, #FFF 8%) 0 20px;
-    -webkit-background-size: 100% 22px;
-    -moz-background-size: 100% 22px;
-    -ms-background-size: 100% 22px;
-    -o-background-size: 100% 22px;
-    background-size: 100% 22px;
+    -webkit-background-size: 60% 22px;
+    -moz-background-size: 60% 22px;
+    -ms-background-size: 60% 22px;
+    -o-background-size: 60% 22px;
+    background-size: 60% 22px;
     font-size: 18px;
     line-height: 24px;
 }
