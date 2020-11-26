@@ -12,10 +12,17 @@
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fa3f2030594c7c4"></script>
 <h1 style="color: #D8BFD8">Item Details</h1>
 <div class="topnav">
+    <header>
+        <div id="logo">
+            <img src="../../images/LogoSingle.PNG" alt="logo" style="width:60px;height:60px;" align="left">
+
+        </div>
+    </header>
     <a href="/dashboard">Dashboard</a>
     <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
     <a href="/diary">Personal Diary</a>
     <a href="/about">About the Project</a>
+    <a th:href="@{/logout}">Logout</a>
 </div>
 <br>
 <div class="container">

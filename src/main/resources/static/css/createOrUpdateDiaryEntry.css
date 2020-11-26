@@ -1,0 +1,35 @@
+
+
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
+
+* {font-family: 'Open Sans', sans-serif;}
+head {
+    font-family: Verdana;
+    color: #D8BFD8;
+}
+body {
+    font-family: Verdana;
+    text-align: center;
+    background-image: url(../images/background.jpg);
+    color: #D8BFD8;
+
+}
+
+title {
+    color: #D8BFD8;
+}
+
+.topnav {
+    background-color: #590059;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}

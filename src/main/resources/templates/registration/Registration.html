@@ -6,14 +6,17 @@
     <meta charset="ISO-8859-1"/>
     <meta http-equiv="Authorization" content="3";url="http://localhost:8080/dashboard">
     <title>Registration page</title>
-    <h1>Welcome! Please Sign in/Sign up!</h1>
-    <h4>Welcome to PlanIt! We are excited to see you here. This is gonna be ur personalized shit kk bye</h4>
+    <img src="../../static/images/LogoSingle.png" id="logo">
+    <h1 id="mainHeader">PlanIt!</h1>
+</head>
 
 <body>
 
+<h4 style="text-align: center;">An all-in-one hub for all your planning needs! </h4>
+<h2 style="text-align: center; color: #D8BFD8">Login here</h2>
+
 <div class="loginbox">
-    <img src="https://previews.123rf.com/images/asmati/asmati1610/asmati161000233/63831576-user-sign-illustration-white-icon-on-red-circle-.jpg" class="avatar" >
-    <h2>Login here</h2>
+   <!-- <img src="https://previews.123rf.com/images/asmati/asmati1610/asmati161000233/63831576-user-sign-illustration-white-icon-on-red-circle-.jpg" class="avatar" >-->
     <form name='f' action="/perform_login" method='POST'>
         <tr>
             <td>User (custom):</td>
@@ -25,7 +28,9 @@
             <td><input type='password' name='password' /></td>
         </tr>
         <tr>
-            <td><input name="submit" type="submit" value="Submit" /></td>
+            <td>
+                <input name="submit" type="submit" value="Submit" />
+            </td>
         </tr>
     </form>
     <a href="/forgot">Forgot your password?</a><br>
@@ -39,13 +44,29 @@
 
     </div>
 
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAZlBMVEX///8AAADExMRLS0tYWFihoaFbW1urq6sbGxvU1NTw8PCysrJSUlJjY2N6enqUlJT29vaDg4OZmZnm5uY2NjbNzc1ra2ujo6OLi4vo6Oi9vb3IyMiBgYHS0tLb29uIiIhGRkY+Pj4/qTHLAAACS0lEQVR4nO3bDU7CQBRFYYdKsYCARfBfdP+bVBM1RpmxM7zkzW3Ot4J7QqR0Ws/OAAAAAAAAAAAAAAAAAACnm+8W/eO+XTZNs2wv96vD+mYx6bYb7102nqdtiLryXneybhWvG0Ph7CLdF8Kt98STzP7Le7f2HnmC7t/P70PvPbPc1ZC+EKbeO0ttrocFhhvvpYXuBvaFMPOeWmY7ODAsvLcWmQ8PFC0c9CX66d57bInLjMAw8V5b4D4nMDx4zy2QFRh23nPzPeYVPnnvzZbzPfqh8x6cbeCPtW/P3oOzZQaGrffgXIvRFy5zC+fei3PlBsoVTrIL1U7bbtM57aGffuv7fr0+eC/OlfozPNe79B2RCBS91f1lEw9UPlP7IXFv7z3NSBcNVD/a/vIQLZS8lT8ifjmU+3EWES9Uu7DHxAu9l1mhUB+F+ijUR6E+CvVRqI9CfRTqG39h/CTKe1mhl2jQcI13RNK5QeHeOyLJonDlHZFkUVj34zWLwrqf2FgU1v2OsEVh3Y8VLQrrfr/UorDuh1IWhXW/fWlRWPfrCxaFdb+5Z1F45x2RZFFY91tfFoV1Pxy2KPRuSKOQwncX3g1pBoXX3g1pBoV1H9NYFLbeDWkGhXUfRFmcJlZe+McuWuK9zMr4T/Up1EehPgr1UaiPQn0U6qNQH4X6KNRHoT4K9VGoj0J9FOqjUB+F+ijUR6E+CvVRqI9CfRTqo1Afhfoo1EehPgr1UaiPQn0U6qNQ3/gLd6/NcZX/yzYAAAAAAAAAAAAAAAAA1OkNiYscCbi0HAwAAAAASUVORK5CYII=" class="fbicon">
-    <div style="text-align: right">
+
+    <div id="googleLogin">
+        <form method="get" th:action="@{/oauth2/authorization/google}">
+            <button type="submit" >
+                <img src="../../images/google.PNG" class="googleicon"/>
+            </button>
+        </form>
+    </div>
+
+    <!--<div>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAZlBMVEX///8AAADExMRLS0tYWFihoaFbW1urq6sbGxvU1NTw8PCysrJSUlJjY2N6enqUlJT29vaDg4OZmZnm5uY2NjbNzc1ra2ujo6OLi4vo6Oi9vb3IyMiBgYHS0tLb29uIiIhGRkY+Pj4/qTHLAAACS0lEQVR4nO3bDU7CQBRFYYdKsYCARfBfdP+bVBM1RpmxM7zkzW3Ot4J7QqR0Ws/OAAAAAAAAAAAAAAAAAACnm+8W/eO+XTZNs2wv96vD+mYx6bYb7102nqdtiLryXneybhWvG0Ph7CLdF8Kt98STzP7Le7f2HnmC7t/P70PvPbPc1ZC+EKbeO0ttrocFhhvvpYXuBvaFMPOeWmY7ODAsvLcWmQ8PFC0c9CX66d57bInLjMAw8V5b4D4nMDx4zy2QFRh23nPzPeYVPnnvzZbzPfqh8x6cbeCPtW/P3oOzZQaGrffgXIvRFy5zC+fei3PlBsoVTrIL1U7bbtM57aGffuv7fr0+eC/OlfozPNe79B2RCBS91f1lEw9UPlP7IXFv7z3NSBcNVD/a/vIQLZS8lT8ifjmU+3EWES9Uu7DHxAu9l1mhUB+F+ijUR6E+CvVRqI9CfRTqG39h/CTKe1mhl2jQcI13RNK5QeHeOyLJonDlHZFkUVj34zWLwrqf2FgU1v2OsEVh3Y8VLQrrfr/UorDuh1IWhXW/fWlRWPfrCxaFdb+5Z1F45x2RZFFY91tfFoV1Pxy2KPRuSKOQwncX3g1pBoXX3g1pBoV1H9NYFLbeDWkGhXUfRFmcJlZe+McuWuK9zMr4T/Up1EehPgr1UaiPQn0U6qNQH4X6KNRHoT4K9VGoj0J9FOqjUB+F+ijUR6E+CvVRqI9CfRTqo1Afhfoo1EehPgr1UaiPQn0U6qNQ3/gLd6/NcZX/yzYAAAAAAAAAAAAAAAAA1OkNiYscCbi0HAwAAAAASUVORK5CYII=" class="fbicon">
+    </div>-->
+
+
+
+    <!--<div style="text-align: right">
         <a  th:href="@{/oauth2/authorization/google}" >
             Login with Google
         </a><br>
-        <right><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png" class="googleicon"></right>
-    </div>
+        <right>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png" class="googleicon">
+        </right>
+    </div>-->
 
 
 </div>

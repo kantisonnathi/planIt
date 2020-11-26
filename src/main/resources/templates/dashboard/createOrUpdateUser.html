@@ -9,10 +9,16 @@
 <body>
 <h2>Edit user</h2>
 <div class="topnav">
+    <header>
+        <div id="logo">
+            <img src="../../images/LogoSingle.PNG" alt="logo" style="width:60px;height:60px;" align="left">
+        </div>
+    </header>
     <a class="active" href="#dashboard">Dashboard</a>
     <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
     <a href="/diary">Diary</a>
     <a href="/about">About the Project</a>
+    <a th:href="@{/logout}">Logout</a>
 </div>
 
 <form action="#"
