@@ -5,13 +5,23 @@
     <link rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}">
     <link rel="shortcut icon" href="../images/LogoSingle.png" type="image/png">
     <meta charset="UTF-8">
-    <header>
-        <div id="logo">
-            <img src="../../images/LogoSingle.PNG" alt="logo" style="width:100px;height:100px;" align="right">
-        </div>
-    </header>
     <title>Dashboard</title>
     <h1 style= "color: #D8BFD8;">Dashboard</h1>
+
+    <div class="topnav">
+        <header>
+            <div id="logo">
+                <img src="../../images/LogoSingle.PNG" alt="logo" style="width:60px;height:60px;" align="left">
+
+            </div>
+        </header>
+        <a class="active" th:href="@{/}">Dashboard</a>
+        <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
+        <a href="/about">About the Project</a>
+        <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
+        <a th:href="@{/logout}">Logout</a>
+
+    </div>
 
 
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
@@ -25,14 +35,7 @@
     </script>
 
 </head>
-<div class="topnav">
-    <a class="active" th:href="@{/}">Dashboard</a>
-    <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
-    <a href="/about">About the Project</a>
-    <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
-    <a th:href="@{/logout}">Logout</a>
 
-</div>
 <h2>Categories</h2>
 <h2 th:text="${user.name}"> Welcome! </h2>
 <body>
