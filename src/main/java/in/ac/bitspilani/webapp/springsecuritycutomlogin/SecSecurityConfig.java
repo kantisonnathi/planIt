@@ -26,8 +26,8 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 @Order(value = 200 )
 public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
-   @Autowired
-   private DataSource dataSource;
+    @Autowired
+    private DataSource dataSource;
     @Qualifier("myUserDetailsServices")
     @Autowired
     UserDetailsService userDetailsService;
@@ -81,7 +81,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/success").permitAll()
                 .antMatchers("/oauth2/**").permitAll()
                 .antMatchers("/phonereg").permitAll()
-               // .antMatchers("/dashboard/**").authenticated()
+                // .antMatchers("/dashboard/**").authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/custom_login")
@@ -90,12 +90,15 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/custom_login?error=true")
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/custom_login")
                 .and().oauth2Login()
-                     .loginPage("/custom_login")
-                     .defaultSuccessUrl("/dashboard",true)
-                     .userInfoEndpoint().userService(oAuth2UserService)
-                     .and()
-                 .and()
-                 .logout().permitAll()
+                .loginPage("/custom_login")
+                .defaultSuccessUrl("/dashboard",true)
+                .userInfoEndpoint().userService(oAuth2UserService)
+                .and()
+
+                .successHandler(oAuth2LoginSuccessHandler)
+
+                .and()
+                .logout().permitAll()
 
                 .permitAll();
 
@@ -111,4 +114,5 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     private OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler;
 
 }
+
 

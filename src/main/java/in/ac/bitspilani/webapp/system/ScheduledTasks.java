@@ -12,6 +12,7 @@ import in.ac.bitspilani.webapp.user.UserRepository;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 import java.util.List;
 

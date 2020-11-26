@@ -1,6 +1,6 @@
 package in.ac.bitspilani.webapp.user;
 
-import com.twilio.type.PhoneNumber;
+
 import in.ac.bitspilani.webapp.category.Category;
 import in.ac.bitspilani.webapp.diary.DiaryEntry;
 import in.ac.bitspilani.webapp.model.NamedEntity;
