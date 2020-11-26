@@ -126,12 +126,8 @@ h2{
     color: #ffc107;
 }
 .googleicon{
-    width: 100px;
-    height: 50px;
     position: absolute;
 }
 
 #googleLogin {
-    margin-left: 250px ;
-    margin-top: 10px;
 }
