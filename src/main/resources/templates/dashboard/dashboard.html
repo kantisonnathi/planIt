@@ -24,16 +24,15 @@
         });
     </script>
 
-    <div class="topnav">
-        <a class="active" th:href="@{/}">Dashboard</a>
-        <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
-        <a href="/about">About the Project</a>
-        <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
-        <a th:href="@{/logout}">Logout</a>
-
-    </div>
 </head>
+<div class="topnav">
+    <a class="active" th:href="@{/}">Dashboard</a>
+    <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
+    <a href="/about">About the Project</a>
+    <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
+    <a th:href="@{/logout}">Logout</a>
 
+</div>
 <h2>Categories</h2>
 <h2 th:text="${user.name}"> Welcome! </h2>
 <body>

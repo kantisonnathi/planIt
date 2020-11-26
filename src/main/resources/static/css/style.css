@@ -5,7 +5,7 @@ body {
     font-family: Verdana;
     background-image: url(../images/background.jpg);
 }
-#logo h1 {
+h1 {
     font-family: Verdana;
     text-align: center;
 }
