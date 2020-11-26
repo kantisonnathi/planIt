@@ -94,7 +94,8 @@ public class DashboardController {
     }
 
     @GetMapping("/about")
-    public String aboutPage() {
+    public String aboutPage(User user, ModelMap modelMap) {
+        modelMap.put("user",user);
         return "dashboard/about";
     }
 
