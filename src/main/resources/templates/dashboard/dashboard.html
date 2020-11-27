@@ -9,12 +9,9 @@
     <h1 style= "color: #D8BFD8;">Dashboard</h1>
 
     <div class="topnav">
-        <header>
             <div id="logo">
-                <img src="../LogoSingle.png" alt="logo" style="width:60px;height:60px;" align="left">
-
+                <img src="../../images/LogoSingle.png" alt="logo" style="width:60px;height:60px;" align="left">
             </div>
-        </header>
         <a class="active" th:href="@{/dashboard}">Dashboard</a>
         <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
         <a th:href="@{/user/__${user.id}__/about}">About the Project</a>
