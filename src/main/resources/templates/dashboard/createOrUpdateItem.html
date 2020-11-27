@@ -13,10 +13,11 @@
         <div>
             <img src="../../images/LogoSingle.png" alt="logo" style="width:60px;height:60px;" align="left" id="logo">
         </div>
-    <a th:href="@{/dashboard}">Dashboard</a>
+    <a href="/dashboard">Dashboard</a>
     <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
-    <a th:href="@{/user/__${user.id}__/about}">About the Project</a>
     <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
+    <a th:href="@{/user/__${user.id}__/search}">Search</a>
+    <a th:href="@{/user/__${user.id}__/about}">About the Project</a>
     <a th:href="@{/logout}">Logout</a>
 
 </div>
