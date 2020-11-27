@@ -72,6 +72,7 @@ body {
     background-size: 60% 22px;
     font-size: 18px;
     line-height: 24px;
+    color: black;
 }
 /*these are the papers underneath*/
 .note:after,
