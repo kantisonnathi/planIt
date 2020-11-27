@@ -1,7 +1,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="../../static/css/createOrUpdateItem.css" th:href="@{/css/createOrUpdateItem.css}">
-    <link rel="shortcut icon" href="../images/LogoSingle.png" type="image/png">
+    <!--<link rel="shortcut icon" href="../images/LogoSingle.png" type="image/png">-->
     <meta charset="UTF-8" />
 <!--
     <link th:href="@{/css/styles.css}" rel="stylesheet">
@@ -11,8 +11,8 @@
 <h2>Edit Item</h2>
 <div class="topnav">
     <header>
-        <div id="logo">
-            <img src="../../static/images/LogoSingle.png" alt="logo" style="width:60px;height:60px;" align="left">
+        <div>
+            <img src="../LogoSingle.png" alt="logo" style="width:60px;height:60px;" align="left" id="logo">
         </div>
     </header>
     <a th:href="@{/dashboard}">Dashboard</a>
@@ -22,6 +22,7 @@
     <a th:href="@{/logout}">Logout</a>
 
 </div>
+<br>
 <br>
 <br>
 <br>
