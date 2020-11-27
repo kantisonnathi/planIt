@@ -88,7 +88,7 @@ h2{
 
 .loginbox a{
     text-decoration: none;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 20px;
     color: #D8BFD8;
 }
@@ -142,15 +142,29 @@ h2{
     position: absolute;
 }
 
-.button {
+#facebookLogin .button {
     background-color: #4267B2; /* Green */
     border: none;
     color: white;
-    padding: 25px 180px;
+    padding: 10px 60px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    margin-left: 50px;
+}
+#googleLogin .button {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 70px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: 50px;
 }
