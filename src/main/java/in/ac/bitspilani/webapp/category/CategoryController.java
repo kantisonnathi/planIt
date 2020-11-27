@@ -132,12 +132,10 @@ public class CategoryController {
                 finalList.add(currentItem);
             }
         }
-        if(finalList.isEmpty()) {
-            return "error";
-        }
-        modelMap.put("items",finalList);
+
+        modelMap.put("selections",finalList);
         modelMap.put("user",user);
-        return "dashboard/searchResults";
+        return "dashboard/itemDetails";
     }
 
     @GetMapping("/categories/{categoryId}/delete")
