@@ -94,10 +94,10 @@ public class User extends NamedEntity {
         return categories;
     }
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Set<Category> categories;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<DiaryEntry> entries;
 
     public Category getCategory(String name) {

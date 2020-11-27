@@ -17,7 +17,7 @@ public class Item extends NamedEntity {
 
     public boolean toDo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
