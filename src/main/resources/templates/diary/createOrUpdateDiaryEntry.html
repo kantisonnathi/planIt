@@ -9,10 +9,13 @@
 <body>
 <h2>Edit/Create Entry</h2>
 <div class="topnav">
-    <a class="active" th:href="@{/}">Dashboard</a>
+    <div>
+        <img src="../../images/LogoSingle.png" alt="logo" style="width:60px;height:60px;" align="left">
+    </div>
+    <a th:href="@{/dashboard}">Dashboard</a>
     <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
     <a th:href="@{/user/__${user.id}__/about}">About the Project</a>
-    <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
+    <a class="active" th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
     <a th:href="@{/logout}">Logout</a>
 
 </div>
@@ -36,8 +39,6 @@
     <center><h3>Diary Entry</h3></center>
     <textarea name="entrytext" form="entryform" rows="25" cols="100" th:field="*{text}"></textarea>
     <!--<span th:if="${#field.hasErrors('name')}" th:errors="*{name}"></span>--> <!--write validators -->
-    <br>
-    <br>
     <br>
     <div id="save">
         <input type="submit" value="Save" id="submit"></input>
