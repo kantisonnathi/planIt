@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+<div class="topnav">
+    <div id="logo">
+        <img src="../../images/LogoSingle.png" alt="logo" style="width:60px;height:60px;" align="left">
+    </div>
+    <a href="/dashboard">Dashboard</a>
+    <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
+    <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
+    <a th:href="@{/user/__${user.id}__/about}">About the Project</a>
+    <a th:href="@{/logout}">Logout</a>
+</div>
+
+<form action="#" th:object="${item}" method="post">
+    <label for="name">Name Of item: </label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name"/>
+    <button type="submit">Submit</button>
+</form>
+
+
+</body>
+</html>

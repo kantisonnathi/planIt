@@ -10,6 +10,7 @@ import in.ac.bitspilani.webapp.user.User;
 import in.ac.bitspilani.webapp.user.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -72,7 +73,7 @@ public class DashboardController {
     }
 
     @GetMapping("user/{userId}/trigger")
-    public String trigger(@PathVariable("userId") int userId, ModelMap map) {
+    public String trigger(@PathVariable("userId") int userId, BindingResult bindingResult, ModelMap map) {
         List<Category> categoryList = categoryRepository.findByUserId(userId);
         User user = userRepository.findById(userId);
         System.out.println(categoryList);

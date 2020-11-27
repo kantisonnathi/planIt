@@ -38,6 +38,19 @@ public class ScheduledTasks {
         AUTH_TOKEN="2e85596ee9b7fcfc0bc45875340eea46";
     }
 
+    /*@Scheduled(fixedDelay = 86400 * 1000)
+    public void sendDailyNotif() {
+        List<User> users = userRepository.findAllByUserComplete(true);
+        for (User user : users) {
+            SimpleMailMessage notifEmail = new SimpleMailMessage();
+            notifEmail.setTo(user.getEmail());
+            notifEmail.setSubject("Please update your inventory!");
+            notifEmail.setText("Hello " + user.getName() + "!\n\nPlease update your items!\nhttp://localhost:8080/dashboard\n" +
+                    "Please click on the above link to access your items.");
+            emailService.sendEmail(notifEmail);
+        }
+    }*/
+
     @Scheduled(initialDelay = 60 * 1000,fixedDelay = 86400 * 1000)
     public void sendSMSNotifications() {
         LocalDate tomorrowDate = LocalDate.now().plusDays(1);

@@ -20,6 +20,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.naming.Binding;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -109,6 +111,33 @@ public class CategoryController {
             this.categoryRepository.save(category);
             return "redirect:/dashboard";
         }
+    }
+
+    @GetMapping("/search")
+    public String search(User user, ModelMap modelMap) {
+        String name = "";
+        Item item = new Item();
+        modelMap.put("item",item);
+        modelMap.put("user",user);
+        return "dashboard/search";
+    }
+
+    @PostMapping("/search")
+    public String postSearch(@Valid Item item, User user, ModelMap modelMap) {
+        List<Item> items = itemRepository.findAllByName(item.getName());
+        List<Item> finalList = new ArrayList<>();
+        for (Item currentItem : items) {
+            User itemUser = currentItem.getCategory().getUser();
+            if (itemUser.getId().equals(user.getId())) {
+                finalList.add(currentItem);
+            }
+        }
+        if(finalList.isEmpty()) {
+            return "error";
+        }
+        modelMap.put("items",finalList);
+        modelMap.put("user",user);
+        return "dashboard/searchResults";
     }
 
     @GetMapping("/categories/{categoryId}/delete")
