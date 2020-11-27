@@ -81,7 +81,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/success").permitAll()
                 .antMatchers("/oauth2/**").permitAll()
                 .antMatchers("/phonereg").permitAll()
-                // .antMatchers("/dashboard/**").authenticated()
+                .antMatchers("/dashboard/**").authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/custom_login")
