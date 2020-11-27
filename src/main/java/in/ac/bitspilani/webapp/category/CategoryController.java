@@ -133,9 +133,9 @@ public class CategoryController {
             }
         }
 
-        modelMap.put("selections",finalList);
+        modelMap.put("items",finalList);
         modelMap.put("user",user);
-        return "dashboard/itemDetails";
+        return "dashboard/searchResults";
     }
 
     @GetMapping("/categories/{categoryId}/delete")

@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../../static/css/trigger.css" th:href="@{/css/trigger.css}">
     <link rel="shortcut icon" href="../images/LogoSingle.png" type="image/png">
     <meta charset="ISO-8859-1">
-    <title>Trigger</title>
+    <title>Search Results</title>
 </head>
 <body>
 
@@ -23,9 +23,9 @@
         </div>
     </header>
     <a href="/dashboard">Dashboard</a>
-    <a class="active" th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
+    <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
     <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
-    <a th:href="@{/user/__${user.id}__/search}">Search</a>
+    <a class="active" th:href="@{/user/__${user.id}__/search}">Search</a>
     <a th:href="@{/user/__${user.id}__/about}">About the Project</a>
     <a th:href="@{/logout}">Logout</a>
 
