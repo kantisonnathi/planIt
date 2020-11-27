@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @Controller
@@ -52,5 +53,15 @@ public class UserController {
             this.userRepository.save(user);
             return "redirect:/dashboard";
         }
+    }
+
+
+    @GetMapping("user/{userId}/delete")
+    @Transactional
+    public String deleteUser(@PathVariable("userId") int userId) {
+        User user = userRepository.findById(userId);
+        userRepository.delete(user);
+
+        return "redirect:/custom_login";
     }
 }

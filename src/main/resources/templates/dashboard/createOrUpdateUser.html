@@ -38,7 +38,11 @@
     <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
     <center><label for="phoneNumber">Phone number</label></center><br>
     <input type="text" th:field="*{phoneNumber}" id="phoneNumber" placeholder="Phone Number"/>
-    <input type="hidden" th:field="${user.profession}" id="profession" placeholder="Profession"/>
+    <br>
+    <br>
+    <center><label for="profession">Profession: </label></center>
+    <br>
+    <input type="text" th:field="${user.profession}" id="profession" placeholder="Profession"/>
     <span th:if="${#fields.hasErrors('profession')}" th:errors="*{profession}"></span>
 
     <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span><br><br>
@@ -51,6 +55,10 @@
     </div>
 
 </form>
+
+<br>
+<br>
+<a style="color: yellow" th:href="@{/user/__${user.id}__/delete}">Delete User</a>
 
 </body>
 </html>

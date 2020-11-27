@@ -10,4 +10,6 @@ public interface UserRepository extends Repository<User, Integer> {
      User findByEmail(String email);
      User save(User user);
 
+     void delete(User user);
+
 }
