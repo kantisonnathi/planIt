@@ -47,10 +47,10 @@ public class DashboardController {
         {
 
             User fin=new User();
-           fin.setEmail(email);
-           fin.setUserComplete(true);
-           fin.setProfession("default");
-           fin= userRepository.save(fin);
+            fin.setEmail(email);
+            fin.setUserComplete(true);
+            fin.setProfession("default");
+            fin= userRepository.save(fin);
             fin = customisingDashboard(fin);
             fin.userNew=false;
             fin= userRepository.save(fin);

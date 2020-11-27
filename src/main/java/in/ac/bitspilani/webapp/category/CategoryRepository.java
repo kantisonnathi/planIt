@@ -22,4 +22,6 @@ public interface CategoryRepository extends Repository<Category, Integer> {
     Category save(Category category);
 
     Long deleteById(Integer categoryId);
+
+    void delete(Category category);
 }

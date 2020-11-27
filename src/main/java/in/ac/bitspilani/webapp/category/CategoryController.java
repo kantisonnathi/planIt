@@ -111,12 +111,18 @@ public class CategoryController {
         }
     }
 
-/*
-    @Transactional
-*/
     @GetMapping("/categories/{categoryId}/delete")
+    @Transactional
     public String removeCategory(@PathVariable("categoryId") int categoryId) {
-        categoryRepository.deleteById(categoryId);
+
+
+        Category category = categoryRepository.findById(categoryId);
+        User user = category.getUser();
+        user.removeCategory(category);
+        categoryRepository.delete(category);
+
+
+        /*categoryRepository.deleteById(categoryId);*/
         return "redirect:/dashboard";
     }
 }
