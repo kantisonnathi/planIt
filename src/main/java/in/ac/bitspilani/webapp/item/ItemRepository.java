@@ -18,7 +18,7 @@ public interface ItemRepository extends Repository<Item, Integer> {
 
     void delete(Item item);
 
-    List<Item> findAllByName(String name);
+    List<Item> findAllByNameLike(String name);
 
     List<Item> findAllByDueDate(LocalDate dueDate);
 }

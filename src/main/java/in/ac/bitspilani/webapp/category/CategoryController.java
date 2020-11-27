@@ -5,7 +5,6 @@ import in.ac.bitspilani.webapp.item.ItemRepository;
 import in.ac.bitspilani.webapp.user.User;
 import in.ac.bitspilani.webapp.user.UserRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
@@ -15,9 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.naming.Binding;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -124,7 +121,8 @@ public class CategoryController {
 
     @PostMapping("/search")
     public String postSearch(@Valid Item item, User user, ModelMap modelMap) {
-        List<Item> items = itemRepository.findAllByName(item.getName());
+        String query = "%"+item.getName() + "%";
+        List<Item> items = itemRepository.findAllByNameLike(query);
         List<Item> finalList = new ArrayList<>();
         for (Item currentItem : items) {
             User itemUser = currentItem.getCategory().getUser();
