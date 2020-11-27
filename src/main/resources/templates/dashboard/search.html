@@ -2,6 +2,8 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../static/css/search.css" th:href="@{/css/trigger.css}">
+    <link rel="shortcut icon" href="../images/LogoSingle.png" type="image/png">
     <title>Search</title>
 </head>
 <body>
@@ -15,10 +17,12 @@
     <a th:href="@{/user/__${user.id}__/about}">About the Project</a>
     <a th:href="@{/logout}">Logout</a>
 </div>
-
+<br>
+<br>
+<br>
 <form action="#" th:object="${item}" method="post">
-    <label for="name">Name Of item: </label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Name"/>
+    <label for="name">Name Of item: </label><br><br>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name"/><br><br>
     <button type="submit">Submit</button>
 </form>
 
