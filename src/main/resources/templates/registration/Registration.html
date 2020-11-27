@@ -6,8 +6,10 @@
     <meta charset="ISO-8859-1"/>
     <meta http-equiv="Authorization" content="3";url="http://localhost:8080/dashboard">
     <title>Registration page</title>
-    <img src="../images/logoText.png" id="logo">
-    <h1 id="mainHeader">PlanIt!</h1>
+    <div>
+        <img src="../images/logoText.png" id="logo">
+        <h1 id="mainHeader">PlanIt!</h1>
+    </div>
 </head>
 
 <body>
@@ -17,7 +19,7 @@
    <!-- <img src="https://previews.123rf.com/images/asmati/asmati1610/asmati161000233/63831576-user-sign-illustration-white-icon-on-red-circle-.jpg" class="avatar" >-->
     <form name='f' action="/perform_login" method='POST'>
         <tr>
-            <td>Email:</td>
+            <td>Email: <br></td>
             <td><input type='text' name='username' value=''></td>
         </tr>
         <br>
@@ -33,7 +35,7 @@
     </form>
     <a href="/forgot">Forgot your password?</a><br>
     <a href="/register">Don't have an account? Sign up now!</a><br><br><br>
-    <a th:href="@{/oauth2/authorization/facebook}">Login with Facebook</a>
+    <!--<a th:href="@{/oauth2/authorization/facebook}">Login with Facebook</a>-->
     <div id="profile-pic">
 
     </div>
@@ -42,11 +44,19 @@
 
     </div>
 
+    <div id="facebookLogin">
+        <form method="get" th:action="@{/oauth2/authorization/facebook}">
+            <button type="submit" class="button">
+                Sign in with Facebook
+            </button>
+        </form>
+    </div>
+
 
     <div id="googleLogin">
         <form method="get" th:action="@{/oauth2/authorization/google}">
-            <button type="submit" >
-                <img src="../../images/google.PNG" class="googleicon"/>
+            <button type="submit" class="button" style="background-color: red">
+                Sign in with Google
             </button>
         </form>
     </div>

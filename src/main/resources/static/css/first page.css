@@ -11,9 +11,10 @@ body {
 }
 
 #mainHeader {
-    top: 0%;
+    margin-top: 0px;
     left: 50%;
     margin-left: 700px;
+    font-family: "Cambria Math";
 }
 #logo {
     margin-top: 50px;
@@ -141,5 +142,15 @@ h2{
     position: absolute;
 }
 
-#googleLogin {
+.button {
+    background-color: #4267B2; /* Green */
+    border: none;
+    color: white;
+    padding: 25px 180px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
