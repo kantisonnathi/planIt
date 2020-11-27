@@ -1,78 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
-
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{/css/style.css}">
-    <link rel="shortcut icon" href="../images/LogoSingle.png" type="image/png">
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
-    <h1 style= "color: #D8BFD8;">Dashboard</h1>
-
-    <div class="topnav">
-        <header>
-            <div id="logo">
-                <img src="../../images/LogoSingle.PNG" alt="logo" style="width:60px;height:60px;" align="left">
-
-            </div>
-        </header>
-        <a class="active" th:href="@{/}">Dashboard</a>
-        <a th:href="@{/user/__${user.id}__/trigger}">Trigger</a>
-        <a th:href="@{/user/__${user.id}__/about}">About the Project</a>
-        <a th:href="@{/user/__${user.id}__/diary}">Personal Diary</a>
-        <a th:href="@{/logout}">Logout</a>
-
-    </div>
-
-
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-    <script>
-        window.OneSignal = window.OneSignal || [];
-        OneSignal.push(function() {
-            OneSignal.init({
-                appId: "dd39b912-e890-4db9-b4ed-19730b0763b0",
-            });
-        });
-    </script>
-
+  <meta charset="UTF-8">
+  <title>$Title$</title>
 </head>
-
-<h2>Categories</h2>
-<h2 th:text="${user.name}"> Welcome! </h2>
 <body>
-
-<div th:each="category : ${selections}" class="div">
-    <div class="container" style="display: inline-block; flex-direction: row; justify-content: space-between">
-        <div class="box">
-            <div class="icon">
-               <!-- <th:block th:each="i: ${#numbers.sequence(1, 5)}"></th:block>-->
-            </div>
-            <div class="content">
-
-                <h3>Category Name: <br><a th:href="@{/user/__${user.id}__/categories/__${category.id}__/itemDetails}" th:text="${category.name}"></a><br></h3>
-
-                <a th:href="@{/user/__${user.id}__/categories/__${category.id}__/edit}">Edit Category</a>
-            </div>
-        </div>
-        <div id="space"></div>
-    </div>
-    <!--<span style="padding-right:200px"></span>-->
-</div>
-
-<p><a th:href="@{/user/__${user.id}__/category/new}">Add new category</a></p>
-<p><a th:href="@{/user/__${user.id}__/edit}">Edit User</a></p>
-
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId            : '3329996123785246',
-            autoLogAppEvents : true,
-            xfbml            : true,
-            version          : 'v8.0'
-        });
-    };
-</script>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5fa3f2030594c7c4"></script>
+$END$
 </body>
 </html>
