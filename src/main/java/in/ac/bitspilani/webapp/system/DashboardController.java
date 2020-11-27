@@ -73,7 +73,7 @@ public class DashboardController {
     }
 
     @GetMapping("user/{userId}/trigger")
-    public String trigger(@PathVariable("userId") int userId, BindingResult bindingResult, ModelMap map) {
+    public String trigger(@PathVariable("userId") int userId, ModelMap map) {
         List<Category> categoryList = categoryRepository.findByUserId(userId);
         User user = userRepository.findById(userId);
         System.out.println(categoryList);
