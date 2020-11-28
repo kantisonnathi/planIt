@@ -5,6 +5,7 @@ import in.ac.bitspilani.webapp.user.User;
 import in.ac.bitspilani.webapp.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,9 @@ public class UserAccountController {
        private String email;
     @Autowired
     private UserRepository userRepository;
+
+    @Value("${host.name}")
+    private String localhost;
 
     @Qualifier("confirmationTokenRepository")
     @Autowired
@@ -61,7 +65,7 @@ public class UserAccountController {
             mailMessage.setTo(user.getEmail());
             mailMessage.setSubject("Complete Registration!");
             mailMessage.setText("To confirm your account, please click here : "
-                    + "http://localhost:8080/confirm-account?token=" + confirmationToken.getConfirmationToken());
+                    + "http://" + localhost + ":8080/confirm-account?token=" + confirmationToken.getConfirmationToken());
            User test=new User();
             emailService.sendEmail(mailMessage);
             modelAndView.addObject("userEntity",test);
