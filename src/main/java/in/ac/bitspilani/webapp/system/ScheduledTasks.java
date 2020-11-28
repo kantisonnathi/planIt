@@ -80,7 +80,7 @@ public class ScheduledTasks {
                     .create();
         }
     }
-    @Scheduled(initialDelay = 60*1000,fixedDelay = 86400*1000)
+    @Scheduled(initialDelay = 900*1000,fixedDelay = 86400*1000)
 
        public void itemOver()
     {
