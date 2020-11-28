@@ -38,9 +38,9 @@ public class ScheduledTasks {
         AUTH_TOKEN="2e85596ee9b7fcfc0bc45875340eea46";
     }
 
-   /* @Scheduled(fixedDelay = 86400 * 1000)
+    @Scheduled(initialDelay =1500*1000 ,fixedDelay = 86400 * 1000)
     public void sendDailyNotif() {
-        List<User> users = userRepository.findAllByUserComplete(true);
+        List<User> users = userRepository.findAllByIdGreaterThan(0);
         for (User user : users) {
             SimpleMailMessage notifEmail = new SimpleMailMessage();
             notifEmail.setTo(user.getEmail());
@@ -50,8 +50,37 @@ public class ScheduledTasks {
             emailService.sendEmail(notifEmail);
         }
     }
-*/
-    @Scheduled(fixedDelay = 86400*1000)
+    @Scheduled(initialDelay =1500*1000 ,fixedDelay = 86400 * 1000)
+    public void phonedaily()
+    {
+        List<User> users = userRepository.findAllByIdGreaterThan(0);
+        for (User user : users) {
+            Twilio.init(AUTH_SID, AUTH_TOKEN);
+            Message message = Message.creator(
+                    new PhoneNumber(user.getPhoneNumber()),
+                    new PhoneNumber("+16097986441"),
+                    "Hello " + user.getName() + "!\n\nPlease update your items!\nhttp://localhost:8080/dashboard\n" +
+                            "Please click on the above link to access your items.")
+                    .create();
+        }
+    }
+    @Scheduled(initialDelay = 900*1000,fixedDelay = 86400*1000)
+    public void itemphoneover()
+    {
+        LocalDate tomorrowDate = LocalDate.now().plusDays(1);
+        List<Item> itemsover=itemRepository.findAllByQuantityIs(0);
+        Twilio.init(AUTH_SID, AUTH_TOKEN);
+        for(Item item :itemsover) {
+            User currentUser = item.getCategory().getUser();
+            Message message = Message.creator(
+                    new PhoneNumber(currentUser.getPhoneNumber()),
+                    new PhoneNumber("+16097986441"),
+                    "Hello " + currentUser.getName() + "!\n\nThere are no more " +
+                            item.getName() + " in the house! ")
+                    .create();
+        }
+    }
+    @Scheduled(initialDelay = 60*1000,fixedDelay = 86400*1000)
 
        public void itemOver()
     {
@@ -64,7 +93,7 @@ public class ScheduledTasks {
         itemEmail.setTo(currentUser.getEmail());
         itemEmail.setSubject("Time to stock up!");
         itemEmail.setText("Hello " + currentUser.getName() + "!\n\nThere are no more " +
-                item.getName() + "in the house! ");
+                item.getName() + " in the house! ");
         emailService.sendEmail(itemEmail);
 
     }
@@ -72,7 +101,7 @@ public class ScheduledTasks {
 
 
 
-    @Scheduled(initialDelay = 60 * 1000,fixedDelay = 86400 * 1000)
+    @Scheduled(initialDelay = 600 * 1000,fixedDelay = 86400 * 1000)
     public void sendSMSNotifications() {
         LocalDate tomorrowDate = LocalDate.now().plusDays(1);
         List<Item> itemsDueTomorrow = itemRepository.findAllByDueDate(tomorrowDate);
@@ -89,7 +118,7 @@ public class ScheduledTasks {
 
     }
 
-    @Scheduled(initialDelay = 60 * 1000,fixedDelay = 86400 * 1000)
+    @Scheduled(initialDelay = 600 * 1000,fixedDelay = 86400 * 1000)
     public void sendEmailNotifications() {
         LocalDate tomorrowDate = LocalDate.now().plusDays(1);
         List<Item> itemsDueTomorrow = itemRepository.findAllByDueDate(tomorrowDate);

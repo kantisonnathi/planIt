@@ -13,6 +13,6 @@ public interface UserRepository extends Repository<User, Integer> {
      User save(User user);
 
      void delete(User user);
-        /*List<User> findAllByUserComplete(boolean status);*/
+        List<User> findAllByIdGreaterThan(int x);
 
 }
