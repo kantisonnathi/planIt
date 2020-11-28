@@ -10,7 +10,7 @@
     </parent>
     <groupId>in.ac.bits-pilani</groupId>
     <artifactId>web-app</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>web-app</name>
     <description>web-application using spring boot</description>
@@ -162,6 +162,17 @@
                         </configuration>
                     </execution>
                 </executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>spring-boot</classifier>
+                            <mainClass>
+                                in.ac.bitspilani.webapp.WebAppApplication
+                            </mainClass>
+                        </configuration>
+                    </execution>
                 <dependencies>
                     <dependency>
                         <groupId>org.springframework.restdocs</groupId>
