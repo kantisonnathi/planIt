@@ -4,6 +4,7 @@ import in.ac.bitspilani.webapp.user.User;
 import in.ac.bitspilani.webapp.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,9 @@ import javax.mail.internet.AddressException;
 @Controller
 public class ForgetpassController {
     String email;
+
+    @Value("${host.name}")
+    private String localhost;
 
     @Autowired
     private UserRepository userRepository;
@@ -55,7 +59,7 @@ public class ForgetpassController {
             mailMessage.setTo(existingUser.getEmail());
             mailMessage.setSubject("Request for Password change ");
             mailMessage.setText("Please click this link to change your password : "
-                    + "http://localhost:8080/change-password?token=" + confirmationToken.getConfirmationToken());
+                    + "http:// + " + localhost + ":8080/change-password?token=" + confirmationToken.getConfirmationToken());
 
             emailService.sendEmail(mailMessage);
             modelAndView.addObject("emailId", user.getEmail());
