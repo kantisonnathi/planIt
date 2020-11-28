@@ -109,10 +109,33 @@ public class DashboardController {
 
     private User customisingDashboard(User user) {
 
-
-        DiaryEntry diaryEntry = new DiaryEntry();
-
         LocalDate today = LocalDate.now();
+
+        //kitchen appliances category
+        Category kitchenAppliances= new Category();
+        kitchenAppliances.setName("Kitchen Appliances");
+        user.addCategory(kitchenAppliances);
+        kitchenAppliances = categoryRepository.save(kitchenAppliances);
+        Item grinder = new Item();
+        grinder.setName("Grinder");
+        grinder.setQuantity(1);
+        grinder.setDueDate(today);
+        kitchenAppliances.addItem(grinder);
+        grinder = itemRepository.save(grinder);
+
+        //to - do list
+        Category todoList = new Category();
+        todoList.setName("To-do List");
+        user.addCategory(todoList);
+        todoList = categoryRepository.save(todoList);
+        Item dogwalk = new Item();
+        dogwalk.setName("Walk the dog");
+        dogwalk.setQuantity(1);
+        dogwalk.setDueDate(today);
+        todoList.addItem(dogwalk);
+        itemRepository.save(dogwalk);
+
+
 
         //workout category
         Category workout = new Category();
@@ -266,6 +289,47 @@ public class DashboardController {
 
 
                 break;
+            case "business-man":
+                Category travel1 = new Category();
+                travel1.setName("Travel Schedule");
+                user.addCategory(travel1);
+                travel1 = categoryRepository.save(travel1);
+                Item trip11 = new Item();
+                trip11.setName("Trip to US");
+                trip11.setDueDate(today);
+                trip11.setQuantity(1);
+                travel1.addItem(trip11);
+                trip1 = itemRepository.save(trip11);
+                Item trip21 = new Item();
+                trip21.setDueDate(today);
+                trip21.setName("Trip to Singapore");
+                trip21.setQuantity(1);
+                travel1.addItem(trip21);
+                trip2 = itemRepository.save(trip21);
+
+            case "professor":
+
+                Category adminMeetings = new Category();
+                adminMeetings.setName("Meetings");
+                user.addCategory(adminMeetings);
+                meetings = categoryRepository.save(adminMeetings);
+                Item meeting3 = new Item();
+                meeting3.setDueDate(today);
+                meeting3.setName("Meet with AUGSD");
+                meeting3.setQuantity(1);
+                adminMeetings.addItem(meeting3);
+                meeting1 = itemRepository.save(meeting3);
+
+                Category gradeAssignments = new Category();
+                gradeAssignments.setName("Assignments");
+                user.addCategory(gradeAssignments);
+                gradeAssignments = categoryRepository.save(gradeAssignments);
+                Item oopProject = new Item();
+                oopProject.setName("Grade OOP projects");
+                oopProject.setDueDate(today.plusDays(4));
+                oopProject.setQuantity(100);
+                gradeAssignments.addItem(oopProject);
+                oopProject = itemRepository.save(oopProject);
 
 
         }
