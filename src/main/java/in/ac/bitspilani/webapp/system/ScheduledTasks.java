@@ -38,7 +38,7 @@ public class ScheduledTasks {
         AUTH_TOKEN="2e85596ee9b7fcfc0bc45875340eea46";
     }
 
-    /*@Scheduled(fixedDelay = 86400 * 1000)
+   /* @Scheduled(fixedDelay = 86400 * 1000)
     public void sendDailyNotif() {
         List<User> users = userRepository.findAllByUserComplete(true);
         for (User user : users) {
@@ -49,7 +49,28 @@ public class ScheduledTasks {
                     "Please click on the above link to access your items.");
             emailService.sendEmail(notifEmail);
         }
-    }*/
+    }
+*/
+    @Scheduled(fixedDelay = 86400*1000)
+
+       public void itemOver()
+    {
+        LocalDate tomorrowDate = LocalDate.now().plusDays(1);
+         List<Item> itemsover=itemRepository.findAllByQuantityIs(0);
+         for(Item item :itemsover)
+         {
+        User currentUser = item.getCategory().getUser();
+        SimpleMailMessage itemEmail = new SimpleMailMessage();
+        itemEmail.setTo(currentUser.getEmail());
+        itemEmail.setSubject("Time to stock up!");
+        itemEmail.setText("Hello " + currentUser.getName() + "!\n\nThere are no more " +
+                item.getName() + "in the house! ");
+        emailService.sendEmail(itemEmail);
+
+    }
+    }
+
+
 
     @Scheduled(initialDelay = 60 * 1000,fixedDelay = 86400 * 1000)
     public void sendSMSNotifications() {

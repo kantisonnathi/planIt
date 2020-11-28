@@ -21,4 +21,5 @@ public interface ItemRepository extends Repository<Item, Integer> {
     List<Item> findAllByNameLike(String name);
 
     List<Item> findAllByDueDate(LocalDate dueDate);
+    List<Item> findAllByQuantityIs(int x);
 }
