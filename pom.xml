@@ -161,7 +161,6 @@
                             <doctype>book</doctype>
                         </configuration>
                     </execution>
-                </executions>
                     <execution>
                         <goals>
                             <goal>repackage</goal>
@@ -173,6 +172,7 @@
                             </mainClass>
                         </configuration>
                     </execution>
+                </executions>
                 <dependencies>
                     <dependency>
                         <groupId>org.springframework.restdocs</groupId>

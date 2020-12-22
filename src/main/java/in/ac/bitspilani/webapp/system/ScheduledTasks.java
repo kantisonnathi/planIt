@@ -38,7 +38,7 @@ public class ScheduledTasks {
         AUTH_TOKEN="2e85596ee9b7fcfc0bc45875340eea46";
     }
 
-    @Scheduled(initialDelay =1500*1000 ,fixedDelay = 86400 * 1000)
+    @Scheduled(initialDelay = 1500*1000 ,fixedDelay = 86400 * 1000)
     public void sendDailyNotif() {
         List<User> users = userRepository.findAllByIdGreaterThan(0);
         for (User user : users) {
@@ -65,8 +65,7 @@ public class ScheduledTasks {
         }
     }
     @Scheduled(initialDelay = 900*1000,fixedDelay = 86400*1000)
-    public void itemphoneover()
-    {
+    public void itemphoneover() {
         LocalDate tomorrowDate = LocalDate.now().plusDays(1);
         List<Item> itemsover=itemRepository.findAllByQuantityIs(0);
         Twilio.init(AUTH_SID, AUTH_TOKEN);
@@ -82,8 +81,7 @@ public class ScheduledTasks {
     }
     @Scheduled(initialDelay = 900*1000,fixedDelay = 86400*1000)
 
-       public void itemOver()
-    {
+       public void itemOver() {
         LocalDate tomorrowDate = LocalDate.now().plusDays(1);
          List<Item> itemsover=itemRepository.findAllByQuantityIs(0);
          for(Item item :itemsover)

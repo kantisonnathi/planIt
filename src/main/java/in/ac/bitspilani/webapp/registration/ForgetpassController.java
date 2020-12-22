@@ -59,7 +59,7 @@ public class ForgetpassController {
             mailMessage.setTo(existingUser.getEmail());
             mailMessage.setSubject("Request for Password change ");
             mailMessage.setText("Please click this link to change your password : "
-                    + "http:// + " + localhost + ":8080/change-password?token=" + confirmationToken.getConfirmationToken());
+                    + "http://" + localhost + ":8080/change-password?token=" + confirmationToken.getConfirmationToken());
 
             emailService.sendEmail(mailMessage);
             modelAndView.addObject("emailId", user.getEmail());
