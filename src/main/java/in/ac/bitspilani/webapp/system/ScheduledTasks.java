@@ -34,8 +34,8 @@ public class ScheduledTasks {
         this.itemRepository = itemRepository;
         this.userRepository = userRepository;
         this.emailService = emailService;
-        AUTH_SID="ACc63f3b4b4be59964b3f675061bdf5a06";
-        AUTH_TOKEN="2e85596ee9b7fcfc0bc45875340eea46";
+        AUTH_SID="";
+        AUTH_TOKEN=""; //since twilio is a paid service, the sid and token can't be shared here :3
     }
 
     @Scheduled(initialDelay = 1500*1000 ,fixedDelay = 86400 * 1000)
