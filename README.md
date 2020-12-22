@@ -5,8 +5,9 @@ fb - still in developer mode, doesn't login with normal fb accounts.
 
 Used: Spring MVC, springboot, Maven, mysql
 
+Our logo: ![alt text](https://github.com/kantisonnathi/planIt/blob/main/src/main/resources/static/images/logoText.png "Logo")
 
-Contributors: [Sahithi Annadi](https://github.com/sahithi-annadi "Sahithi Annadi")
+Contributors: [Sahithi Annadi](https://github.com/sahithi-annadi "Sahithi Annadi"),
               [Shreya Guda](https://github.com/shreya-guda "Shreya Guda")
 
 Clone the repository and run the application locally to test the application.
