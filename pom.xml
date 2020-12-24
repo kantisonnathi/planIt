@@ -162,9 +162,9 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <goals>
+                       <!-- <goals>
                             <goal>repackage</goal>
-                        </goals>
+                        </goals>-->
                         <configuration>
                             <classifier>spring-boot</classifier>
                             <mainClass>

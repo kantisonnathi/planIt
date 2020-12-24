@@ -1,7 +1,5 @@
 package in.ac.bitspilani.webapp.model;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
-
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
