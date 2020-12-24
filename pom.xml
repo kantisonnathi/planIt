@@ -143,7 +143,18 @@
     </dependencies>
 
 
+
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <!--<build>
         <plugins>
             <plugin>
                 <groupId>org.asciidoctor</groupId>
@@ -162,9 +173,9 @@
                         </configuration>
                     </execution>
                     <execution>
-                       <!-- <goals>
+                       &lt;!&ndash; <goals>
                             <goal>repackage</goal>
-                        </goals>-->
+                        </goals>&ndash;&gt;
                         <configuration>
                             <classifier>spring-boot</classifier>
                             <mainClass>
@@ -187,5 +198,5 @@
             </plugin>
         </plugins>
     </build>
-
+-->
 </project>

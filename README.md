@@ -10,6 +10,7 @@ Our logo: ![alt text](https://github.com/kantisonnathi/planIt/blob/main/src/main
 Contributors: [Sahithi Annadi](https://github.com/sahithi-annadi "Sahithi Annadi"),
               [Shreya Guda](https://github.com/shreya-guda "Shreya Guda")
 
+<p>Prerequisites for running the app on your local device: Java 11, MySQL.</p>
 To run the application, follow the given steps (using command line): 
 <ul>
 <li>
@@ -22,7 +23,7 @@ git clone *link copied*
 ```
 </li>
 <li>
-CLick enter - this creates a local copy of the code. 
+Click enter - this creates a local copy of the code. 
 </li>
 <li>
 Since you now have the code on your device, you can run it by entering the command
@@ -31,3 +32,6 @@ Since you now have the code on your device, you can run it by entering the comma
 ```
 </li>
 </ul>
+<p>Note: If you have an IDE like IntelliJ IDEA or eclipse, simply importing 
+the project from version control and running it is sufficient - the above 
+steps do not need to be followed.</p>
